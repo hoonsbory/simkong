@@ -18,6 +18,7 @@ deploy:
     bucket: jaehoon-dayoff.ml # 6-3-3에서 생성한 S3 버킷
     region: ap-northeast-2
     acl: public_read
+    skip_cleanup: true
     on:
       repo: hoonsbory/simkong #Github 주소
       branch: master
