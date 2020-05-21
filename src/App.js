@@ -1,7 +1,5 @@
 import React from "react"
-import { Link, Route, BrowserRouter as Router } from "react-router-dom"
-// import Hello from "./hello"
-// import About from "./About"
+import { Link,  BrowserRouter as Router } from "react-router-dom"
 
 export default function App() {
   return (
@@ -16,8 +14,6 @@ export default function App() {
         </a>
       </header>
       <hr />
-        {/* <Route exact path="/" component={Hello} />
-        <Route path="/about" component={About} /> */}
     </Router>
   )
 }
