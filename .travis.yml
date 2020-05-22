@@ -20,7 +20,6 @@ deploy:
     region: ap-northeast-2
     acl: public_read
     skip_cleanup: true
-    process.env.CI : true
     on:
       repo: hoonsbory/simkong #Github 주소
       branch: master
