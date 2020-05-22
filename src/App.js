@@ -10,7 +10,6 @@ export default function App() {
     <Router>
       <Route path="/" component={header}></Route>
       <header>
-          <div className="addthis_inline_share_toolbox"></div>
         <Link to="/springWorm">봄 웜톤</Link>
         <a href="/personalColor">
           <button>퍼스널컬러 측정</button>

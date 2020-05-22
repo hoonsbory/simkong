@@ -3,14 +3,16 @@ import React, { Component } from 'react'
 
 export default class KakaoShare extends Component {
     state = {
-        mainUrl: "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/"
+        mainUrl: "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/",
+        subUrl : ""
     }
     componentDidMount() {
         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-        this.setState({
-            mainUrl: this.state.mainUrl + this.props.url
-        })
         const data = this.props.data
+        this.setState({
+            subUrl: this.state.mainUrl + data.canonical
+            
+        })
 
         window.Kakao.Link.createDefaultButton({
             container: '#kakao-link-btn',
@@ -41,7 +43,7 @@ export default class KakaoShare extends Component {
         });
     }
     render() {
-        const url = this.state.mainUrl
+        const url = this.state.subUrl
         var popupWidth = 500;
         var popupHeight = 500;
 
@@ -51,16 +53,38 @@ export default class KakaoShare extends Component {
         function facebook() {
             window.open('http://www.facebook.com/sharer/sharer.php?u=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
         }
+        function kakaoStory() {
+            window.open('http://www.facebook.com/sharer/sharer.php?u=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+        }
         function twitter() {
             window.open('http://twitter.com/intent/tweet?text=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
         }
+        function naver() {
+            window.open('http://share.naver.com/web/shareView.nhn?url=' + url + "&title=심콩", "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+        }
+        function line() {
+            window.open('https://social-plugins.line.me/lineit/share?url=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+        }
+        function band() {
+            window.open('https://band.us/plugin/share?body=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+        }
+        const btn = {
+            width : "50px",
+            height : "50px",
+            display : "inline"
+        }
         return (
-            <div>
+            <div id="shareButton" style={btn}>
                 <span id="kakao-link-btn" >
-                    <img alt="kakaoShare" src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+                    <img alt="Share" src="/images/kakaoTalk.png" />
                 </span>
-                <button onClick={() => facebook()}>페북 공유하기</button>
-                <button onClick={() => twitter()}>트위터 공유하기</button>
+                <img onClick={() => facebook()} alt="Share" src="/images/facebook.png" />
+                <img onClick={() => kakaoStory()} alt="Share" src="/images/kakaoStory.png" />
+                <img onClick={() => twitter()} alt="Share" src="/images/twitter.png" />
+                <img onClick={() => naver()} alt="Share" src="/images/naver.png" />
+                <img onClick={() => line()} alt="Share" src="/images/line.png" />
+                <img onClick={() => band()} alt="Share" src="/images/band.png" />
+
             </div>
         )
     }

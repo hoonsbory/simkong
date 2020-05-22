@@ -61,7 +61,7 @@ export default class SpringWorm extends Component {
                     <p>[립스틱] 핑크베이지 / 코랄 / 누드베이지 / 오렌지 / 누드핑크 / 선홍빛레드 계열</p>
                     <img alt="wormLip" className="mt-3 w-100" src="/images/wormLip.png"></img>
                 </div>
-                <div class="addthis_inline_share_toolbox"></div>
+                
             </div>
         )
     }
