@@ -37,7 +37,7 @@ export default class KakaoShare extends Component {
         return (
             <div>
                 <a id="kakao-link-btn" >
-                    <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+                    <img alt="kakaoShare" src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
                 </a>
                 <div class="addthis_inline_share_toolbox"></div>
             </div>
