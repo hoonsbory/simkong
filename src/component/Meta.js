@@ -11,7 +11,7 @@ const Meta = ({ data }) => {
   const title = data.title;
   const description = data.description;
   const image = data.image !== undefined && `${data.image}`;
-  const canonical = `https://http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/${data.canonical}`;
+  const canonical = `http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/${data.canonical}`;
   const type = data.type === undefined ? 'website' : data.type;
   const width = data.image && (data.width || 1200);
   const height = data.image && (data.height || 630);
