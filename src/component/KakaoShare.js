@@ -3,8 +3,6 @@ import React, { Component } from 'react'
 
 export default class KakaoShare extends Component {
     componentDidMount(){
-
-        window.Kakao.init('7e83cda1ddcc964d3fb6c99c8fd47645');
         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
         window.Kakao.Link.createDefaultButton({
             container: '#kakao-link-btn',

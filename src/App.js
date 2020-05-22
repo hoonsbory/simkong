@@ -4,6 +4,8 @@ import SpringWorm from "./component/SpringWorm"
 import header from "./component/header"
 
 export default function App() {
+  window.Kakao.init('7e83cda1ddcc964d3fb6c99c8fd47645');
+
   return (
     <Router>
       <Route path="/" component={header}></Route>
