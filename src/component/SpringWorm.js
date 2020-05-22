@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 import '../css/SpringWorm.scss'
 import KakaoShare from './KakaoShare'
+import Meta from './Meta'
 
 export default class SpringWorm extends Component {
-   
+
     render() {
+        const metaData = {
+            title: "봄 웜톤",
+            description : "봄웜톤 페이지입니다",
+            image : "http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+            canonical : "springWorm"
+        }
         return (
+
             <div id="springWorm">
+                <Meta data={metaData}/>
                 <KakaoShare></KakaoShare>
                 <img alt="wormTitle" className="w-100 h-10" src="/images/wormTitle.png"></img>
                 <div>
