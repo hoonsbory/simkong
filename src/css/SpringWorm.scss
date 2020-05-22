@@ -1,0 +1,33 @@
+#springWorm{
+    padding: 10vw;
+    color: rgb(10, 59, 112);
+}
+#wormMainImg{
+    width: 50%;
+    height: 50%;
+}
+@media(max-width : "767px"){
+#springWorm{
+    padding: 10vw;
+    color: rgb(10, 59, 112);
+}
+// #wormMainImg{
+//     width: 50%;
+//     height: 30%;
+//     float: left;
+// }
+// #wormTitle{
+//     width: 100%;
+//     height: 10%;
+// }
+#squareGroup span{
+    width: 25% !important;
+    padding-bottom: 25% !important;
+    display: inline-block;
+    background-color: beige;
+}
+p{
+    margin: 0 !important;
+    font-size: .7rem;
+}
+}

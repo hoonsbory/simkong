@@ -1,19 +1,21 @@
 import React from "react"
-import { Link,  BrowserRouter as Router } from "react-router-dom"
+import { Link,  BrowserRouter as Router, Route } from "react-router-dom"
+import SpringWorm from "./component/SpringWorm"
+import header from "./component/header"
 
 export default function App() {
   return (
     <Router>
-      <h1>메인페이지</h1>
+      <Route path="/" component={header}></Route>
       <header>
-        <Link to="/personalColor">
-          <button>퍼스널컬러 측정</button>
-        </Link> <br></br>
+        <Link to="/springWorm">봄 웜톤</Link>
         <a href="/personalColor">
-          <button>퍼스널컬러 측정2</button>
+          <button>퍼스널컬러 측정</button>
+          {/* Link로는 안됨.  */}
         </a>
       </header>
       <hr />
+      <Route path="/springWorm" component={SpringWorm}></Route>
     </Router>
   )
 }

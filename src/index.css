@@ -1,12 +1,21 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'HSThin' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 600 !important;
 }
-
+@font-face {
+  font-family: 'HSThin';
+  font-style: normal;
+  font-weight: 100;
+  src: local('HSThin'),
+  url(/font/HSThin.woff2) format('woff2'),
+  url(/font/HSThin.woff) format('woff'),
+  url(/font/HSThin.ttf) format('truetype'),
+  url(/font/HSThin.otf) format('opentype')
+  /* 파이썬의 pyftsubset을 통해 경량화함 */
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
