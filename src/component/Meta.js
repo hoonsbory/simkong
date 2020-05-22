@@ -5,7 +5,6 @@ const locales = {
   en: 'en_US',
   ko: 'ko_KR'
 };
-
 const Meta = ({ data }) => {
   const lang = locales[data.locale] || locales['en'];
   const title = data.title;

@@ -6,6 +6,8 @@ import Meta from './Meta'
 export default class SpringWorm extends Component {
 
     render() {
+        
+
         const metaData = {
             title: "봄 웜톤",
             description : "봄웜톤 페이지입니다",
@@ -16,7 +18,7 @@ export default class SpringWorm extends Component {
 
             <div id="springWorm">
                 <Meta data={metaData}/>
-                <KakaoShare></KakaoShare>
+                <KakaoShare  data={metaData}></KakaoShare>
                 <img alt="wormTitle" className="w-100 h-10" src="/images/wormTitle.png"></img>
                 <div>
                     <img alt="wormMain" className="float-left w-50" src="/images/wormMain.png"></img>
@@ -59,7 +61,7 @@ export default class SpringWorm extends Component {
                     <p>[립스틱] 핑크베이지 / 코랄 / 누드베이지 / 오렌지 / 누드핑크 / 선홍빛레드 계열</p>
                     <img alt="wormLip" className="mt-3 w-100" src="/images/wormLip.png"></img>
                 </div>
-                
+                <div class="addthis_inline_share_toolbox"></div>
             </div>
         )
     }
