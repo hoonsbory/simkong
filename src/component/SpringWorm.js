@@ -12,7 +12,8 @@ export default class SpringWorm extends Component {
             title: "봄 웜톤",
             description : "봄웜톤 페이지입니다",
             image : "http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
-            canonical : "springWorm"
+            canonical : "springWorm",
+            addUrl : "personalColor"
         }
         return (
 

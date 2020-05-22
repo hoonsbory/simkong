@@ -10,8 +10,8 @@ export default class KakaoShare extends Component {
         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
         const data = this.props.data
         this.setState({
-            subUrl: this.state.mainUrl + data.canonical
-            
+            subUrl: this.state.mainUrl + data.canonical,
+            mainUrl: data.addUrl ? this.state.mainUrl+data.addUrl : this.state.mainUrl
         })
 
         window.Kakao.Link.createDefaultButton({
@@ -44,6 +44,7 @@ export default class KakaoShare extends Component {
     }
     render() {
         const url = this.state.subUrl
+        const app_id = "2473764549612950"
         var popupWidth = 500;
         var popupHeight = 500;
 
@@ -68,6 +69,9 @@ export default class KakaoShare extends Component {
         function band() {
             window.open('https://band.us/plugin/share?body=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
         }
+        function fbmessage(){
+            window.open('http://www.facebook.com/dialog/send?app_id='+app_id+'&link='+url+'&redirect_uri='+url, "name", 'status=no, height=' + 600 + ', width=' + 900 + ', left=' + popupX + ', top=' + popupY)
+        }
         const btn = {
             width : "50px",
             height : "50px",
@@ -84,7 +88,7 @@ export default class KakaoShare extends Component {
                 <img onClick={() => naver()} alt="Share" src="/images/naver.png" />
                 <img onClick={() => line()} alt="Share" src="/images/line.png" />
                 <img onClick={() => band()} alt="Share" src="/images/band.png" />
-
+                <button onClick={()=> fbmessage()}>메신저</button>
             </div>
         )
     }
