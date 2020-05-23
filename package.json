@@ -18,7 +18,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-share-kakao": "^0.0.5",
-    "react-snap": "^1.23.0",
     "react-social-kr": "^1.1.9"
   },
   "scripts": {
