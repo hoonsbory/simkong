@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 import '../css/SpringWorm.scss'
 import KakaoShare from './KakaoShare'
 import Meta from './Meta'
+import queryString from 'query-string';
+
 
 export default class SpringWorm extends Component {
     componentDidMount(){
-        if(this.props.match.params.check==="redirect"){
+        var query = queryString.parse(this.props.location.search)
+        if(query.redirect==="true"){
             window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
         }
+        console.log(query.redirect);
     }
     render() {
         const metaData = {
@@ -15,7 +19,7 @@ export default class SpringWorm extends Component {
             description : "봄웜톤 페이지입니다",
             image : "http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
             canonical : "springWorm",
-            canonical2 : "springWorm/redirect",
+            canonical2 : "springWorm?redirect=true",
             addUrl : "personalColor"
         }
         return (
