@@ -6,7 +6,7 @@ import Meta from './Meta'
 export default class SpringWorm extends Component {
     componentDidMount(){
         if(this.props.match.params.check==="redirect"){
-            this.props.history.push("/personalColor")
+            window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
         }
     }
     render() {
