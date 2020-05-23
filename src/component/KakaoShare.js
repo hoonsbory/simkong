@@ -10,7 +10,7 @@ export default class KakaoShare extends Component {
         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
         const data = this.props.data
         this.setState({
-            subUrl: this.state.mainUrl + data.canonical,
+            subUrl: this.state.mainUrl + data.canonical2,
             mainUrl: data.addUrl ? this.state.mainUrl+data.addUrl : this.state.mainUrl
         })
 
@@ -55,7 +55,7 @@ export default class KakaoShare extends Component {
             window.open('http://www.facebook.com/sharer/sharer.php?u=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
         }
         function kakaoStory() {
-            window.open('http://www.facebook.com/sharer/sharer.php?u=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+            window.open('https://story.kakao.com/share?url=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
         }
         function twitter() {
             window.open('http://twitter.com/intent/tweet?text=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)

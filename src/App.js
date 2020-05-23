@@ -18,6 +18,7 @@ export default function App() {
         </a>
       </header>
       <hr />
+      <Route path="/springWorm/:check" component={SpringWorm}></Route>
       <Route path="/springWorm" component={SpringWorm}></Route>
     </Router>
   )
