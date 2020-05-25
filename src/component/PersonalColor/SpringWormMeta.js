@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Meta from '../Meta'
 
 export default class SpringWormMeta extends Component {
+    componentDidMount(){
+        window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
+    }
     render() {
         const metaData = {
             title: "봄 웜톤",
@@ -14,6 +17,7 @@ export default class SpringWormMeta extends Component {
         return (
             <div>
                 <Meta data={metaData}/>
+                <h1>dsfsdf</h1>
             </div>
         )
     }

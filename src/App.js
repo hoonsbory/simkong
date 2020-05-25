@@ -20,8 +20,8 @@ export default function App() {
       </header>
       <hr />
       {/* <Route path="/pcMainDiv/:check" component={pcMainDiv}></Route> */}
-      <Route path="/springWorm" component={SpringWorm}></Route>
-      <Route path="/springWorm/redirect" component={SpringWormMeta}></Route>
+      <Route exact path="/springWorm" component={SpringWorm}></Route>
+      <Route exact path="/springWorm/redirect" component={SpringWormMeta}></Route>
     </Router>
   )
 }

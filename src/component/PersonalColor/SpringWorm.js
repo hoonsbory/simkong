@@ -5,14 +5,14 @@ import Meta from '../Meta'
 
 
 export default class SpringWorm extends Component {
-    componentDidMount(){
-        // var query = queryString.parse(this.props.location.search)
-        var query = document.location.href;
-        if(query.indexOf("redirect") > -1){
-            window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
-            console.log(query);
-        }
-    }
+    // componentDidMount(){
+    //     // var query = queryString.parse(this.props.location.search)
+    //     var query = document.location.href;
+    //     if(query.indexOf("redirect") > -1){
+    //         window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
+    //         console.log(query);
+    //     }
+    // }
     render() {
         const metaData = {
             title: "봄 웜톤",
