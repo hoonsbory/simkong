@@ -51,23 +51,24 @@ export default class KakaoShare extends Component {
         var popupX = (window.screen.width / 2) - (popupWidth / 2);
 
         var popupY = (window.screen.height / 2) - (popupHeight / 2);
+        var size = 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY;
         function facebook() {
-            window.open('http://www.facebook.com/sharer/sharer.php?u=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+            window.open('http://www.facebook.com/sharer/sharer.php?u=' + url, "name", size)
         }
         function kakaoStory() {
-            window.open('https://story.kakao.com/share?url=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+            window.open('https://story.kakao.com/share?url=' + url, "name", size)
         }
         function twitter() {
-            window.open('http://twitter.com/intent/tweet?text=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+            window.open('http://twitter.com/intent/tweet?text=' + url, "name", size)
         }
         function naver() {
-            window.open('http://share.naver.com/web/shareView.nhn?url=' + url + "&title=심콩", "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+            window.open('http://share.naver.com/web/shareView.nhn?url=' + url + "&title=심콩", "name", size)
         }
         function line() {
-            window.open('https://social-plugins.line.me/lineit/share?url=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+            window.open('https://social-plugins.line.me/lineit/share?url=' + url, "name", size)
         }
         function band() {
-            window.open('https://band.us/plugin/share?body=' + url, "name", 'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' + popupX + ', top=' + popupY)
+            window.open('https://band.us/plugin/share?body=' + url, "name", size)
         }
         function fbmessage() {
             //모바일기기

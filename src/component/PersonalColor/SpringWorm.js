@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import '../css/SpringWorm.scss'
-import KakaoShare from './KakaoShare'
-import Meta from './Meta'
+import './css/PersonalColor.scss'
+import KakaoShare from '../KakaoShare'
+import Meta from '../Meta'
 import queryString from 'query-string';
 
 
@@ -24,11 +24,11 @@ export default class SpringWorm extends Component {
         }
         return (
 
-            <div id="springWorm">
+            <div id="pcMainDiv">
                 <Meta data={metaData}/>
                 <KakaoShare  data={metaData}></KakaoShare>
                 <img alt="wormTitle" className="w-100 h-10" src="/images/wormTitle.png"></img>
-                <div>
+                <div className="d-inline-block">
                     <img alt="wormMain" className="float-left w-50" src="/images/wormMain.png"></img>
                     <div id="mainRight">
                         <div id="squareGroup">

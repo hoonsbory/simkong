@@ -1,0 +1,69 @@
+#pcMainDiv{
+    padding: 20vw;
+    color: rgb(10, 59, 112);
+}
+
+
+// #squareGroup span{
+//     width: 15% !important;
+//     padding-bottom: 15% !important;
+//     display: inline-block;
+//     background-color: beige;
+// }
+// p{
+//     font-size: 1.4rem;
+// }
+// @media(max-width : 1300px){
+
+    #squareGroup span{
+        width: 5vw !important;
+        padding-bottom: 5vw !important;
+        display: inline-block;
+        background-color: beige;
+    }
+    p{
+        font-size: 1.1rem;
+        margin: 0 !important;
+    }
+    #pcTitle{
+        width: 75%;
+    }
+    #pcMainImg{ 
+        display: inline-block;
+        width: 35%;
+    }
+    #wormMainInfo{
+        width: 100%;
+        text-align: center;
+    }
+    #mainRight{
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+    }
+// }
+@media(max-width : 980px){
+    #squareGroup span{
+        width: 3vw !important;
+        padding-bottom: 3vw !important;
+        display: inline-block;
+        background-color: beige;
+    }
+    #pcMainDiv{
+        padding: 10vw;
+        color: rgb(10, 59, 112);
+    }
+    p{
+        font-size: .7rem;
+    }
+    #pcTitle{
+        width : 100%;
+    }
+    #pcMainImg{
+        width: 50%;
+    }
+    #wormMainInfo{
+        display: inline-block;
+        position: unset;
+    }
+}

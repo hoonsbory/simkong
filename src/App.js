@@ -1,6 +1,6 @@
 import React from "react"
 import { Link,  BrowserRouter as Router, Route } from "react-router-dom"
-import SpringWorm from "./component/SpringWorm"
+import SpringWorm from "./component/PersonalColor/SpringWorm"
 import header from "./component/header"
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
         </a>
       </header>
       <hr />
-      {/* <Route path="/springWorm/:check" component={SpringWorm}></Route> */}
+      {/* <Route path="/pcMainDiv/:check" component={pcMainDiv}></Route> */}
       <Route path="/springWorm" component={SpringWorm}></Route>
     </Router>
   )
