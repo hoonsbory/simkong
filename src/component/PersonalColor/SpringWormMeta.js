@@ -3,7 +3,7 @@ import Meta from '../Meta'
 
 export default class SpringWormMeta extends Component {
     componentDidMount(){
-        window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
+        // window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
     }
     render() {
         const metaData = {
