@@ -6,13 +6,12 @@ import SpringWormMeta from "./component/PersonalColor/SpringWormMeta";
 
 export default function App() {
   window.Kakao.init('7e83cda1ddcc964d3fb6c99c8fd47645');
-
+      
   return (
     <Router>
       <Route path="/" component={header}></Route>
       <header>
         <Link to="/springWorm">봄 웜톤</Link>
-        <Link to="/springWormMeta"></Link>
         {/* <a href="/personalColor">
           <button>퍼스널컬러 측정</button>
 
