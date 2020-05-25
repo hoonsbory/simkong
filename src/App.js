@@ -2,6 +2,7 @@ import React from "react"
 import { Link,  BrowserRouter as Router, Route } from "react-router-dom"
 import SpringWorm from "./component/PersonalColor/SpringWorm"
 import header from "./component/header"
+import SpringWormMeta from "./component/PersonalColor/SpringWormMeta";
 
 export default function App() {
   window.Kakao.init('7e83cda1ddcc964d3fb6c99c8fd47645');
@@ -20,6 +21,7 @@ export default function App() {
       <hr />
       {/* <Route path="/pcMainDiv/:check" component={pcMainDiv}></Route> */}
       <Route path="/springWorm" component={SpringWorm}></Route>
+      <Route path="/springWorm/redirect" component={SpringWormMeta}></Route>
     </Router>
   )
 }
