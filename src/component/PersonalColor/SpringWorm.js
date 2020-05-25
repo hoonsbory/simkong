@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
-import queryString from 'query-string';
 
 
 export default class SpringWorm extends Component {
