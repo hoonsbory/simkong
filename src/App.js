@@ -13,11 +13,10 @@ export default function App() {
       <header>
         <Link to="/springWorm">봄 웜톤</Link>
         <Link to="/springWormMeta"></Link>
-        <a href="/personalColor">
+        {/* <a href="/personalColor">
           <button>퍼스널컬러 측정</button>
 
-          {/* Link로는 안됨.  */}
-        </a>
+        </a> */}
       </header>
       <hr />
       {/* <Route path="/pcMainDiv/:check" component={pcMainDiv}></Route> */}
