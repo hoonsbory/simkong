@@ -12,6 +12,7 @@ export default function App() {
       <Route path="/" component={header}></Route>
       <header>
         <Link to="/springWorm">봄 웜톤</Link>
+        <Link to="/springWormMeta"></Link>
         <a href="/personalColor">
           <button>퍼스널컬러 측정</button>
 
