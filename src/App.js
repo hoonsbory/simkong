@@ -21,7 +21,7 @@ export default function App() {
       <hr />
       {/* <Route path="/pcMainDiv/:check" component={pcMainDiv}></Route> */}
       <Route exact path="/springWorm" component={SpringWorm}></Route>
-      <Route exact path="/springWorm/redirect" component={SpringWormMeta}></Route>
+      <Route exact path="/springWormMeta" component={SpringWormMeta}></Route>
     </Router>
   )
 }
