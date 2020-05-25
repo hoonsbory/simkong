@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Meta from '../Meta'
-
+import { Link } from "react-router-dom"
 export default class SpringWormMeta extends Component {
     componentDidMount(){
-
-            window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
+        document.getElementById("link").click()
+           
     }
     render() {
         const metaData = {
@@ -18,7 +18,7 @@ export default class SpringWormMeta extends Component {
         return (
             <div>
                 <Meta data={metaData}/>
-                <h1>dsfsdf</h1>
+                <Link id="link" to="/springWorm?redirect=true"></Link>
             </div>
         )
     }
