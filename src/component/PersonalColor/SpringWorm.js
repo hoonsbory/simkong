@@ -2,17 +2,16 @@ import React, { Component } from 'react'
 import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
-import queryString from 'query-string'
 
 export default class SpringWorm extends Component {
-    componentDidMount(){
-        var query = queryString.parse(this.props.location.search)
-        // var query = document.location.href;
-        if(query.redirect === "true"){
-            window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
-            console.log(query);
-        }
-    }
+    // componentDidMount(){
+    //     var query = queryString.parse(this.props.location.search)
+    //     // var query = document.location.href;
+    //     if(query.redirect === "true"){
+    //         window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
+    //         console.log(query);
+    //     }
+    // }
     render() {
         const metaData = {
             title: "봄 웜톤",
