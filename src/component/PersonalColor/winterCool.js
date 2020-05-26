@@ -19,7 +19,7 @@ export default class WinterCool extends Component {
             <div className="pcMainDiv">
                 <Meta data={metaData}/>
                 <KakaoShare  data={metaData}></KakaoShare>
-                <img alt="wormTitle" className="w-100 h-10" src="/images/personalColor/winterTitle.png"></img>
+                <img alt="wormTitle" className="pcTitle" src="/images/personalColor/winterTitle.png"></img>
                 <div className="pcTopDiv">
                     <img alt="wormMain" className="pcMainImg" src="/images/personalColor/winterMain.png"></img>
                     <div className="mainRight">
@@ -54,14 +54,14 @@ export default class WinterCool extends Component {
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 겨울 쿨톤 컬러파레트</p>
                     <p className="mt-3">겨울 컬러들은 파란색, 흰색, 검정을 내포하고 있는 차갑고 강렬한 컬러들의 그룹입니다. 선명하고 강하거나, 혹은 아주 여린 아이시한 컬러들이 이 그룹에 속합니다. 모던하고 도회적인 이미지를 가지고 있는 파레트 입니다.</p>
                     <p className="mt-3">겨울타입에게 잘 어울리는 컬러는 화이트, 블랙과 같은 모노톤과 시리도록 차갑고 선명한 색과 아이스 컬러를 사용할 수 있는데, 대표적인 컬러는 아이스블루, 아이스핑크, 쇼킹핑크, 와인레드, 레몬옐로우, 크리스마스트리 그린, 사파이어 등 인공적이면서 얼음처럼 차갑고 강한 컬러들입니다. 겨울의 컬러는 차가움과 모던함, 카리스마 있는 이미지를 줍니다.</p>
-                    <img alt="wormSpectrum" className="mt-3 w-100" src="/images/personalColor/winterSpectrum.png"></img>
+                    <img alt="wormSpectrum" className="specLip" src="/images/personalColor/winterSpectrum.png"></img>
                 </div>
                 <div className="mt-4">
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 메이크업 / 스타일링 팁</p>
                     <p className="mt-3">[주얼리] 실버 / 화이트골드 / 다이아몬드 / 백진주</p>
                     <p>[블러셔] 푸른빛이 강한 핑크 계열</p>
                     <p>[립스틱] 버건디 / 퍼플 / 딥로즈 / 플럼 / 체리 계열</p>
-                    <img alt="wormLip" className="mt-3 w-100" src="/images/personalColor/winterLip.png"></img>
+                    <img alt="wormLip" className="specLip" src="/images/personalColor/winterLip.png"></img>
                 </div>
                 
             </div>

@@ -20,7 +20,7 @@ export default class SummerCool extends Component {
             <div className="pcMainDiv">
                 <Meta data={metaData}/>
                 <KakaoShare  data={metaData}></KakaoShare>
-                <img alt="wormTitle" className="w-100 h-10" src="/images/personalColor/summerTitle.png"></img>
+                <img alt="wormTitle" className="pcTitle" src="/images/personalColor/summerTitle.png"></img>
                 <div className="pcTopDiv">
                     <img alt="wormMain" className="pcMainImg" src="/images/personalColor/summerMain.png"></img>
                     <div className="mainRight">
@@ -55,14 +55,14 @@ export default class SummerCool extends Component {
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 여름 쿨톤 컬러파레트</p>
                     <p className="mt-3">흰색과 파란색을 머금고 있는 여름 컬러들은 소프트하고 밝은 컬러, 그레이시한 컬러들로 이루어져 있어 시원하고 화려한 인상을 줍니다. 여름쿨톤의  컬러들은 블루베이스로 이루어져 있고 난색이어도 차가운 느낌을 가집니다. </p>
                     <p className="mt-3">여름타입에게 잘 어울리는 컬러는 화이트, 그레이, 네이비 등 차가운 느낌의 컬러를 기본색으로 그레이쉬한 파스텔톤과 함께 사용할 수 있는데, 대표적인 컬러는 딸기우유 핑크, 루비 레드, 민트 그린, 라벤더의 연보라, 시원한 파스텔 블루 등 안개가 낀 듯 뿌옇고 부드럽게 보이는게 특징입니다. 여름의 컬러는 시원함과 시크함, 세련된 느낌의 이미지를 보여줍니다.</p>
-                    <img alt="wormSpectrum" className="mt-3 w-100" src="/images/personalColor/summerSpectrum.png"></img>
+                    <img alt="wormSpectrum" className="specLip" src="/images/personalColor/summerSpectrum.png"></img>
                 </div>
                 <div className="mt-4">
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 메이크업 / 스타일링 팁</p>
                     <p className="mt-3">[주얼리] 실버 / 화이트골드 / 다이아몬드 / 백진주</p>
                     <p>[블러셔] 푸른빛이 도는 핑크 / 라벤더 계열</p>
                     <p>[립스틱] 베이비핑크 / 로즈핑크 / 푸시아 / 라즈베리</p>
-                    <img alt="wormLip" className="mt-3 w-100" src="/images/personalColor/summerLip.png"></img>
+                    <img alt="wormLip" className="specLip" src="/images/personalColor/summerLip.png"></img>
                 </div>
                 
             </div>

@@ -19,7 +19,7 @@ export default class FallWorm extends Component {
             <div className="pcMainDiv">
                 <Meta data={metaData}/>
                 <KakaoShare  data={metaData}></KakaoShare>
-                <img alt="wormTitle" className="w-100 h-10" src="/images/personalColor/fallTitle.png"></img>
+                <img alt="wormTitle" className="pcTitle" src="/images/personalColor/fallTitle.png"></img>
                 <div className="pcTopDiv">
                     <img alt="wormMain" className="pcMainImg" src="/images/personalColor/fallMain.png"></img>
                     <div className="mainRight">
@@ -54,14 +54,14 @@ export default class FallWorm extends Component {
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 가을 웜톤 컬러파레트</p>
                     <p className="mt-3">가을 컬러들은 노란색보다 짙은 황색을 지니고 있는 색의 그룹으로 깊고 강하면서 고급스럽고 편안한 컬러들이 주를 이루며, 어른스럽고 차분한 이미지를 가지고 있는 파레트 입니다.</p>
                     <p className="mt-3">가을타입에게 잘어울리는 컬러는 아이보리, 베이지와 같은  밝은톤과 골드와 브라운과 같은 진한톤에서 어두운 톤까지 많은 영역의 컬러를 사용할 수 있습니다.  대표적인 컬러는 잘익은 토마토, 연어살색, 가을의 단풍, 가을의 황금벌판, 황토색 등 가을의 자연에서 흔히 볼 수 있는 컬러입니다. 가을의 컬러는 따듯함과 안정감, 편안한  이미지를 줍니다. </p>
-                    <img alt="wormSpectrum" className="mt-3 w-100" src="/images/personalColor/fallSpectrum.png"></img>
+                    <img alt="wormSpectrum" className="specLip" src="/images/personalColor/fallSpectrum.png"></img>
                 </div>
                 <div className="mt-4">
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 메이크업 / 스타일링 팁</p>
                     <p className="mt-3">[주얼리] 골드 / 브론즈 / 내추럴진주</p>
                     <p>[블러셔] 인디핑크 / 테라코타 / 오렌지 계열</p>
                     <p>[립스틱] MLBB / 말린장미 / 토마토 / 오렌지레드 / 브라운레드 계열</p>
-                    <img alt="wormLip" className="mt-3 w-100" src="/images/personalColor/fallLip.png"></img>
+                    <img alt="wormLip" className="specLip" src="/images/personalColor/fallLip.png"></img>
                 </div>
                 
             </div>
