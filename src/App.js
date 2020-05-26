@@ -21,10 +21,6 @@ export default function App() {
         <Link to="/summerCool">여름 쿨톤</Link>
         <Link to="/fallWorm">가을 웜톤</Link>
         <Link to="/winterCool">겨울 쿨톤</Link>
-        <Link to="/winterCoolMeta"></Link>
-        <Link to="/summerCoolMeta"></Link>
-        <Link to="/fallWormMeta"></Link>
-        <Link to="/springWormMeta"></Link>
         {/* <a href="/personalColor">
           <button>퍼스널컬러 측정</button>
 
