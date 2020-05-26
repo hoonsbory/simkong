@@ -11,7 +11,7 @@ export default class SummerCool extends Component {
             title: "여름 쿨톤",
             description : "여름 쿨톤 페이지입니다",
             image : "http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
-            canonical : "springWorm",
+            canonical : "summerCool",
             canonical2 : "summerCoolMeta",
             addUrl : "personalColor"
         }
