@@ -86,14 +86,14 @@ export default class KakaoShare extends Component {
         return (
             <div id="shareButton" style={btn}>
                 <span id="kakao-link-btn" >
-                    <img alt="Share" src="/images/kakaoTalk.png" />
+                    <img alt="Share" src="/images/snsIcon/kakaoTalk.png" />
                 </span>
-                <img onClick={() => facebook()} alt="Share" src="/images/facebook.png" />
-                <img onClick={() => kakaoStory()} alt="Share" src="/images/kakaoStory.png" />
-                <img onClick={() => twitter()} alt="Share" src="/images/twitter.png" />
-                <img onClick={() => naver()} alt="Share" src="/images/naver.png" />
-                <img onClick={() => line()} alt="Share" src="/images/line.png" />
-                <img onClick={() => band()} alt="Share" src="/images/band.png" />
+                <img onClick={() => facebook()} alt="Share" src="/images/snsIcon/facebook.png" />
+                <img onClick={() => kakaoStory()} alt="Share" src="/images/snsIcon/kakaoStory.png" />
+                <img onClick={() => twitter()} alt="Share" src="/images/snsIcon/twitter.png" />
+                <img onClick={() => naver()} alt="Share" src="/images/snsIcon/naver.png" />
+                <img onClick={() => line()} alt="Share" src="/images/snsIcon/line.png" />
+                <img onClick={() => band()} alt="Share" src="/images/snsIcon/band.png" />
                 <button onClick={() => fbmessage()}>메신저</button>
             </div>
         )

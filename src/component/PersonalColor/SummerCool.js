@@ -2,36 +2,29 @@ import React, { Component } from 'react'
 import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
-import queryString from 'query-string';
 
 
 export default class SummerCool extends Component {
-    componentDidMount(){
-        var query = queryString.parse(this.props.location.search)
-        if(query.redirect==="true"){
-            window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
-        }
-        console.log(query.redirect);
-    }
+    
     render() {
         const metaData = {
-            title: "봄 웜톤",
-            description : "봄웜톤 페이지입니다",
+            title: "여름 쿨톤",
+            description : "여름 쿨톤 페이지입니다",
             image : "http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
             canonical : "springWorm",
-            canonical2 : "springWorm?redirect=true",
+            canonical2 : "summerCoolMeta",
             addUrl : "personalColor"
         }
         return (
 
-            <div id="pcMainDiv">
+            <div className="pcMainDiv">
                 <Meta data={metaData}/>
                 <KakaoShare  data={metaData}></KakaoShare>
-                <img alt="wormTitle" className="w-100 h-10" src="/images/wormTitle.png"></img>
+                <img alt="wormTitle" className="w-100 h-10" src="/images/personalColor/summerTitle.png"></img>
                 <div>
-                    <img alt="wormMain" className="float-left w-50" src="/images/wormMain.png"></img>
-                    <div id="mainRight">
-                        <div id="squareGroup">
+                    <img alt="wormMain" className="float-left w-50" src="/images/personalColor/summerMain.png"></img>
+                    <div className="mainRight">
+                        <div className="squareGroup">
                             <div className="d-flex mb-2">
                                 <span></span>
                                 <span className="ml-2" ></span>
@@ -41,33 +34,33 @@ export default class SummerCool extends Component {
                                 <span className="ml-2"></span>
                             </div>
                         </div>
-                        <p>#밝은</p>
-                        <p>#생기넘치는</p>
-                        <p>#발랄한</p>
-                        <p>#부드러운</p>
-                        <p>#귀여운</p>
-                        <p>#로맨틱</p>
-                        <p>#따뜻한</p>
+                        <p>#맑은</p>
+                        <p>#페미닌한</p>
+                        <p>#시원한</p>
+                        <p>#깨끗한</p>
+                        <p>#우아한</p>
+                        <p>#세련된</p>
+                        <p>#청량한</p>
                     </div>
                 </div>
                 <div className="mt-3">
-                    <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 봄 웜톤의 특징</p>
-                    <p className="mt-3">한국인의 많은 사람이 봄 웜톤의 피부색을 가지고 있습니다. 봄타입은 사랑스럽고 귀여운 이미지로 어려보이고 생동감이 있으며 활기가 넘칩니다. 로맨틱하면서 경쾌한 이미지가 많으며 사람들에게 인기가 많은 편입니다.</p>
-                    <p className="mt-3">봄타입은 노란색을 지닌 따뜻한 유형으로 선명(vivid)하고 밝은(bright)톤과 옅은(pale)톤으로 화사하며 생동감과 에너지를 느끼게 합니다.</p>
-                    <p className="mt-3">봄타입은 복숭아빛이 감도는 밝고 노란 빛의 피부를 가지고 있습니다. 눈동자는 반짝반짝 거리고 생기가 있는 밝은 갈색 빛을 띄고 있으면 찰랑찰랑 윤기가 나는 머릿결이 특징입니다. 피부는 밝으면서 매끄럽고 투명한 분들이 많고 피부가 얇아서 주근깨같이 잡티가 있는 경우도 있습니다.</p>
+                    <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 여름 쿨톤의 특징</p>
+                    <p className="mt-3">여름 쿨톤인 사람은 대체적으로 깨끗한 이미지를 가지고 있습니다. 또한 여름타입은 자연스럽고 산뜻한 이미지로, 화사하며 부드럽고 여성스러운 스타일이 주로 많습니다. </p>
+                    <p className="mt-3">여름타입은 흰색과 파랑을 지닌 차가운 유형으로 부드러움(soft)과 밝은(light)톤, 밝은 잿빛(light grayish)톤의 시원스럽고 화려함을 느끼게 합니다. </p>
+                    <p className="mt-3">핑크빛과 붉은 빛이 감도는 혈색 좋은 피부톤을 가지고 있으며, 피부가 얇아 예민합니다. 차분하고 깊은 부드러운 갈색의 눈동자, 회갈색을 띠는 건조하고 얇으며 부시시한 머리카락, 지적이고 세련되며 우아한 인상이 여름타입의 특징입니다.</p>
                 </div>
                 <div className="mt-3">
-                    <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 봄 웜톤 컬러파레트</p>
-                    <p className="mt-3">봄 컬러들은 전체적으로 노란색을 가지고 있는 그룹으로 밝고 선명하고 파스텔톤으로 이루어져있어 화사하면서 활기찬 느낌이 나는 탄력있는 파레트이다. 따라서 새싹과 꽃이 피어나는 봄의 맑은 이미지를 생각하며 스타일링 하는 것을 추천합니다.</p>
-                    <p className="mt-3">봄타입에게 잘어울리는 컬러는 아이보리, 베이지와 같은 밝은톤과 알록달록 캔디처럼 선명한 컬러를 사용할 수 있는데, 대표적인 컬러는 복숭아 핑크, 오렌지 레드, 해바라기 노란색, 새싹의 초록, 팬지꽃의 퍼플 등 싱그러운 과일이나 햇살을 듬뿍 머금은 선명한 컬러입니다.</p>
-                    <img alt="wormSpectrum" className="mt-3 w-100" src="/images/wormSpectrum.png"></img>
+                    <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 여름 쿨톤 컬러파레트</p>
+                    <p className="mt-3">흰색과 파란색을 머금고 있는 여름 컬러들은 소프트하고 밝은 컬러, 그레이시한 컬러들로 이루어져 있어 시원하고 화려한 인상을 줍니다. 여름쿨톤의  컬러들은 블루베이스로 이루어져 있고 난색이어도 차가운 느낌을 가집니다. </p>
+                    <p className="mt-3">여름타입에게 잘 어울리는 컬러는 화이트, 그레이, 네이비 등 차가운 느낌의 컬러를 기본색으로 그레이쉬한 파스텔톤과 함께 사용할 수 있는데, 대표적인 컬러는 딸기우유 핑크, 루비 레드, 민트 그린, 라벤더의 연보라, 시원한 파스텔 블루 등 안개가 낀 듯 뿌옇고 부드럽게 보이는게 특징입니다. 여름의 컬러는 시원함과 시크함, 세련된 느낌의 이미지를 보여줍니다.</p>
+                    <img alt="wormSpectrum" className="mt-3 w-100" src="/images/personalColor/summerSpectrum.png"></img>
                 </div>
                 <div className="mt-4">
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 메이크업 / 스타일링 팁</p>
-                    <p className="mt-3">[주얼리] 골드 / 브론즈 / 내츄럴진주</p>
-                    <p>[블러셔] 코랄 / 오렌지 / 클리어피치 계열</p>
-                    <p>[립스틱] 핑크베이지 / 코랄 / 누드베이지 / 오렌지 / 누드핑크 / 선홍빛레드 계열</p>
-                    <img alt="wormLip" className="mt-3 w-100" src="/images/wormLip.png"></img>
+                    <p className="mt-3">[주얼리] 실버 / 화이트골드 / 다이아몬드 / 백진주</p>
+                    <p>[블러셔] 푸른빛이 도는 핑크 / 라벤더 계열</p>
+                    <p>[립스틱] 베이비핑크 / 로즈핑크 / 푸시아 / 라즈베리</p>
+                    <img alt="wormLip" className="mt-3 w-100" src="/images/personalColor/summerLip.png"></img>
                 </div>
                 
             </div>
