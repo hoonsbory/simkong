@@ -18,20 +18,21 @@ export default class SpringWorm extends Component {
             <div className="pcMainDiv">
                 <Meta data={metaData}/>
                 <KakaoShare  data={metaData}></KakaoShare>
-                <img alt="wormTitle" className="w-100 h-10" src="/images/personalColor/wormTitle.png"></img>
-                <div className="d-inline-block">
-                    <img alt="wormMain" className="float-left w-50" src="/images/personalColor/wormMain.png"></img>
+                <img alt="wormTitle" className="w-100 h-10" src="/images/personalColor/springTitle.png"></img>
+                <div className="pcTopDiv">
+                    <img alt="wormMain" className="pcMainImg" src="/images/personalColor/springMain.png"></img>
                     <div className="mainRight">
                         <div className="squareGroup">
                             <div className="d-flex mb-2">
-                                <span></span>
-                                <span className="ml-2" ></span>
+                                <span style={{background : "rgb(255,233,196)"}}></span>
+                                <span className="ml-2" style={{background : "rgb(524,224,174)"}} ></span>
                             </div>
                             <div className="d-flex mb-4">
-                                <span></span>
-                                <span className="ml-2"></span>
+                                <span style={{background : "rgb(253,215,153)"}}></span>
+                                <span className="ml-2" style={{background : "rgb(244,203,149)"}}></span>
                             </div>
                         </div>
+                        <div className="pcTopText">
                         <p>#밝은</p>
                         <p>#생기넘치는</p>
                         <p>#발랄한</p>
@@ -39,6 +40,7 @@ export default class SpringWorm extends Component {
                         <p>#귀여운</p>
                         <p>#로맨틱</p>
                         <p>#따뜻한</p>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-3">
@@ -51,14 +53,14 @@ export default class SpringWorm extends Component {
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 봄 웜톤 컬러파레트</p>
                     <p className="mt-3">봄 컬러들은 전체적으로 노란색을 가지고 있는 그룹으로 밝고 선명하고 파스텔톤으로 이루어져 있어 화사하면서 활기찬 느낌이나는 탄력있는 파레트 입니다. 따라서 새싹과 꽃이 피어나는 봄의 맑은 이미지를 생각하며 스타일링 하는것을 추천합니다.</p>
                     <p className="mt-3">봄타입에게 잘 어울리는 컬러는 아이보리, 베이지와 같은 밝은톤과 알록달록 캔디처럼 선명한 컬러를 사용할 수 있는데, 대표적인 컬러는 복숭아 핑크, 오렌지 레드, 해바라기 노란색, 새싹의 초록, 팬지꽃의 퍼플 등 싱그러운 과일이나 햇살을 듬뿍 머금은 선명한 컬러입니다.</p>
-                    <img alt="wormSpectrum" className="mt-3 w-100" src="/images/personalColor/wormSpectrum.png"></img>
+                    <img alt="wormSpectrum" className="mt-3 w-100" src="/images/personalColor/springSpectrum.png"></img>
                 </div>
                 <div className="mt-4">
                     <p className="px-1 pt-1" style={{ background: "yellow", display: "inline" }}># 메이크업 / 스타일링 팁</p>
                     <p className="mt-3">[주얼리] 골드 / 브론즈 / 내츄럴진주</p>
                     <p>[블러셔] 코랄 / 오렌지 / 클리어피치 계열</p>
                     <p>[립스틱] 핑크베이지 / 코랄 / 누드베이지 / 오렌지 / 살몬핑크 / 선홍빛레드 계열</p>
-                    <img alt="wormLip" className="mt-3 w-100" src="/images/personalColor/wormLip.png"></img>
+                    <img alt="wormLip" className="mt-3 w-100" src="/images/personalColor/springLip.png"></img>
                 </div>
                 
             </div>

@@ -21,19 +21,20 @@ export default class SummerCool extends Component {
                 <Meta data={metaData}/>
                 <KakaoShare  data={metaData}></KakaoShare>
                 <img alt="wormTitle" className="w-100 h-10" src="/images/personalColor/summerTitle.png"></img>
-                <div>
-                    <img alt="wormMain" className="float-left w-50" src="/images/personalColor/summerMain.png"></img>
+                <div className="pcTopDiv">
+                    <img alt="wormMain" className="pcMainImg" src="/images/personalColor/summerMain.png"></img>
                     <div className="mainRight">
                         <div className="squareGroup">
                             <div className="d-flex mb-2">
-                                <span></span>
-                                <span className="ml-2" ></span>
+                                <span style={{background : "rgb(254,236,224)"}}></span>
+                                <span className="ml-2" style={{background : "rgb(255,227,213)"}}></span>
                             </div>
                             <div className="d-flex mb-4">
-                                <span></span>
-                                <span className="ml-2"></span>
+                                <span style={{background : "rgb(255,222,203)"}}></span>
+                                <span className="ml-2" style={{background : "rgb(250,208,184)"}}></span>
                             </div>
                         </div>
+                        <div className="pcTopText">
                         <p>#맑은</p>
                         <p>#페미닌한</p>
                         <p>#시원한</p>
@@ -41,6 +42,7 @@ export default class SummerCool extends Component {
                         <p>#우아한</p>
                         <p>#세련된</p>
                         <p>#청량한</p>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-3">
