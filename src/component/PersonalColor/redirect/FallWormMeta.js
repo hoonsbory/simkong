@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import Meta from '../../Meta'
 export default class FallWormMeta extends Component {
     componentDidMount(){
-        window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
+        if(navigator.userAgent == "ReactSnap"){
+
+        }else{
+
+            window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
+        }
            
     }
     render() {
