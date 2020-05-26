@@ -10,6 +10,8 @@ cache:
 #   - npm install -g yarn@1.21.1
 script:
   - echo "skipping tests"
+env:
+  CI : false
 before_deploy:
   - yarn build
 
