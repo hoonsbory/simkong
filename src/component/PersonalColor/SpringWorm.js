@@ -25,7 +25,7 @@ export default class SpringWorm extends Component {
                         <div className="squareGroup">
                             <div className="d-flex mb-2">
                                 <span style={{background : "rgb(255,233,196)"}}></span>
-                                <span className="ml-2" style={{background : "rgb(524,224,174)"}} ></span>
+                                <span className="ml-2" style={{background : "rgb(255,224,174)"}} ></span>
                             </div>
                             <div className="d-flex mb-4">
                                 <span style={{background : "rgb(253,215,153)"}}></span>
