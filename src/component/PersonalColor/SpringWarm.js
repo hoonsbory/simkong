@@ -15,8 +15,8 @@ export default class SpringWarm extends Component {
     }
     render() {
         const metaData = {
-            title: "봄 웜톤",
-            description : "봄웜톤 페이지입니다",
+            title: "퍼스널 컬러 진단하기!",
+            description : "나의 퍼스널 컬러는 뭘까??",
             image : "https://mycolor.kr/images/personalColor/springMeta.png",
             canonical : "springWarm",
             canonical2 : "springWarmMeta"

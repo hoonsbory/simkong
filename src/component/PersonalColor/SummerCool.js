@@ -16,8 +16,8 @@ export default class SummerCool extends Component {
     
     render() {
         const metaData = {
-            title: "여름 쿨톤",
-            description : "여름 쿨톤 페이지입니다",
+            title: "퍼스널 컬러 진단하기!",
+            description : "나의 퍼스널 컬러는 뭘까??",
             image : "https://mycolor.kr/images/personalColor/summerMeta.png",
             canonical : "summerCool",
             canonical2 : "summerCoolMeta"

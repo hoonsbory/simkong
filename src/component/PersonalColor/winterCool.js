@@ -15,8 +15,8 @@ export default class WinterCool extends Component {
     }
     render() {
         const metaData = {
-            title: "겨울 쿨톤",
-            description : "겨울 쿨톤 페이지입니다",
+            title: "퍼스널 컬러 진단하기!",
+            description : "나의 퍼스널 컬러는 뭘까??",
             image : "https://mycolor.kr/images/personalColor/winterMeta.png",
             canonical : "winterCool",
             canonical2 : "winterCoolMeta"

@@ -15,8 +15,8 @@ export default class FallWarm extends Component {
     }
     render() {
         const metaData = {
-            title: "가을 웜톤",
-            description : "가을웜톤 페이지입니다",
+            title: "퍼스널 컬러 진단하기!",
+            description : "나의 퍼스널 컬러는 뭘까??",
             image : "https://mycolor.kr/images/personalColor/fallMeta.png",
             canonical : "fallWarm",
             canonical2 : "fallWarmMeta"
