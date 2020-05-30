@@ -3,13 +3,14 @@ import React, { Component } from 'react'
 
 export default class KakaoShare extends Component {
     state = {
-        mainUrl: "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/",
+        mainUrl: "https://mycolor.kr/",
         subUrl: ""
     }
     componentDidMount() {
-        // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
         const data = this.props.data
         this.setState({
+            //카카오가 아닌 타 sns에 공유할때 og:image는 결과의 이미지를 쓰고 url은 테스트페이지로 쓰고 싶지만 그럴 방도가 없어 따로 redirect용 페이지를 만들어서 메타태그만 이용한다. 
+            //카카오는 따로 이미지를 지정할 수 있기 때문에 따로 redirect를 안해도된다..
             subUrl: this.state.mainUrl + data.canonical2,
             mainUrl: data.addUrl ? this.state.mainUrl + data.addUrl : this.state.mainUrl
         })
@@ -79,22 +80,23 @@ export default class KakaoShare extends Component {
             }
         }
         const btn = {
-            width: "50px",
-            height: "50px",
-            display: "inline"
+            width: "42px",
+            marginRight : "5px",
+            cursor : "pointer"
         }
         return (
-            <div id="shareButton" style={btn}>
+            <div id="shareButton" style={{width : "100%", textAlign : "center", marginBottom : "2rem", marginTop : "2rem"}}>
+                <p style={{fontSize : "1.3rem"}}>▼ 결과 공유하기 ▼</p>
                 <span id="kakao-link-btn" >
-                    <img alt="Share" src="/images/snsIcon/kakaoTalk.png" />
+                    <img style={btn} alt="Share" src="/images/snsIcon/kakaoTalk.png" />
                 </span>
-                <img onClick={() => facebook()} alt="Share" src="/images/snsIcon/facebook.png" />
-                <img onClick={() => kakaoStory()} alt="Share" src="/images/snsIcon/kakaoStory.png" />
-                <img onClick={() => twitter()} alt="Share" src="/images/snsIcon/twitter.png" />
-                <img onClick={() => naver()} alt="Share" src="/images/snsIcon/naver.png" />
-                <img onClick={() => line()} alt="Share" src="/images/snsIcon/line.png" />
-                <img onClick={() => band()} alt="Share" src="/images/snsIcon/band.png" />
-                <button onClick={() => fbmessage()}>메신저</button>
+                <img style={btn}  onClick={() => facebook()} alt="Share" src="/images/snsIcon/facebook.png" />
+                <img style={btn} onClick={() => kakaoStory()} alt="Share" src="/images/snsIcon/kakaoStory.png" />
+                <img style={btn} onClick={() => twitter()} alt="Share" src="/images/snsIcon/twitter.png" />
+                <img style={btn} onClick={() => naver()} alt="Share" src="/images/snsIcon/naver.png" />
+                <img style={btn} onClick={() => line()} alt="Share" src="/images/snsIcon/line.png" />
+                <img style={btn} onClick={() => band()} alt="Share" src="/images/snsIcon/band.png" />
+                <img style={btn} onClick={() => fbmessage()} alt="Share" src="/images/snsIcon/messenger.png"/>
             </div>
         )
     }

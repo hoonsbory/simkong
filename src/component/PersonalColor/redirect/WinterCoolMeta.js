@@ -6,7 +6,7 @@ export default class WinterCoolMeta extends Component {
 
         }else{
 
-            window.location.href = "http://jaehoon-dayoff.ml.s3-website.ap-northeast-2.amazonaws.com/personalColor"
+            window.location.href = "https://mycolor.kr"
         }
            
     }
@@ -14,7 +14,7 @@ export default class WinterCoolMeta extends Component {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description : "나의 퍼스널 컬러는 뭘까??",
-            image : "/images/personalColor/winterTitle.png",
+            image : "/images/personalColor/winterMeta.png",
             canonical : "winterCoolMeta",
             canonical2 : "winterCoolMeta",
             addUrl : "personalColor"
