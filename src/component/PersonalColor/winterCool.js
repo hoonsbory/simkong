@@ -5,6 +5,13 @@ import Meta from '../Meta'
 
 
 export default class WinterCool extends Component {
+    componentDidMount(){
+
+        var d = document, s = d.createElement('script');
+        s.src = 'https://personalcolor.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    }
     render() {
         const metaData = {
             title: "겨울 쿨톤",
@@ -63,6 +70,7 @@ export default class WinterCool extends Component {
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/winterLip.png"></img>
                 </div>
                 <KakaoShare  data={metaData}></KakaoShare>
+                <div id="disqus_thread"/>
             </div>
         )
     }

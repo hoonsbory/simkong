@@ -4,6 +4,14 @@ import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
 
 export default class SpringWarm extends Component {
+
+    componentDidMount(){
+
+        var d = document, s = d.createElement('script');
+        s.src = 'https://personalcolor.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    }
     render() {
         const metaData = {
             title: "봄 웜톤",
@@ -62,6 +70,7 @@ export default class SpringWarm extends Component {
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/springLip.png"></img>
                 </div>
                 <KakaoShare  data={metaData}></KakaoShare>
+                <div id="disqus_thread"/>
             </div>
         )
     }
