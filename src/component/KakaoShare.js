@@ -27,11 +27,6 @@ export default class KakaoShare extends Component {
                     webUrl: this.state.mainUrl
                 }
             },
-            social: {
-                likeCount: 286,
-                commentCount: 45,
-                sharedCount: 845
-            },
             buttons: [
                 {
                     title: '테스트 하러가기',
@@ -63,7 +58,7 @@ export default class KakaoShare extends Component {
             window.open('http://twitter.com/intent/tweet?text=' + url, "name", size)
         }
         function naver() {
-            window.open('http://share.naver.com/web/shareView.nhn?url=' + url + "&title=심콩", "name", size)
+            window.open('http://share.naver.com/web/shareView.nhn?url=' + url + "&title=퍼스널컬러", "name", size)
         }
         function line() {
             window.open('https://social-plugins.line.me/lineit/share?url=' + url, "name", size)

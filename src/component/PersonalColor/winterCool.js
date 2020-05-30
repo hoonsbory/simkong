@@ -16,7 +16,7 @@ export default class WinterCool extends Component {
         const metaData = {
             title: "겨울 쿨톤",
             description : "겨울 쿨톤 페이지입니다",
-            image : "/images/personalColor/winterMeta.png",
+            image : "https://mycolor.kr/images/personalColor/winterMeta.png",
             canonical : "winterCool",
             canonical2 : "winterCoolMeta"
         }
