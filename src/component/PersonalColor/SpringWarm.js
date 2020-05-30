@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
+import ReTry from '../ReTry';
 
 export default class SpringWarm extends Component {
 
@@ -24,7 +25,6 @@ export default class SpringWarm extends Component {
 
             <div className="pcMainDiv">
                 <Meta data={metaData}/>
-                <KakaoShare  data={metaData}></KakaoShare>
                 <img alt="WarmTitle" className="pcTitle" src="/images/personalColor/springTitle.png"></img>
                 <div className="pcTopDiv">
                     <img alt="WarmMain" className="pcMainImg" src="/images/personalColor/springMain.png"></img>
@@ -69,6 +69,7 @@ export default class SpringWarm extends Component {
                     <p>[립스틱] 핑크베이지 / 코랄 / 누드베이지 / 오렌지 / 살몬핑크 / 선홍빛레드 계열</p>
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/springLip.png"></img>
                 </div>
+                <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
                 <div id="disqus_thread"/>
             </div>

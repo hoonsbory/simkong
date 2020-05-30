@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
+import ReTry from '../ReTry';
 
 
 export default class SummerCool extends Component {
@@ -25,7 +26,6 @@ export default class SummerCool extends Component {
 
             <div className="pcMainDiv">
                 <Meta data={metaData}/>
-                <KakaoShare  data={metaData}></KakaoShare>
                 <img alt="WarmTitle" className="pcTitle" src="/images/personalColor/summerTitle.png"></img>
                 <div className="pcTopDiv">
                     <img alt="WarmMain" className="pcMainImg" src="/images/personalColor/summerMain.png"></img>
@@ -70,6 +70,7 @@ export default class SummerCool extends Component {
                     <p>[립스틱] 베이비핑크 / 로즈핑크 / 푸시아 / 라즈베리</p>
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/summerLip.png"></img>
                 </div>
+                <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
                 <div id="disqus_thread"/>
             </div>

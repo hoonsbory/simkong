@@ -8,15 +8,14 @@ import WinterCool from "./component/PersonalColor/winterCool";
 import SummerCoolMeta from "./component/PersonalColor/redirect/SummerCoolMeta";
 import FallWarmMeta from "./component/PersonalColor/redirect/FallWarmMeta";
 import WinterCoolMeta from "./component/PersonalColor/redirect/WinterCoolMeta";
-import ReTry from "./component/ReTry";
 import Footer from "./component/Footer";
 
 export default function App() {
+  window.scrollTo(0,0)
   window.Kakao.init('7e83cda1ddcc964d3fb6c99c8fd47645');
       
   return (
     <Router>
-    <ReTry></ReTry>
         
         <Link to="/winterCoolMeta"></Link>
         <Link to="/summerCoolMeta"></Link>
