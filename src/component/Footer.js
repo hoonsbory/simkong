@@ -13,7 +13,7 @@ export default class Footer extends Component {
         return (
             <div id="footer" style={footer}>
                 <div id="footerLeft">
-                    <img style={{width : "8rem", marginBottom : ".5rem"}} src="images/personalColor/footerImg.png" />
+                    <img style={{width : "8rem", marginBottom : ".5rem"}} src="/images/personalColor/footerImg.png" />
                     <p>mycolor.kr</p>
                 </div>
                 <div>제작 도움 - <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" style={{color : "rgb(10, 59, 112)"}}>Jocoding</a></div>
