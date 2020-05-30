@@ -8,7 +8,8 @@ export default class Footer extends Component {
             display : "inline-block",
             textAlign : "center",
             paddingTop : "2rem",
-            paddingBottom : "2rem"
+            paddingBottom : "2rem",
+            fontSize : "12px"
         }
         return (
             <div id="footer" style={footer}>

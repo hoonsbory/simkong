@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import "./share.scss"
 
 export default class KakaoShare extends Component {
     state = {
@@ -79,24 +79,19 @@ export default class KakaoShare extends Component {
             window.open('http://www.facebook.com/dialog/send?app_id=' + app_id + '&link=' + url + '&redirect_uri=' + url, "name", 'status=no, height=' + 600 + ', width=' + 900 + ', left=' + popupX + ', top=' + popupY)
             }
         }
-        const btn = {
-            width: "42px",
-            marginRight : "5px",
-            cursor : "pointer"
-        }
         return (
             <div id="shareButton" style={{width : "100%", textAlign : "center", marginBottom : "2rem", marginTop : "2rem"}}>
                 <p style={{fontSize : "1.3rem"}}>▼ 결과 공유하기 ▼</p>
                 <span id="kakao-link-btn" >
-                    <img style={btn} alt="Share" src="/images/snsIcon/kakaoTalk.png" />
+                    <img className="shareIcon" alt="Share" src="/images/snsIcon/kakaoTalk.png" />
                 </span>
-                <img style={btn}  onClick={() => facebook()} alt="Share" src="/images/snsIcon/facebook.png" />
-                <img style={btn} onClick={() => kakaoStory()} alt="Share" src="/images/snsIcon/kakaoStory.png" />
-                <img style={btn} onClick={() => twitter()} alt="Share" src="/images/snsIcon/twitter.png" />
-                <img style={btn} onClick={() => naver()} alt="Share" src="/images/snsIcon/naver.png" />
-                <img style={btn} onClick={() => line()} alt="Share" src="/images/snsIcon/line.png" />
-                <img style={btn} onClick={() => band()} alt="Share" src="/images/snsIcon/band.png" />
-                <img style={btn} onClick={() => fbmessage()} alt="Share" src="/images/snsIcon/messenger.png"/>
+                <img className="shareIcon"  onClick={() => facebook()} alt="Share" src="/images/snsIcon/facebook.png" />
+                <img className="shareIcon" onClick={() => kakaoStory()} alt="Share" src="/images/snsIcon/kakaoStory.png" />
+                <img className="shareIcon" onClick={() => twitter()} alt="Share" src="/images/snsIcon/twitter.png" />
+                <img className="shareIcon" onClick={() => naver()} alt="Share" src="/images/snsIcon/naver.png" />
+                <img className="shareIcon" onClick={() => line()} alt="Share" src="/images/snsIcon/line.png" />
+                <img className="shareIcon" onClick={() => band()} alt="Share" src="/images/snsIcon/band.png" />
+                <img className="shareIcon" onClick={() => fbmessage()} alt="Share" src="/images/snsIcon/messenger.png"/>
             </div>
         )
     }
