@@ -19,6 +19,7 @@ export default class ReTry extends Component {
         }
         return (
             <div style={main}>
+                <p id="reTryP"> ※ 카메라의 특성상 실제 피부색을 100% 담을 수 없어 결과가 다소 부정확할 수 있습니다.</p>
                 <div onClick={()=> window.location.href = "https://mycolor.kr"} className="px-5 pt-2" style={retry}>
                 다시 테스트하기
 

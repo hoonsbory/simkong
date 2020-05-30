@@ -48,11 +48,20 @@ p{
     transform: translateX(-50%);
     margin-bottom: 20px;
 }
+#reTryP{
+    font-size: 14px;
+    margin-bottom: 1rem !important;
+    word-break: keep-all;
+}
 @media(max-width : "900px"){
 .pcMainDiv{
     padding: 10vw;
     padding-top: 0 !important;
     color: rgb(10, 59, 112);
+}
+#reTryP{
+    font-size: 10px;
+    margin-bottom: 1rem !important;
 }
 .pcMainImg{
     width: 150px;
