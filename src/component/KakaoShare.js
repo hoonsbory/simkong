@@ -22,6 +22,8 @@ export default class KakaoShare extends Component {
                 title: data.title,
                 description: data.description,
                 imageUrl: data.image,
+                imageWidth : 800,
+                imageHeight : 400,
                 link: {
                     mobileWebUrl: this.state.mainUrl,
                     webUrl: this.state.mainUrl
