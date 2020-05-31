@@ -13,7 +13,6 @@ import Footer from "./component/Footer";
 export default function App() {
   window.scrollTo(0,0)
   window.Kakao.init('7e83cda1ddcc964d3fb6c99c8fd47645');
-      
   return (
     <Router>
         

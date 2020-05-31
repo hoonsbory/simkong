@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Footer extends Component {
     render() {
         const footer = {
-            background: "rgb(230, 230, 230)",
+            background: "aliceblue",
             width : "100%",
             display : "inline-block",
             textAlign : "center",
