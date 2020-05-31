@@ -6,13 +6,7 @@ import ReTry from '../ReTry';
 
 export default class SpringWarm extends Component {
 
-    componentDidMount(){
-
-        var d = document, s = d.createElement('script');
-        s.src = 'https://personalcolor.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    }
+    
     render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
@@ -71,7 +65,6 @@ export default class SpringWarm extends Component {
                 </div>
                 <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
-                <div id="disqus_thread"/>
             </div>
         )
     }

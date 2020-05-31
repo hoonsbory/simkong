@@ -1,7 +1,5 @@
 .pcMainDiv{
     color: rgb(10, 59, 112);
-}
-body{
     max-width: 900px !important;
     margin: auto !important;
     margin-top: 20px !important;
@@ -10,6 +8,10 @@ body{
     width: 60px;
     padding-bottom: 60px;
     display: inline-block;
+}
+#disqus_thread{
+    max-width: 900px !important;
+    margin: auto !important;
 }
 p{
     margin: 0 !important;
@@ -58,6 +60,10 @@ p{
     padding: 10vw;
     padding-top: 0 !important;
     color: rgb(10, 59, 112);
+}
+#disqus_thread{
+    max-width: 100% !important;
+    margin: auto !important;
 }
 #reTryP{
     font-size: 10px;

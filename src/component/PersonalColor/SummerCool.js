@@ -6,13 +6,13 @@ import ReTry from '../ReTry';
 
 
 export default class SummerCool extends Component {
-    componentDidMount(){
+    // componentDidMount(){
 
-        var d = document, s = d.createElement('script');
-        s.src = 'https://personalcolor.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    }
+    //     var d = document, s = d.createElement('script');
+    //     s.src = 'https://personalcolor.disqus.com/embed.js';
+    //     s.setAttribute('data-timestamp', +new Date());
+    //     (d.head || d.body).appendChild(s);
+    // }
     
     render() {
         const metaData = {
@@ -72,7 +72,6 @@ export default class SummerCool extends Component {
                 </div>
                 <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
-                <div id="disqus_thread"/>
             </div>
         )
     }
