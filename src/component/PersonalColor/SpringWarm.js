@@ -11,7 +11,7 @@ export default class SpringWarm extends Component {
           cou.firstElementChild.remove()
           var dd = cou.firstElementChild;
           console.log(dd);
-          if(dd.firstElementChild.firstElementChild.firstElementChild){
+          if(dd.firstElementChild.height=="120"){
 
               document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(dd, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
           }
