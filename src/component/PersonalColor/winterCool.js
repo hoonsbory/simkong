@@ -27,7 +27,7 @@ export default class WinterCool extends Component {
         }
         const coupangAds = {
             season : "겨울 쿨톤",
-            url : "https://coupa.ng/bDxXzj"
+            url : "https://coupa.ng/bDxXzm"
         }
         return (
 

@@ -27,9 +27,8 @@ export default class FallWarm extends Component {
         }
         const coupangAds = {
             season : "가을 웜톤",
-            url : "https://coupa.ng/bDxXpN"
+            url : "https://coupa.ng/bDxZTH"
         }
-        
 
         return (
 
