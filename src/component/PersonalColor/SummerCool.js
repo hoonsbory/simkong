@@ -4,7 +4,7 @@ import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
 import ReTry from '../ReTry';
 import AdMove from '../AdMove';
-import CoupangAds from '../coupangAds';
+import CoupangAds from '../CoupangAds';
 
 export default class SummerCool extends Component {
     // componentDidMount(){
