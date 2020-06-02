@@ -19,7 +19,9 @@ export default function App() {
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
    
-    
+    var cou = document.querySelector("body").firstElementChild;
+    var div = document.getElementsByClassName("pcTopDiv")[0];
+    div.parentNode.insertBefore(cou, div.nextSibling)
     
   return (
     <Router>

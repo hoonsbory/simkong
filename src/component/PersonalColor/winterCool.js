@@ -21,6 +21,7 @@ export default class WinterCool extends Component {
             canonical: "winterCool",
             canonical2: "winterCoolMeta"
         }
+        
         return (
 
             <div className="pcMainDiv">
