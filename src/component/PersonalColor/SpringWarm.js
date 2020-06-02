@@ -5,6 +5,15 @@ import Meta from '../Meta'
 import ReTry from '../ReTry';
 
 export default class SpringWarm extends Component {
+    componentDidMount() {
+        var cou = document.querySelector("body");
+        cou.onload = function () {
+          cou.firstElementChild.remove()
+          var dd = cou.firstElementChild;
+          console.log(dd);
+    
+        }
+      }
     render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
@@ -13,7 +22,6 @@ export default class SpringWarm extends Component {
             canonical: "springWarm",
             canonical2: "springWarmMeta"
         }
-
         return (
 
             <div className="pcMainDiv">
