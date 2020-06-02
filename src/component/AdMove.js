@@ -10,7 +10,7 @@ export default function AdMove() {
               var daumAd1 = document.getElementById("root").nextSibling;
               var daumAd2 = daumAd1.nextSibling;
               document.getElementsByClassName("pcMainDiv")[0].insertBefore(daumAd1, document.getElementsByClassName("specLip")[1].parentNode)
-              document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("footer"))
+              document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("disqus_thread"))
               document.querySelector("body").style.opacity = 1;
           }
         }
