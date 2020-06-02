@@ -13,7 +13,11 @@ export default class SummerCool extends Component {
     //     s.setAttribute('data-timestamp', +new Date());
     //     (d.head || d.body).appendChild(s);
     // }
-    
+    componentDidMount(){
+        var cou = document.querySelector("body").firstElementChild;
+        var div = document.getElementsByClassName("pcTopDiv")[0];
+        div.parentNode.insertBefore(cou, div.nextSibling)
+    }
     render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
@@ -22,9 +26,7 @@ export default class SummerCool extends Component {
             canonical : "summerCool",
             canonical2 : "summerCoolMeta"
         }
-        var cou = document.querySelector("body").firstElementChild;
-        var div = document.getElementsByClassName("pcTopDiv")[0];
-        div.parentNode.insertBefore(cou, div.nextSibling)
+        
         return (
 
             <div className="pcMainDiv">
