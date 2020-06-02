@@ -14,7 +14,7 @@ export default class SummerCool extends Component {
     //     (d.head || d.body).appendChild(s);
     // }
     componentDidMount(){
-        document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
+        window.addEventListener('load', document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling));
     }
     render() {
         const metaData = {
