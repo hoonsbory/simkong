@@ -5,12 +5,6 @@ import Meta from '../Meta'
 import ReTry from '../ReTry';
 
 export default class SpringWarm extends Component {
-    componentDidMount(){
-            var cou = document.querySelector("body").firstElementChild;
-            window.addEventListener('load', document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(cou, document.getElementsByClassName("pcTopDiv")[0].nextSibling));
-            // document.querySelector("body").firstElementChild.remove()
-            cou.remove()
-    }
     render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
@@ -55,7 +49,10 @@ export default class SpringWarm extends Component {
                     <p className="mt-3">봄 타입은 노란색을 지닌 따듯한 유형으로 선명(vivid) 하고 밝은(bright) 톤과 엷은(pale) 톤으로 화사하며 생동감과 에너지를 느끼게 합니다.</p>
                     <p className="mt-3">봄 타입은 복숭앗빛 이 감도는 밝고 노란빛의 피부를 가지고 있습니다. 눈동자는 반짝반짝하고 생기가 있는 밝은 갈색빛을 띄고 있으며 찰랑찰랑 윤기가 나는 머릿결이 특징입니다. 피부는 밝으면서 매끄럽고 투명한 분들이 많고 피부가 얇아서 주근깨같이 잡티가 있는 경우도 있습니다.</p>
                 </div>
-                
+                <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-1h7fvl13rbh9w" 
+ data-ad-width   = "250" 
+ data-ad-height  = "250"></ins>
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(230,187,163)", display: "inline", color: "white" }}># 봄 웜톤 컬러 팔레트</p>
                     <p className="mt-3">봄 컬러들은 전체적으로 노란색을 가지고 있는 그룹으로 밝고 선명하고 파스텔톤으로 이루어져 있어 화사하면서 활기찬 느낌이 나는 탄력 있는 팔레트입니다. 따라서 새싹과 꽃이 피어나는 봄의 맑은 이미지를 생각하며 스타일링 하는 것을 추천합니다.</p>
