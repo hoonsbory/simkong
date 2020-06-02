@@ -14,9 +14,7 @@ export default class WinterCool extends Component {
     //     (d.head || d.body).appendChild(s);
     // }
     componentDidMount(){
-        var cou = document.querySelector("body").firstElementChild;
-        var div = document.getElementsByClassName("pcTopDiv")[0];
-        div.parentNode.insertBefore(cou, div.nextSibling)
+        document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
     }
     render() {
         const metaData = {
