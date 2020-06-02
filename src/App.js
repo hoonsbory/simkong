@@ -23,6 +23,7 @@ export default function App() {
     
   return (
     <Router>
+
         <Link to="/winterCoolMeta"></Link>
         <Link to="/summerCoolMeta"></Link>
         <Link to="/springWarmMeta"></Link>
