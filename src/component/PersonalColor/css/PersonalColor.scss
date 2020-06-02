@@ -59,11 +59,20 @@ p{
     margin-bottom: 1rem !important;
     word-break: keep-all;
 }
+.ads{
+    display: block;
+    margin: auto;
+    width: 900px !important;
+    min-width: unset;
+}
 @media(max-width : "900px"){
 .pcMainDiv{
     padding: 7vw;
     padding-top: 0 !important;
     color: rgb(10, 59, 112);
+}
+.ads{
+    width: 100% !important;
 }
 #disqus_thread{
     max-width: 100% !important;
