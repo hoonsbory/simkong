@@ -27,14 +27,7 @@ const Meta = ({ data }) => {
       <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
       
 
-      {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <AdSense.Google
-      client="ca-pub-9106671749645972"
-      style={{ display: 'block' }}
-      slot=""
-      format='auto'
-      responsive='true'
-    />       */}
+      
 
 
       <meta property="og:site_name" content="YOUR WEB SITE" />
