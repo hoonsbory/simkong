@@ -7,7 +7,7 @@ import AdMove from '../AdMove';
 
 export default class SpringWarm extends Component {
     componentDidMount() {
-        <AdMove></AdMove>
+        AdMove()
       }
     render() {
         const metaData = {
