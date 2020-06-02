@@ -25,14 +25,14 @@ const Meta = ({ data }) => {
       {canonical ? <link rel="canonical" href={canonical} /> : null}
       {image ? <link rel="image_src" href={image} /> : null}
       {image ? <meta itemprop="image" content={image} /> : null}
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <AdSense.Google
       client="ca-pub-9106671749645972"
       style={{ display: 'block' }}
       slot=""
       format='auto'
       responsive='true'
-    />      
+    />       */}
 
 
       <meta property="og:site_name" content="YOUR WEB SITE" />
