@@ -16,7 +16,6 @@ const Meta = ({ data }) => {
   const type = data.type === undefined ? 'website' : data.type;
   const width = data.image && (data.width || 1200);
   const height = data.image && (data.height || 630);
-
   return (
     <Helmet titleTemplate="%s">
       <html lang={lang} />
@@ -25,7 +24,8 @@ const Meta = ({ data }) => {
       {canonical ? <link rel="canonical" href={canonical} /> : null}
       {image ? <link rel="image_src" href={image} /> : null}
       {image ? <meta itemprop="image" content={image} /> : null}
-    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+      <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+      
 
       {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <AdSense.Google

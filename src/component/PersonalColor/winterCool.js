@@ -78,6 +78,7 @@ export default class WinterCool extends Component {
                 </div>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
+                
             </div>
         )
     }
