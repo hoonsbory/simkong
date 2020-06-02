@@ -18,9 +18,11 @@ export default function App() {
     s.src = 'https://personalcolor.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
+   
+    
+    
   return (
     <Router>
-        
         <Link to="/winterCoolMeta"></Link>
         <Link to="/summerCoolMeta"></Link>
         <Link to="/springWarmMeta"></Link>
@@ -42,7 +44,9 @@ export default function App() {
       <Route exact path="/summerCoolMeta" component={SummerCoolMeta}></Route>
       <Route exact path="/fallWarmMeta" component={FallWarmMeta}></Route>
       <Route exact path="/winterCoolMeta" component={WinterCoolMeta}></Route>
+      
       <div id="disqus_thread"/>
+
       <Footer></Footer>
     </Router>
   )

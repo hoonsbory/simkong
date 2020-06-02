@@ -17,7 +17,7 @@ export default class Footer extends Component {
                     <img style={{width : "8rem", marginBottom : ".5rem"}} src="/images/personalColor/footerImg.png" />
                     <p>mycolor.kr</p>
                 </div>
-                <div>제작 도움 - <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" style={{color : "rgb(10, 59, 112)"}}>Jocoding</a></div>
+                <div>제작 도움 - <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" style={{color : "rgb(10, 59, 112)"}}>JoCoding Youtube</a></div>
                 <div id="footerCenter"><a href="https://mycolor.kr/privacy" style={{color : "rgb(10, 59, 112)"}}>개인정보 처리방침</a></div>
                 <div id="footerRight">Contact : tonymkcv93@gmail.com</div>
             </div>
