@@ -7,6 +7,7 @@ import ReTry from '../ReTry';
 export default class SpringWarm extends Component {
     componentDidMount(){
         window.addEventListener('load', document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling));
+        document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
     }
     render() {
         const metaData = {
