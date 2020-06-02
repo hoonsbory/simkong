@@ -4,6 +4,7 @@ import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
 import ReTry from '../ReTry';
 import AdMove from '../AdMove';
+import CoupangAds from '../coupangAds';
 
 export default class SpringWarm extends Component {
     componentDidMount() {
@@ -16,6 +17,10 @@ export default class SpringWarm extends Component {
             image: "https://mycolor.kr/images/personalColor/springMeta.png",
             canonical: "springWarm",
             canonical2: "springWarmMeta"
+        }
+        const coupangAds = {
+            season : "봄 웜톤",
+            url : "https://coupa.ng/bDxLGJ"
         }
         return (
 
@@ -67,8 +72,7 @@ export default class SpringWarm extends Component {
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/springLip.png"></img>
                 </div>
                 <div></div>
-                <p style={{fontSize : "1.3rem"}}>▼ 봄 웜톤 추천제품 ▼</p>
-                <iframe src="https://coupa.ng/bDxLGM" width="120" height="240" frameborder="0" scrolling="no"></iframe>
+                <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
             </div>

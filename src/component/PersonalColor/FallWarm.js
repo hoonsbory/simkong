@@ -3,7 +3,8 @@ import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
 import ReTry from '../ReTry';
-
+import AdMove from '../AdMove';
+import CoupangAds from '../coupangAds';
 
 export default class FallWarm extends Component {
     // componentDidMount(){
@@ -14,15 +15,7 @@ export default class FallWarm extends Component {
     //     (d.head || d.body).appendChild(s);
     // }
     componentDidMount() {
-        var cou = document.querySelector("body");
-        cou.onload = function () {
-          cou.firstElementChild.remove()
-          var dd = cou.firstElementChild;
-          if(dd.firstElementChild.height=="120"){
-              document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(dd, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
-              document.querySelector("body").style.opacity = 1;
-          }
-        }
+        AdMove()
       }
     render() {
         const metaData = {
@@ -32,7 +25,10 @@ export default class FallWarm extends Component {
             canonical : "fallWarm",
             canonical2 : "fallWarmMeta"
         }
-        
+        const coupangAds = {
+            season : "가을 웜톤",
+            url : "https://coupa.ng/bDxXpN"
+        }
         
 
         return (
@@ -84,6 +80,7 @@ export default class FallWarm extends Component {
                     <p>[립스틱] MLBB / 말린장미 / 토마토 / 오렌지레드 / 브라운레드 계열</p>
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/fallLip.png"></img>
                 </div>
+                <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
                 

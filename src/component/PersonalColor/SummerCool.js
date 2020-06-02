@@ -3,7 +3,8 @@ import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
 import ReTry from '../ReTry';
-
+import AdMove from '../AdMove';
+import CoupangAds from '../coupangAds';
 
 export default class SummerCool extends Component {
     // componentDidMount(){
@@ -14,15 +15,7 @@ export default class SummerCool extends Component {
     //     (d.head || d.body).appendChild(s);
     // }
     componentDidMount() {
-        var cou = document.querySelector("body");
-        cou.onload = function () {
-          cou.firstElementChild.remove()
-          var dd = cou.firstElementChild;
-          if(dd.firstElementChild.height=="120"){
-              document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(dd, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
-              document.querySelector("body").style.opacity = 1;
-          }
-        }
+       AdMove()
       }
     render() {
         const metaData = {
@@ -32,7 +25,10 @@ export default class SummerCool extends Component {
             canonical : "summerCool",
             canonical2 : "summerCoolMeta"
         }
-        
+        const coupangAds = {
+            season : "여름 쿨톤",
+            url : "https://coupa.ng/bDxW6x"
+        }
         return (
 
             <div className="pcMainDiv">
@@ -82,6 +78,7 @@ export default class SummerCool extends Component {
                     <p>[립스틱] 베이비핑크 / 로즈핑크 / 푸시아 / 라즈베리</p>
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/summerLip.png"></img>
                 </div>
+                <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
             </div>

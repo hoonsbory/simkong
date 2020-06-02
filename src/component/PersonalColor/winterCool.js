@@ -3,7 +3,8 @@ import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
 import ReTry from '../ReTry';
-
+import AdMove from '../AdMove';
+import CoupangAds from '../coupangAds';
 
 export default class WinterCool extends Component {
     // componentDidMount(){
@@ -14,15 +15,7 @@ export default class WinterCool extends Component {
     //     (d.head || d.body).appendChild(s);
     // }
     componentDidMount() {
-        var cou = document.querySelector("body");
-        cou.onload = function () {
-          cou.firstElementChild.remove()
-          var dd = cou.firstElementChild;
-          if(dd.firstElementChild.height=="120"){
-              document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(dd, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
-              document.querySelector("body").style.opacity = 1;
-          }
-        }
+        AdMove()
       }
     render() {
         const metaData = {
@@ -32,7 +25,10 @@ export default class WinterCool extends Component {
             canonical: "winterCool",
             canonical2: "winterCoolMeta"
         }
-        
+        const coupangAds = {
+            season : "겨울 쿨톤",
+            url : "https://coupa.ng/bDxXzj"
+        }
         return (
 
             <div className="pcMainDiv">
@@ -83,6 +79,7 @@ export default class WinterCool extends Component {
                     <p>[립스틱] 버건디 / 퍼플 / 딥로즈 / 플럼 / 체리 계열</p>
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/winterLip.png"></img>
                 </div>
+                <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
                 
