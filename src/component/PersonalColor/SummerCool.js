@@ -20,6 +20,7 @@ export default class SummerCool extends Component {
           var dd = cou.firstElementChild;
           if(dd.firstElementChild.height=="120"){
               document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(dd, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
+              document.querySelector("body").style.opacity = 1;
           }
         }
       }
