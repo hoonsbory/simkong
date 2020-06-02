@@ -24,11 +24,6 @@ const Meta = ({ data }) => {
       {canonical ? <link rel="canonical" href={canonical} /> : null}
       {image ? <link rel="image_src" href={image} /> : null}
       {image ? <meta itemprop="image" content={image} /> : null}
-      <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js"  async></script>
-      
-
-      
-
 
       <meta property="og:site_name" content="YOUR WEB SITE" />
       <meta property="og:title" content={title} />

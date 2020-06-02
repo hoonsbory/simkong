@@ -13,6 +13,16 @@ export default class SummerCool extends Component {
     //     s.setAttribute('data-timestamp', +new Date());
     //     (d.head || d.body).appendChild(s);
     // }
+    componentDidMount() {
+        var cou = document.querySelector("body");
+        cou.onload = function () {
+          cou.firstElementChild.remove()
+          var dd = cou.firstElementChild;
+          if(dd.firstElementChild.height=="120"){
+              document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(dd, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
+          }
+        }
+      }
     render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
@@ -57,10 +67,7 @@ export default class SummerCool extends Component {
                     <p className="mt-3">여름 타입은 흰색과 파랑을 지닌 차가운 유형으로 부드러움(soft)과 밝은(light) 톤, 밝은 잿빛(light grayish) 톤의 시원스럽고 화려함을 느끼게 합니다.</p>
                     <p className="mt-3">핑크빛과 붉은빛이 감도는 혈색 좋은 피부 톤을 가지고 있으며, 피부가 얇아 예민합니다. 차분하고 깊은 부드러운 갈색의 눈동자, 회갈색을 띠는 건조하고 얇으며 부스스한 머리카락, 지적이고 세련되며 우아한 인상이 여름 타입의 특징입니다.</p>
                 </div>
-                <ins className="kakao_ad_area" style={{display:"none"}}
-                    data-ad-unit="DAN-1h7fvl13rbh9w"
-                    data-ad-width="250"
-                    data-ad-height="250"></ins>
+                
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color : "white" }}># 여름 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">흰색과 파란색을 머금고 있는 여름 컬러들은 소프트하고 밝은 컬러, 그레이 시한 컬러들로 이루어져 있어 시원하고 화려한 인상을 줍니다. 여름 쿨톤의 컬러들은 블루 베이스로 이루어져 있고 난색이어도 차가운 느낌을 가집니다.</p>
