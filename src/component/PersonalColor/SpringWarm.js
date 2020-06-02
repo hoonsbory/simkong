@@ -6,10 +6,9 @@ import ReTry from '../ReTry';
 
 export default class SpringWarm extends Component {
     componentDidMount(){
-        if(document.querySelector("body").firstElementChild.firstElementChild){
 
-            window.addEventListener('load', document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild.firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling));
-        }
+            window.addEventListener('load', document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling));
+            document.querySelector("body").firstElementChild.remove()
     }
     render() {
         const metaData = {

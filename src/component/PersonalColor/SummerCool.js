@@ -13,14 +13,10 @@ export default class SummerCool extends Component {
     //     s.setAttribute('data-timestamp', +new Date());
     //     (d.head || d.body).appendChild(s);
     // }
-    // componentDidMount(){
-    //     // while (document.querySelector("body").firstElementChild.firstElementChild) {
-            
-    //     // }
-    //     var cou = document.querySelector("body").firstElementChild.firstElementChild;
-    //     console.log(cou);
-    //     document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(cou, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
-    // }
+    componentDidMount(){
+        document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
+       
+    }
     render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
