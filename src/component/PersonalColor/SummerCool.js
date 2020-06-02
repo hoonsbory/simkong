@@ -14,13 +14,9 @@ export default class SummerCool extends Component {
     //     (d.head || d.body).appendChild(s);
     // }
     componentDidMount(){
-        // window.addEventListener('load', document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling));
-        document.getElementById("btn").click();
+        console.log(document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling))
     }
     render() {
-        function coupang(){
-            document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(document.querySelector("body").firstElementChild, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
-        }
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description : "나의 퍼스널 컬러는 뭘까??",
@@ -33,7 +29,6 @@ export default class SummerCool extends Component {
 
             <div className="pcMainDiv">
                 <Meta data={metaData}/>
-                <button id="btn" onClick={()=>coupang()}></button>
                 <img alt="WarmTitle" className="pcTitle" src="/images/personalColor/summerTitle.png"></img>
                 <div className="pcTopDiv">
                     <img alt="WarmMain" className="pcMainImg" src="/images/personalColor/summerMain.png"></img>
