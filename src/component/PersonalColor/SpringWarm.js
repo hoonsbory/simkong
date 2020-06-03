@@ -20,7 +20,8 @@ export default class SpringWarm extends Component {
         }
         const coupangAds = {
             season : "봄 웜톤",
-            url : "https://coupa.ng/bDxZEi"
+            url : "https://coupa.ng/bDxZEi",
+            url2 : "https://coupa.ng/bDCzdT"
         }
             return (
 

@@ -77,7 +77,7 @@ export default class KakaoShare extends Component {
             }
         }
         return (
-            <div id="shareButton" style={{width : "100%", textAlign : "center", marginBottom : "2rem", marginTop : "2rem"}}>
+            <div id="shareButton" style={{width : "100%", textAlign : "center", marginBottom : ".5rem", marginTop : "2rem"}}>
                 <p style={{fontSize : "1.3rem"}}>▼ 결과 공유하기 ▼</p>
                 <span id="kakao-link-btn" >
                     <img className="shareIcon" alt="Share" src="/images/snsIcon/kakaoTalk.png" />

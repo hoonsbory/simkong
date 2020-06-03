@@ -221,11 +221,13 @@
     </div>
 
     <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    <div id="middleSec">
     <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t89ovgrl5so5" data-ad-width="320"
         data-ad-height="100"></ins>
     <div id="disqus_thread"></div>
     <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hr5f1am1aofp" data-ad-width="320"
         data-ad-height="100"></ins>
+    </div>   
     <div id="footer">
         <div id="footerLeft">
             <img src="pcImages/footerImg.png">
@@ -543,6 +545,7 @@
                 document.getElementById("checkSuccess").style.display = "none"
                 document.getElementById("checkFail").style.display = "block"
                 document.getElementById("checkResult").style.display = "block"
+                document.getElementById("loading").style.display = "none"
             }
 
             // Display palette of colors
@@ -1506,11 +1509,11 @@
 
             //     season1 -= season1 / 7.3
             // }
-            if(season2<120 || season1<120){
+            if(season2<200 || season1<200){
             if (toneColor == "warm") {
                 season1[0] -= season2[0] * 0.3
             } else {
-                season1[0] -= season2[0] * 0.2
+                season1[0] -= season2[0] * 0.23
             }
             }
             var colorNum = season1[0] == season2[0] ? calResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];

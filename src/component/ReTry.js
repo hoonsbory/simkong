@@ -14,7 +14,6 @@ export default class ReTry extends Component {
             width : "100%",
             textAlign : "center",
             position : "relative",
-            marginTop : "20px",
             top : "27px"
         }
         return (
