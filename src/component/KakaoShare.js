@@ -15,30 +15,30 @@ export default class KakaoShare extends Component {
             mainUrl: data.addUrl ? this.state.mainUrl + data.addUrl : this.state.mainUrl
         })
 
-        // window.Kakao.Link.createDefaultButton({
-        //     container: '#kakao-link-btn',
-        //     objectType: 'feed',
-        //     content: {
-        //         title: data.title,
-        //         description: data.description,
-        //         imageUrl: data.image,
-        //         imageWidth : 800,
-        //         imageHeight : 400,
-        //         link: {
-        //             mobileWebUrl: this.state.mainUrl,
-        //             webUrl: this.state.mainUrl
-        //         }
-        //     },
-        //     buttons: [
-        //         {
-        //             title: '테스트 하러가기',
-        //             link: {
-        //                 mobileWebUrl: this.state.mainUrl,
-        //                 webUrl: this.state.mainUrl
-        //             }
-        //         }
-        //     ]
-        // });
+        window.Kakao.Link.createDefaultButton({
+            container: '#kakao-link-btn',
+            objectType: 'feed',
+            content: {
+                title: data.title,
+                description: data.description,
+                imageUrl: data.image,
+                imageWidth : 800,
+                imageHeight : 400,
+                link: {
+                    mobileWebUrl: this.state.mainUrl,
+                    webUrl: this.state.mainUrl
+                }
+            },
+            buttons: [
+                {
+                    title: '테스트 하러가기',
+                    link: {
+                        mobileWebUrl: this.state.mainUrl,
+                        webUrl: this.state.mainUrl
+                    }
+                }
+            ]
+        });
     }
     render() {
         const url = this.state.subUrl
