@@ -15,7 +15,7 @@ env:
 before_deploy:
   - yarn build
   - cp ./index.html ./build
-  - cp ./pcEtc ./build
+  - cpdir ./pcEtc ./build
 
 deploy:
   - provider: s3
