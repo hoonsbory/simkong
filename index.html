@@ -72,7 +72,7 @@
             </div>
             <div id="checkSuccess" style="display: none;">
                 <p>피부 측정이 완료되었습니다!</p>
-                <p style="margin-bottom : 15px">더 정확한 측정을 위해 다음 단계로 넘어갑니다</p>
+                <p style="margin-bottom : 15px">더 정확한 진단을 위해 다음 단계로 넘어갑니다</p>
             </div>
             <div class="confirmBtn"><span class="popupConfirm" onclick="popupConfirm('checkResult')">확 인</span></div>
         </div>
@@ -123,7 +123,7 @@
                             <img id="originalImg" style="display: none;" />
                         </div>
                         <div id="mainCam" style="display: none;">
-                            <video id="video" style="margin-bottom : 5vh; width: 300px; height : 60vh" autoplay
+                            <video id="video" style="margin-bottom : 5vh; width: 100%; height : 60vh" autoplay
                                 playsinline></video>
                             <div class="arrowBtn" onclick="camCheck()">피부톤 측정</div>
                             <canvas id="canvas" style="display: none;"></canvas>
@@ -213,21 +213,22 @@
 
 
         </div>
-        <div id="notice">※퍼스널컬러 진단을 위해서 <p>&nbsp;&nbsp;<span
-                    style="background-color: rgb(250,50,34); color: white; padding : 4px; padding-bottom: 0px;">팔목
-                    안쪽</span> 피부 촬영이
-                필요합니다.</p>
-        </div>
+        <div id="notice" style="text-align: center;">※ 피부톤은 <span
+            style="background-color: rgb(10, 59, 112); color: white; padding : 4px; padding-bottom: 0px;">1단계
+            카메라 측색값</span>과<p>
+            <span style="background-color: rgb(10, 59, 112); color: white; padding : 4px; padding-bottom: 0px;">2단계
+                질문결과</span>를 종합하여 평가합니다</p>
+    </div>
     </div>
 
     <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
     <div id="middleSec">
-    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t89ovgrl5so5" data-ad-width="320"
-        data-ad-height="100"></ins>
-    <div id="disqus_thread"></div>
-    <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hr5f1am1aofp" data-ad-width="320"
-        data-ad-height="100"></ins>
-    </div>   
+        <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t89ovgrl5so5" data-ad-width="320"
+            data-ad-height="100"></ins>
+        <div id="disqus_thread"></div>
+        <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hr5f1am1aofp" data-ad-width="320"
+            data-ad-height="100"></ins>
+    </div>
     <div id="footer">
         <div id="footerLeft">
             <img src="pcImages/footerImg.png">
@@ -982,7 +983,7 @@
                     }).then(function (stream) {
                         //video.src = window.URL.createObjectURL(stream);
                         document.getElementById("mainCam").style.display = "block"
-                        document.getElementById("cropNotice").innerHTML = "※ 피부가 잘보이는 상태에서 측정 버튼을 눌러주세요"
+                        document.getElementById("cropNotice").innerHTML = "※ 팔목 피부가 잘 보일 때 측정 버튼을 눌러주세요"
                         modeChange()
                         video.srcObject = stream;
                         video.play();
@@ -999,7 +1000,7 @@
                     }
                 }, function (stream) {
                     document.getElementById("mainCam").style.display = "block"
-                    document.getElementById("cropNotice").innerHTML = "※ 피부가 잘보이는 상태에서 측정 버튼을 눌러주세요"
+                    document.getElementById("cropNotice").innerHTML = "※ 팔목 피부가 잘 보일 때 측정 버튼을 눌러주세요"
                     modeChange()
                     video.src = stream;
                     video.play();
@@ -1012,7 +1013,7 @@
                     }
                 }, function (stream) {
                     document.getElementById("mainCam").style.display = "block"
-                    document.getElementById("cropNotice").innerHTML = "※ 피부가 잘보이는 상태에서 측정 버튼을 눌러주세요"
+                    document.getElementById("cropNotice").innerHTML = "※ 팔목 피부가 잘 보일 때 측정 버튼을 눌러주세요"
                     modeChange()
                     video.src = window.webkitURL.createObjectURL(stream);
                     video.play();
@@ -1025,7 +1026,7 @@
                     }
                 }, function (stream) {
                     document.getElementById("mainCam").style.display = "block"
-                    document.getElementById("cropNotice").innerHTML = "※ 피부가 잘보이는 상태에서 측정 버튼을 눌러주세요"
+                    document.getElementById("cropNotice").innerHTML = "※ 팔목 피부가 잘 보일 때 측정 버튼을 눌러주세요"
                     modeChange()
                     video.srcObject = stream;
                     video.play();
@@ -1382,90 +1383,100 @@
 
 
             // canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-            image.onload = function () {
-                canvas.width = this.width;
-                canvas.height = this.height;
-                if (appleCheck) {
-                    if (floatOs >= 13.4 || ua.indexOf("13.4") > -1 || ua.indexOf("13.5") > -1) {
-                        canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-                        if (plusMinus) callback(plusMinus);
-                        return
-                    }
-                    var fileInfo = document.getElementById("fileInput").files[0];
-                    EXIF.getData(fileInfo, async () => {
-                        const orientation = EXIF.getTag(fileInfo, "Orientation");
-                        // console.log("회전도는 " + orientation);
-                        switch (orientation) {
-
-                            // @details 이미지 회전값이 0인경우 ( 정방향 )
-
-                            case 1:
+            try {
 
 
-                                canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-                                break;
-
-                            case 3:
-
-
-                                canvasContext.translate(canvas.width / 2, canvas.height / 2);
-                                canvasContext.rotate(Math.PI);
-                                canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-
-
-
-                                // @details 이미지가 180° 회전 했을 경우 x, y축의 값을 업로드 이미지의 넓이와 높이를 음수로 변경한다.
-
-                                canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-                                break;
-
-                            // @details 이미지 회전값이 270 기운 경우 ( 왼쪽으로 90 기운 경우 )
-                            case 6:
-                                if (canvas.width < canvas.height) {
-                                    canvas.width = canvas.height;
-                                } else {
-                                    canvas.height = canvas.width;
-                                }
-
-                                canvasContext.translate(canvas.width / 2, canvas.height / 2);
-                                canvasContext.rotate(Math.PI * 0.5);
-                                canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-                                canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-
-
-                                // @details 이미지가 270° 회전 했을 경우 x축의 값을 업로드 이미지의 넓이를 음수로 변경한다.
-
-
-                                break;
-
-                            // @details 이미지 회전값이 90 기운 경우
-                            case 8:
-                                if (canvas.width < canvas.height) {
-                                    canvas.width = canvas.height;
-                                } else {
-                                    canvas.height = canvas.width;
-                                }
-
-                                canvasContext.translate(canvas.width / 2, canvas.height / 2);
-                                canvasContext.rotate(Math.PI * 1.5);
-                                canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-                                canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-                                //회전하기전에 정사각형을 만들어주자.x
-                                break;
+                image.onload = function () {
+                    canvas.width = this.width;
+                    canvas.height = this.height;
+                    if (appleCheck) {
+                        if (floatOs >= 13.4 || ua.indexOf("13.4") > -1 || ua.indexOf("13.5") > -1) {
+                            canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
+                            if (plusMinus) callback(plusMinus);
+                            return
                         }
+                        var fileInfo = document.getElementById("fileInput").files[0];
+                        EXIF.getData(fileInfo, async () => {
+                            const orientation = EXIF.getTag(fileInfo, "Orientation");
+                            // console.log("회전도는 " + orientation);
+                            switch (orientation) {
+
+                                // @details 이미지 회전값이 0인경우 ( 정방향 )
+
+                                case 1:
 
 
-                    })
-                } else {
-                    canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
+                                    canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
+                                    break;
+                                case undefined:
+
+
+                                    canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
+                                    break;
+
+                                case 3:
+
+
+                                    canvasContext.translate(canvas.width / 2, canvas.height / 2);
+                                    canvasContext.rotate(Math.PI);
+                                    canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
 
 
 
+                                    // @details 이미지가 180° 회전 했을 경우 x, y축의 값을 업로드 이미지의 넓이와 높이를 음수로 변경한다.
+
+                                    canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                                    break;
+
+                                // @details 이미지 회전값이 270 기운 경우 ( 왼쪽으로 90 기운 경우 )
+                                case 6:
+                                    if (canvas.width < canvas.height) {
+                                        canvas.width = canvas.height;
+                                    } else {
+                                        canvas.height = canvas.width;
+                                    }
+
+                                    canvasContext.translate(canvas.width / 2, canvas.height / 2);
+                                    canvasContext.rotate(Math.PI * 0.5);
+                                    canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
+                                    canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+
+
+                                    // @details 이미지가 270° 회전 했을 경우 x축의 값을 업로드 이미지의 넓이를 음수로 변경한다.
+
+
+                                    break;
+
+                                // @details 이미지 회전값이 90 기운 경우
+                                case 8:
+                                    if (canvas.width < canvas.height) {
+                                        canvas.width = canvas.height;
+                                    } else {
+                                        canvas.height = canvas.width;
+                                    }
+
+                                    canvasContext.translate(canvas.width / 2, canvas.height / 2);
+                                    canvasContext.rotate(Math.PI * 1.5);
+                                    canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
+                                    canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                                    //회전하기전에 정사각형을 만들어주자.x
+                                    break;
+                            }
+
+
+                        })
+                    } else {
+                        canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+
+
+                    }
                 }
+            } catch (error) {
+                console.log(error);
             }
         }
 
@@ -1509,25 +1520,25 @@
 
             //     season1 -= season1 / 7.3
             // }
-            if(season2<200 || season1<200){
-            if (toneColor == "warm") {
-                season1[0] -= season2[0] * 0.3
-            } else {
-                season1[0] -= season2[0] * 0.23
-            }
+            if (season2[0] < 200 || season1[0] < 200) {
+                if (toneColor == "warm") {
+                    season1[0] -= season2[0] * 0.3
+                } else {
+                    season1[0] -= season2[0] * 0.26
+                }
             }
             var colorNum = season1[0] == season2[0] ? calResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
-            // setTimeout(() => {
-            //     if (0 <= colorNum && colorNum <= 3 && toneColor == "warm") {
-            //         window.location.href = "https://mycolor.kr/springWarm"
-            //     } else if (toneColor == "warm") {
-            //         window.location.href = "https://mycolor.kr/fallWarm"
-            //     } else if (0 <= colorNum && colorNum <= 3 && toneColor == "cool") {
-            //         window.location.href = "https://mycolor.kr/summerCool"
-            //     } else {
-            //         window.location.href = "https://mycolor.kr/winterCool"
-            //     }
-            // }, 1500);
+            setTimeout(() => {
+                if (0 <= colorNum && colorNum <= 3 && toneColor == "warm") {
+                    window.location.href = "https://mycolor.kr/springWarm"
+                } else if (toneColor == "warm") {
+                    window.location.href = "https://mycolor.kr/fallWarm"
+                } else if (0 <= colorNum && colorNum <= 3 && toneColor == "cool") {
+                    window.location.href = "https://mycolor.kr/summerCool"
+                } else {
+                    window.location.href = "https://mycolor.kr/winterCool"
+                }
+            }, 1500);
 
             calResult = [];
         }
