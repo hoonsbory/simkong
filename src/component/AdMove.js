@@ -13,8 +13,8 @@ export default function AdMove() {
                   daumAd2.setAttribute("class",daumAd2.getAttribute("class")+" ads")
                   document.getElementsByClassName("specLip")[0].parentNode.insertBefore(daumAd1, document.getElementsByClassName("specLip")[0].previousSibling)
                   document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("disqus_thread"))
+                  document.querySelector("body").style.opacity = 1;
                 }
-                document.querySelector("body").style.opacity = 1;
         }
     return (
         <div>

@@ -603,9 +603,6 @@ font-size: 3vh;
 
 }
 @media(max-width: 1024px){
-  #popup img{
-    width: 6vw;
-  }
   #middleSec{
     width: 100% !important;
   }
@@ -698,6 +695,7 @@ padding-right: 2rem;
   }
   .popDivFB{
     font-size: 2vw;
+    min-width: 58vw;
   }
   .jcrop-holder:before{
     content: "드래그해서 영역을 선택한 후 완료 버튼을 눌러주세요";
