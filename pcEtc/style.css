@@ -1,9 +1,4 @@
-/* @font-face {
-  font-family: 'HSThin';
-  font-style: normal;
-  font-weight: 100;
-  src: url(font/HSThin.ttf) format("truetype");
-} */
+
 @charset "utf-8";
 
 html{
@@ -73,7 +68,6 @@ html{
   background-color: rgba(230, 230, 230, 1 );
   font-size: 2vh;
   color: rgb(10, 59, 112);
-  min-width: 246px;
   word-break: keep-all;
 }
 .popDivFB{
@@ -84,12 +78,11 @@ html{
   z-index: 999;
   transform: translate(-50%,-50%);
   padding: 5vh;
-  padding-left: 9vh;
-  padding-right: 9vh;
+  padding-left: 6vh;
+  padding-right: 6vh;
   background-color: rgba(230, 230, 230, 0.7 );
   font-size: 2vh;
   color: rgb(10, 59, 112);
-  min-width: 246px;
   word-break: keep-all;
 }
 .confirmBtn{
@@ -224,14 +217,7 @@ html{
 .fonts-loaded.blocking-time {
  opacity: 1;
 }
-/* .dragBar{
-  display: block;
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  left: 0;
-  top: 0;
-} */
+
 
 .jcrop-holder:before{
   content: "드래그해서 영역을 선택한 후 완료 버튼을 눌러주세요";
@@ -258,38 +244,7 @@ body{
 p{
   margin : 0;
 }
-/* @media(max-width : 767px){
-  html{
-    font-size : 14px !important;
-  }
-  .image-upload-wrap {
-    border: 4px solid rgb(10, 59, 112);
-    position: relative;
-    width: 200px !important;
-    height: 200px !important;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-}
-  #realImage{
-    width: 300px !important;
-    height: 300px !important;
-  }
-  .dragBar{
-    display: block;
-    width: 300px ;
-    height: 300px ;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-}
-@media(min-width : 768px){
-  #realImage{
-    width: 400px !important;
-    height: 400px !important;
-  }
-} */
+
 #notice{
   background-color: #ffffff;
   background-color: rgba( 255, 255, 255, 0.4 );
@@ -609,14 +564,7 @@ font-size: 3vh;
   }
   
   
-  /* .dragBar{
-    display: block;
-    width: 450px ;
-    height: 450px ;
-    position: absolute;
-    left: 0;
-    top: 0;
-  } */
+ 
   #middleSec{
     width: 1024px;
     display: block;
@@ -660,36 +608,6 @@ font-size: 3vh;
   }
   #middleSec{
     width: 100% !important;
-  }
-  .popDiv{
-      position: fixed;
-      left: 50%;
-      text-align: center;
-      top: 50%;
-      z-index: 999;
-      transform: translate(-50%,-50%);
-      padding-bottom: 2vh;
-      background-color: rgba(230, 230, 230, 1 );
-      font-size: 2.7vw;
-      color: rgb(10, 59, 112);
-      min-width: 59vw;
-      word-break: keep-all;
-  }
-  .popDivFB{
-    position: fixed;
-    left: 50%;
-    text-align: center;
-    top: 50%;
-    z-index: 999;
-    transform: translate(-50%,-50%);
-    padding: 5vh;
-    padding-left: 9vh;
-    padding-right: 9vh;
-    background-color: rgba(230, 230, 230, 0.7 );
-    font-size: 2vh;
-    color: rgb(10, 59, 112);
-    min-width: 246px;
-    word-break: keep-all;
   }
   #bgSpan, #noBgSpan{
     font-size: 6vh;
@@ -776,34 +694,10 @@ padding-right: 2rem;
     width: 6vw;
   }
   .popDiv{
-      position: fixed;
-      left: 50%;
-      text-align: center;
-      top: 50%;
-      z-index: 999;
-      transform: translate(-50%,-50%);
-      padding-bottom: 2vh;
-      background-color: rgba(230, 230, 230, 1 );
-      font-size: 3.7vw;
-      color: rgb(10, 59, 112);
-      min-width: 59vw;
-      word-break: keep-all;
+      font-size: 2.8vw;
   }
   .popDivFB{
-    position: fixed;
-    left: 50%;
-    text-align: center;
-    top: 50%;
-    z-index: 999;
-    transform: translate(-50%,-50%);
-    padding: 5vh;
-    padding-left: 9vh;
-    padding-right: 9vh;
-    background-color: rgba(230, 230, 230, 0.7 );
-    font-size: 2vh;
-    color: rgb(10, 59, 112);
-    min-width: 246px;
-    word-break: keep-all;
+    font-size: 2vw;
   }
   .jcrop-holder:before{
     content: "드래그해서 영역을 선택한 후 완료 버튼을 눌러주세요";
@@ -867,14 +761,7 @@ justify-content: unset;
     max-height: 310px !important;
     min-height: 182px !important;
   }
-  /* .dragBar{
-    display: block;
-    width: 300px ;
-    height: 300px ;
-    position: absolute;
-    left: 0;
-    top: 0;
-  } */
+  
 }
 @media(max-height : 439px){
   #mainbody{
