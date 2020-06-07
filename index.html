@@ -214,11 +214,11 @@
 
         </div>
         <div id="notice" style="text-align: center;">※ 피부톤은 <span
-            style="background-color: rgb(10, 59, 112); color: white; padding : 4px; padding-bottom: 0px;">1단계
-            카메라 측색값</span>과<p>
-            <span style="background-color: rgb(10, 59, 112); color: white; padding : 4px; padding-bottom: 0px;">2단계
-                질문결과</span>를 종합하여 평가합니다</p>
-    </div>
+                style="background-color: rgb(10, 59, 112); color: white; padding : 4px; padding-bottom: 0px;">1단계
+                카메라 측색값</span>과<p>
+                <span style="background-color: rgb(10, 59, 112); color: white; padding : 4px; padding-bottom: 0px;">2단계
+                    질문결과</span>를 종합하여 평가합니다</p>
+        </div>
     </div>
 
     <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
@@ -254,6 +254,9 @@
 
         let appleCheck = false;
         let ua = navigator.userAgent || navigator.vendor || window.opera;
+        if ((navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (navigator.userAgent.indexOf("msie") != -1)) { // IE 일 경우
+            document.documentElement.classList.add('fonts-loaded');
+        }
         let osInfo;
         let realOs;
         let floatOs = 0;
@@ -568,8 +571,8 @@
                 return a[0] - b[0];
             });
             var colorNum = firstResult[0][1];
-            
-            setTimeout(() => {
+
+            setTimeout(function() {
 
                 document.getElementById("loading").style.display = "none"
                 if (colorNum < 16) {
@@ -803,7 +806,7 @@
             }
         }
         //업로드된 이미지를 jcrop라이브러리로 변환하고 이미지를 캔버스에 그려놓는다.
-        async function editImg(callback, plusMinus) {
+        function editImg(callback, plusMinus) {
             editCheck = true;
             if (plusMinus) {
 
@@ -818,7 +821,7 @@
                 }
             }
             document.getElementById("editBtn").style.animation = "fade 0.5s"
-            setTimeout(() => {
+            setTimeout(function() {
                 document.getElementById("editBtn").style.animation = "unset"
             }, 500);
             let canvas = document.getElementById("copyCanvas");
@@ -860,7 +863,7 @@
                     }
                     // console.log("애플기기입니다.");
                     var fileInfo = document.getElementById("fileInput").files[0];
-                    EXIF.getData(fileInfo, async () => {
+                    EXIF.getData(fileInfo, function(){
                         const orientation = EXIF.getTag(fileInfo, "Orientation");
                         // console.log("회전도는 " + orientation);
                         switch (orientation) {
@@ -1076,7 +1079,7 @@
                 let tempImage = new Image();
                 reader.onload = function (e) {
                     tempImage.src = e.target.result;
-                    tempImage.onload = async function () {
+                    tempImage.onload = function () {
 
                         document.getElementById("originalImg").src = tempImage.src;
                         $('.file-upload-image').attr('src', tempImage.src);
@@ -1248,7 +1251,7 @@
         //이미지 회전.
         function rotateImg(plusMinus) {
             document.getElementById("rotateBtn").style.animation = "fade 0.5s"
-            setTimeout(() => {
+            setTimeout(function(){
                 document.getElementById("rotateBtn").style.animation = "unset"
             }, 500);
             if (plusMinus == "right") {
@@ -1357,7 +1360,7 @@
         //사진 원상복구. 숨겨놓앗던 오리지널 이미지태그를 불러와 캔버스에 다시그림
         function refresh() {
             document.getElementById("refreshBtn").style.animation = "fade 0.5s"
-            setTimeout(() => {
+            setTimeout(function(){
                 document.getElementById("refreshBtn").style.animation = "unset"
             }, 500);
             uploadCheck = false;
@@ -1392,7 +1395,7 @@
                             return
                         }
                         var fileInfo = document.getElementById("fileInput").files[0];
-                        EXIF.getData(fileInfo, async () => {
+                        EXIF.getData(fileInfo, function(){
                             const orientation = EXIF.getTag(fileInfo, "Orientation");
                             // console.log("회전도는 " + orientation);
                             switch (orientation) {
@@ -1524,7 +1527,7 @@
                 }
             }
             var colorNum = season1[0] == season2[0] ? calResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
-            setTimeout(() => {
+            setTimeout(function(){
                 if (0 <= colorNum && colorNum <= 3 && toneColor == "warm") {
                     window.location.href = "https://mycolor.kr/springWarm"
                 } else if (toneColor == "warm") {

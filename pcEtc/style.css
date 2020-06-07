@@ -23,6 +23,10 @@ html{
 #realImage{
   border : 5px solid rgb(10, 59, 112);
 }
+#checkFail, #checkSuccess{
+  width: 90%;
+  margin  : auto;
+}
 .blocking-time {
  opacity: 0;
 }
@@ -66,7 +70,7 @@ html{
   transform: translate(-50%,-50%);
   padding-bottom: 2vh;
   background-color: rgba(230, 230, 230, 1 );
-  font-size: 2vh;
+  font-size: 1.7vh;
   color: rgb(10, 59, 112);
   word-break: keep-all;
 }
@@ -81,7 +85,7 @@ html{
   padding-left: 6vh;
   padding-right: 6vh;
   background-color: rgba(230, 230, 230, 0.7 );
-  font-size: 2vh;
+  font-size: 1.7vh;
   color: rgb(10, 59, 112);
   word-break: keep-all;
 }
@@ -691,7 +695,7 @@ padding-right: 2rem;
     width: 6vw;
   }
   .popDiv{
-      font-size: 2.8vw;
+      font-size: 2.2vw;
   }
   .popDivFB{
     font-size: 2vw;
