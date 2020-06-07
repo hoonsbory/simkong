@@ -225,9 +225,9 @@
     <div id="middleSec">
         <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t89ovgrl5so5" data-ad-width="320"
             data-ad-height="100"></ins>
+        <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t4tgk6re3upi" data-ad-width="320"
+            data-ad-height="50"></ins>
         <div id="disqus_thread"></div>
-        <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-1hr5f1am1aofp" data-ad-width="320"
-            data-ad-height="100"></ins>
     </div>
     <div id="footer">
         <div id="footerLeft">
@@ -256,6 +256,7 @@
         let ua = navigator.userAgent || navigator.vendor || window.opera;
         if ((navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (navigator.userAgent.indexOf("msie") != -1)) { // IE 일 경우
             document.documentElement.classList.add('fonts-loaded');
+            alert("지원하지않는 브라우저입니다. 크롬,엣지,사파리 등의 브라우저를 이용해주세요");
         }
         let osInfo;
         let realOs;
@@ -572,7 +573,7 @@
             });
             var colorNum = firstResult[0][1];
 
-            setTimeout(function() {
+            setTimeout(function () {
 
                 document.getElementById("loading").style.display = "none"
                 if (colorNum < 16) {
@@ -821,7 +822,7 @@
                 }
             }
             document.getElementById("editBtn").style.animation = "fade 0.5s"
-            setTimeout(function() {
+            setTimeout(function () {
                 document.getElementById("editBtn").style.animation = "unset"
             }, 500);
             let canvas = document.getElementById("copyCanvas");
@@ -863,7 +864,7 @@
                     }
                     // console.log("애플기기입니다.");
                     var fileInfo = document.getElementById("fileInput").files[0];
-                    EXIF.getData(fileInfo, function(){
+                    EXIF.getData(fileInfo, function () {
                         const orientation = EXIF.getTag(fileInfo, "Orientation");
                         // console.log("회전도는 " + orientation);
                         switch (orientation) {
@@ -1251,7 +1252,7 @@
         //이미지 회전.
         function rotateImg(plusMinus) {
             document.getElementById("rotateBtn").style.animation = "fade 0.5s"
-            setTimeout(function(){
+            setTimeout(function () {
                 document.getElementById("rotateBtn").style.animation = "unset"
             }, 500);
             if (plusMinus == "right") {
@@ -1360,7 +1361,7 @@
         //사진 원상복구. 숨겨놓앗던 오리지널 이미지태그를 불러와 캔버스에 다시그림
         function refresh() {
             document.getElementById("refreshBtn").style.animation = "fade 0.5s"
-            setTimeout(function(){
+            setTimeout(function () {
                 document.getElementById("refreshBtn").style.animation = "unset"
             }, 500);
             uploadCheck = false;
@@ -1395,7 +1396,7 @@
                             return
                         }
                         var fileInfo = document.getElementById("fileInput").files[0];
-                        EXIF.getData(fileInfo, function(){
+                        EXIF.getData(fileInfo, function () {
                             const orientation = EXIF.getTag(fileInfo, "Orientation");
                             // console.log("회전도는 " + orientation);
                             switch (orientation) {
@@ -1527,7 +1528,7 @@
                 }
             }
             var colorNum = season1[0] == season2[0] ? calResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
-            setTimeout(function(){
+            setTimeout(function () {
                 if (0 <= colorNum && colorNum <= 3 && toneColor == "warm") {
                     window.location.href = "https://mycolor.kr/springWarm"
                 } else if (toneColor == "warm") {

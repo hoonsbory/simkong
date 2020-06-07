@@ -13,11 +13,15 @@ export default function AdMove() {
                   document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(dd, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
                   var daumAd1 = document.getElementById("root").nextElementSibling;
                   var daumAd2 = daumAd1.nextElementSibling;
+                  var daumAd3 = daumAd2.nextElementSibling;
                   daumAd2.setAttribute("class",daumAd2.getAttribute("class")+" ads")
+                  daumAd3.setAttribute("class",daumAd3.getAttribute("class")+" ads")
                   document.getElementsByClassName("specLip")[0].parentNode.insertBefore(daumAd1, document.getElementsByClassName("specLip")[0].previousSibling)
                   document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("disqus_thread"))
+                  document.getElementById("root").firstChild.insertBefore(daumAd3, document.getElementById("disqus_thread"))
                   body.style.opacity = 1;
                 }
+                
         }
     return (
         <div>
