@@ -56,7 +56,7 @@ export default class SpringWarm extends Component {
                     <p className="px-1 pt-1" style={{ background: "rgb(230,187,163)", display: "inline", color: "white" }}># 봄 웜톤의 특징</p>
                     <p className="mt-3">한국인의 많은 사람이 봄 웜톤의 피부색을 가지고 있습니다. 봄 웜톤인 사람은 사랑스럽고 귀여운 이미지로 어려 보이고 생동감이 있으며 활기가 넘칩니다. 로맨틱하면서 경쾌한 이미지가 많으며 사람들에게 인기가 많은 편입니다.  </p>
                     <p className="mt-3">봄 타입은 노란색을 지닌 따듯한 유형으로 선명(vivid) 하고 밝은(bright) 톤과 엷은(pale) 톤으로 화사하며 생동감과 에너지를 느끼게 합니다.</p>
-                    <img src="/images/personalColor/springTable.png" alt="colorTable" style={{width : "100%", paddingLeft : "10%", paddingRight : "10%"}}></img>
+                    <img src="/images/personalColor/springColor.png" alt="colorTable" style={{width : "100%", paddingLeft : "10%", paddingRight : "10%"}}></img>
                     <p className="mt-3">봄 타입은 복숭앗빛 이 감도는 밝고 노란빛의 피부를 가지고 있습니다. 눈동자는 반짝반짝하고 생기가 있는 밝은 갈색빛을 띄고 있으며 찰랑찰랑 윤기가 나는 머릿결이 특징입니다. 피부는 밝으면서 매끄럽고 투명한 분들이 많고 피부가 얇아서 주근깨같이 잡티가 있는 경우도 있습니다.</p>
                 </div>
                
