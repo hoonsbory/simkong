@@ -5,8 +5,6 @@ import Meta from '../Meta'
 import ReTry from '../ReTry';
 import AdMove from '../AdMove';
 import CoupangAds from '../CoupangAds';
-import Adsense from '../Adsense';
-
 
 export default class SummerCool extends Component {
     // componentDidMount(){
@@ -20,11 +18,6 @@ export default class SummerCool extends Component {
        AdMove()
       }
     render() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-        s.setAttribute('data-ad-client', "ca-pub-9106671749645972");
-        s.async = true;
-        (d.head || d.body).appendChild(s);
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description : "나의 퍼스널 컬러는 뭘까??",
@@ -73,10 +66,10 @@ export default class SummerCool extends Component {
                     <img src="/images/personalColor/summerColor.png" alt="colorTable" style={{width : "100%", paddingLeft : "10%", paddingRight : "10%"}}></img>
                     <p className="mt-3">핑크빛과 붉은빛이 감도는 혈색 좋은 피부 톤을 가지고 있으며, 피부가 얇아 예민합니다. 차분하고 깊은 부드러운 갈색의 눈동자, 회갈색을 띠는 건조하고 얇으며 부스스한 머리카락, 지적이고 세련되며 우아한 인상이 여름 타입의 특징입니다.</p>
                 </div>
+                
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color : "white" }}># 여름 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">흰색과 파란색을 머금고 있는 여름 컬러들은 소프트하고 밝은 컬러, 그레이 시한 컬러들로 이루어져 있어 시원하고 화려한 인상을 줍니다. 여름 쿨톤의 컬러들은 블루 베이스로 이루어져 있고 난색이어도 차가운 느낌을 가집니다.</p>
-                {/* <Adsense format="fluid" layout="in-article" client="ca-pub-9106671749645972" slot="4501240490"></Adsense> */}
                     <p className="mt-3">여름 타입에게 잘 어울리는 컬러는 화이트, 그레이, 네이비 등 차가운 느낌의 컬러를 기본색으로 그레이쉬한 파스텔톤과 함께 사용할 수 있는데, 대표적인 컬러는 딸기 우유 핑크, 루비 레드, 민트 그린, 라벤더의 연보라, 시원한 파스텔블루 등 안개가 낀 듯 뿌옇고 부드럽게 보이는 게 특징입니다. 여름의 컬러는 시원함과 시크함, 세련된 느낌의 이미지를 보여줍니다.</p>
                     <img alt="WarmSpectrum" className="specLip" src="/images/personalColor/summerSpectrum.png"></img>
                 </div>
@@ -90,7 +83,6 @@ export default class SummerCool extends Component {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
-                {/* <Adsense format="auto"  client="ca-pub-9106671749645972" slot="1655934358"></Adsense> */}
             </div>
         )
     }
