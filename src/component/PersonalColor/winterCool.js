@@ -16,12 +16,6 @@ export default class WinterCool extends Component {
     // }
     componentDidMount() {
         AdMove()
-        var d = document, s = d.createElement('script');
-    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-    s.async = true;
-        (d.head || d.body).appendChild(s);
-        window.adsbygoogle = window.adsbygoogle || []
-        window.adsbygoogle.push({})
       }
     render() {
     
@@ -74,12 +68,6 @@ export default class WinterCool extends Component {
                     <img src="/images/personalColor/winterColor.png" alt="colorTable" style={{width : "100%", paddingLeft : "10%", paddingRight : "10%"}}></img>
                     <p className="mt-3">겨울 타입은 핏기가 없어 보일 정도의 창백하고 투명한 피부 톤을 가집니다. 눈동자는 푸른빛, 갈색빛으로 강렬하고 개성 있으며 카리스마가 있다. 푸른빛이 감도는 갈색 머리, 혹은 아주 까만 머리를 가지고 있습니다.</p>
                 </div>
-                <ins className="adsbygoogle"
-     style={{display: "block" ,textAlign : "center"}}
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-9106671749645972"
-     data-ad-slot="4005592068"></ins>
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">겨울 컬러들은 파란색, 흰색, 검정을 내포하고 있는 차갑고 강렬한 컬러들의 그룹입니다. 선명하고 강하거나, 혹은 아주 여린 아이 시한 컬러들이 이 그룹에 속합니다. 모던하고 도회적인 이미지를 가지고 있는 팔레트입니다.</p>
