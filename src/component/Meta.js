@@ -24,7 +24,7 @@ const Meta = ({ data }) => {
       {canonical ? <link rel="canonical" href={canonical} /> : null}
       {image ? <link rel="image_src" href={image} /> : null}
       {image ? <meta itemprop="image" content={image} /> : null}
-
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <meta property="og:site_name" content="YOUR WEB SITE" />
       <meta property="og:title" content={title} />
       {description ? (

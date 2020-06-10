@@ -5,6 +5,8 @@ import Meta from '../Meta'
 import ReTry from '../ReTry';
 import AdMove from '../AdMove';
 import CoupangAds from '../CoupangAds';
+import Adsense from '../Adsense';
+
 
 export default class FallWarm extends Component {
     // componentDidMount(){
@@ -66,10 +68,10 @@ export default class FallWarm extends Component {
                     <img src="/images/personalColor/fallColor.png" alt="colorTable" style={{width : "100%", paddingLeft : "10%", paddingRight : "10%"}}></img>
                     <p className="mt-3">가을 타입은 누르스름한 피부 톤에 혈색이 있으며 매끈매끈하며 탄력이 있는 피부를 가지고 있습니다. 눈동자 색은 짙고 깊이감이 있어 차분하고 믿음직스럽고 그윽함이 특징입니다. 황갈색 피부, 혹은 짙은 갈색빛을 지닌 굵고 윤기 없고 볼륨 있는 머리카락을 가지고 있습니다.</p>
                 </div>
-                
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(226,186,139)", display: "inline", color : "white" }}># 가을 웜톤 컬러 팔레트</p>
                     <p className="mt-3">가을 컬러들은 노란색보다 짙은 황색을 지니고 있는 색의 그룹으로 깊고 강하면서 고급스럽고 편안한 컬러들이 주를 이루며, 어른스럽고 차분한 이미지를 가지고 있는 팔레트입니다.</p>
+                <Adsense format="fluid" layout="in-article" client="ca-pub-9106671749645972" slot="4501240490"></Adsense>
                     <p className="mt-3">가을 타입에게 잘 어울리는 컬러는 아이보리, 베이지와 같은 밝은 톤과 골드와 브라운과 같은 진한 톤에서 어두운 톤까지 많은 영역의 컬러를 사용할 수 있습니다. 대표적인 컬러는 잘 익은 토마토, 연어 살색, 가을의 단풍, 가을의 황금벌판, 황토색 등 가을의 자연에서 흔히 볼 수 있는 컬러입니다. 가을의 컬러는 따듯함과 안정감, 편안한 이미지를 줍니다. </p>
                     <img alt="WarmSpectrum" className="specLip" src="/images/personalColor/fallSpectrum.png"></img>
                 </div>
@@ -83,7 +85,7 @@ export default class FallWarm extends Component {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
-                
+                <Adsense format="auto" client="ca-pub-9106671749645972" slot="1655934358"></Adsense>
                 
             </div>
         )

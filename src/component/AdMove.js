@@ -13,12 +13,13 @@ export default function AdMove() {
                   document.getElementsByClassName("pcTopDiv")[0].parentNode.insertBefore(dd, document.getElementsByClassName("pcTopDiv")[0].nextSibling)
                   var daumAd1 = document.getElementById("root").nextElementSibling;
                   var daumAd2 = daumAd1.nextElementSibling;
-                  var daumAd3 = daumAd2.nextElementSibling;
+                //   var daumAd3 = daumAd2.nextElementSibling;
+                  daumAd1.setAttribute("class",daumAd1.getAttribute("class")+" ads")
                   daumAd2.setAttribute("class",daumAd2.getAttribute("class")+" ads")
-                  daumAd3.setAttribute("class",daumAd3.getAttribute("class")+" ads")
-                  document.getElementsByClassName("specLip")[0].parentNode.insertBefore(daumAd1, document.getElementsByClassName("specLip")[0].previousSibling)
-                  document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("disqus_thread"))
-                  document.getElementById("root").firstChild.insertBefore(daumAd3, document.getElementById("disqus_thread"))
+                //   document.getElementsByClassName("specLip")[0].parentNode.insertBefore(daumAd1, document.getElementsByClassName("specLip")[0].previousSibling)
+                //   document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("disqus_thread"))
+                  document.getElementById("root").firstChild.insertBefore(daumAd1, document.getElementById("disqus_thread"))
+                  document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("footer"))
                   body.style.opacity = 1;
                 }
                 
