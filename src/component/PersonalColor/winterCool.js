@@ -81,7 +81,7 @@ export default class WinterCool extends Component {
                     <p>[립스틱] 버건디 / 퍼플 / 딥로즈 / 플럼 / 체리 계열</p>
                     <img alt="WarmLip" className="specLip" src="/images/personalColor/winterLip.png"></img>
                 </div>
-                <CoupangAds data={coupangAds}></CoupangAds>
+                {/* <CoupangAds data={coupangAds}></CoupangAds> */}
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
                 
