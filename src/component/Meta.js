@@ -20,7 +20,7 @@ const Meta = ({ data }) => {
     <Helmet titleTemplate="%s">
       <html lang={lang} />
       <title>{title}</title>
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      {/* <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> */}
       <meta name="description" content={description} />
       {canonical ? <link rel="canonical" href={canonical} /> : null}
       {image ? <link rel="image_src" href={image} /> : null}
