@@ -15,7 +15,7 @@ export default class WinterCool extends Component {
     //     (d.head || d.body).appendChild(s);
     // }
     componentDidMount() {
-        AdMove()
+        // AdMove()
       }
     render() {
         const metaData = {
