@@ -19,28 +19,11 @@ export default class WinterCool extends Component {
         AdMove()
     }
     render() {
-        var check = 0;
-        var i = 0;
-        while (check < 2) {
-            if (document.querySelector("head").childNodes[i].src) {
-                if (document.querySelector("head").childNodes[i].src.indexOf("localhost") > -1) {
-                    document.querySelector("head").childNodes[i].remove();
-                    check++;
-                    console.log("삭제");
-                }
-            }
-            if (document.querySelector("head").childNodes[i].href) {
-                if (document.querySelector("head").childNodes[i].href.indexOf("localhost") > -1) {
-                    document.querySelector("head").childNodes[i].remove();
-                    check++;
-                    console.log("삭제");
-                }
-            }
-            if (i == 30) {
-                break;
-            }
-            i++;
-        }
+        var d = document, s = d.createElement('script');
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+        s.setAttribute('data-ad-client', 'ca-pub-9106671749645972');
+        s.async = true;
+        (d.head || d.body).appendChild(s);
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description: "나의 퍼스널 컬러는 뭘까??",
