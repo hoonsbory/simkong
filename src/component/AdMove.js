@@ -14,10 +14,10 @@ export default function AdMove() {
                   var daumAd1 = document.getElementById("root").nextElementSibling;
                   var daumAd2 = daumAd1.nextElementSibling;
                 //   var daumAd3 = daumAd2.nextElementSibling;
-                  var googleAd = document.getElementById("footer").nextElementSibling;
+                //   var googleAd = document.getElementById("footer").nextElementSibling;
                   daumAd1.setAttribute("class",daumAd1.getAttribute("class")+" ads")
                   daumAd2.setAttribute("class",daumAd2.getAttribute("class")+" ads")
-                  document.getElementsByClassName("specLip")[0].parentNode.insertBefore(googleAd, document.getElementsByClassName("specLip")[0].previousSibling)
+                //   document.getElementsByClassName("specLip")[0].parentNode.insertBefore(googleAd, document.getElementsByClassName("specLip")[0].previousSibling)
                 //   document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("disqus_thread"))
                   document.getElementById("root").firstChild.insertBefore(daumAd1, document.getElementById("disqus_thread"))
                   document.getElementById("root").firstChild.insertBefore(daumAd2, document.getElementById("footer"))
