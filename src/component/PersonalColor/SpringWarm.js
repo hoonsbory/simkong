@@ -10,13 +10,13 @@ import Adsense from '../Adsense';
 export default class SpringWarm extends Component {
     componentDidMount() {
         AdMove()
-      }
-    render() {
         var d = document, s = d.createElement('script');
         s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
         s.setAttribute('data-ad-client', "ca-pub-9106671749645972");
         s.async = true;
         (d.head || d.body).appendChild(s);
+      }
+    render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description: "나의 퍼스널 컬러는 뭘까??",
