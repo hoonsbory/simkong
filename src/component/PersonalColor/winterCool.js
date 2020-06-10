@@ -18,6 +18,7 @@ export default class WinterCool extends Component {
         // AdMove()
       }
     render() {
+        document.getElementsByClassName("adsbygoogle")[0].remove()
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description: "나의 퍼스널 컬러는 뭘까??",
