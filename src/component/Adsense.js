@@ -1,6 +1,6 @@
 import React from 'react';
-import AdSense from 'react-adsense';
-
+// import AdSense from 'react-adsense';
+const AdSense = require('react-adsense');
 const Adsense = ({ client, slot,layout,format }) => {
   return (
     <AdSense.Google
