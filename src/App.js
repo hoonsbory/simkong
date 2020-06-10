@@ -9,6 +9,7 @@ import SummerCoolMeta from "./component/PersonalColor/redirect/SummerCoolMeta";
 import FallWarmMeta from "./component/PersonalColor/redirect/FallWarmMeta";
 import WinterCoolMeta from "./component/PersonalColor/redirect/WinterCoolMeta";
 import Footer from "./component/Footer";
+import Adsense from "./component/Adsense";
 
 
 export default class App extends Component {
@@ -24,7 +25,6 @@ export default class App extends Component {
     return (
       <div>
         <Router>
-
           <Link to="/winterCoolMeta"></Link>
           <Link to="/summerCoolMeta"></Link>
           <Link to="/springWarmMeta"></Link>
@@ -46,10 +46,12 @@ export default class App extends Component {
           <Route exact path="/summerCoolMeta" component={SummerCoolMeta}></Route>
           <Route exact path="/fallWarmMeta" component={FallWarmMeta}></Route>
           <Route exact path="/winterCoolMeta" component={WinterCoolMeta}></Route>
+          <Adsense format="fluid" layout="in-article" client="ca-pub-9106671749645972" slot="4501240490"></Adsense>
 
           <div id="disqus_thread" />
 
           <Footer></Footer>
+          <Adsense format="auto" client="ca-pub-9106671749645972" slot="1655934358"></Adsense>
         </Router>
       </div>
     )
