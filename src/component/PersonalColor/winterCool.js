@@ -5,6 +5,7 @@ import Meta from '../Meta'
 import ReTry from '../ReTry';
 import AdMove from '../AdMove';
 import CoupangAds from '../CoupangAds';
+import Adsense from '../Adsense';
 
 export default class WinterCool extends Component {
     // componentDidMount(){
@@ -18,8 +19,14 @@ export default class WinterCool extends Component {
         AdMove()
       }
     render() {
-        document.querySelector("head").childNodes[18].setAttribute("href","https://adservice.google.com/adsid/integrator.js?domain=mycolor.kr")
-        document.querySelector("head").childNodes[19].src = "https://adservice.google.com/adsid/integrator.js?domain=mycolor.kr"
+        var check =0;
+        var i =0;
+        while(check <2){
+            if(document.querySelector("head").childNodes[i].src.indexOf("localhost") > -1 || document.querySelector("head").childNodes[i].href.indexOf("localhost") > -1){
+                document.querySelector("head").childNodes[i].remove();
+                check++;
+            }
+        }
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description: "나의 퍼스널 컬러는 뭘까??",
@@ -69,6 +76,7 @@ export default class WinterCool extends Component {
                     <img src="/images/personalColor/winterColor.png" alt="colorTable" style={{width : "100%", paddingLeft : "10%", paddingRight : "10%"}}></img>
                     <p className="mt-3">겨울 타입은 핏기가 없어 보일 정도의 창백하고 투명한 피부 톤을 가집니다. 눈동자는 푸른빛, 갈색빛으로 강렬하고 개성 있으며 카리스마가 있다. 푸른빛이 감도는 갈색 머리, 혹은 아주 까만 머리를 가지고 있습니다.</p>
                 </div>
+                <Adsense client="ca-pub-9106671749645972" slot="4086317268"></Adsense>
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">겨울 컬러들은 파란색, 흰색, 검정을 내포하고 있는 차갑고 강렬한 컬러들의 그룹입니다. 선명하고 강하거나, 혹은 아주 여린 아이 시한 컬러들이 이 그룹에 속합니다. 모던하고 도회적인 이미지를 가지고 있는 팔레트입니다.</p>
