@@ -17,8 +17,13 @@ export default class WinterCool extends Component {
     // }
     componentDidMount() {
         AdMove()
-      }
+    }
     render() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+        s.setAttribute('data-ad-client', "ca-pub-9106671749645972");
+        s.async = true;
+        (d.head || d.body).appendChild(s);
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description: "나의 퍼스널 컬러는 뭘까??",
@@ -27,9 +32,9 @@ export default class WinterCool extends Component {
             canonical2: "winterCoolMeta"
         }
         const coupangAds = {
-            season : "겨울 쿨톤",
-            url : "https://coupa.ng/bDxXzm",
-            url2 : "https://coupa.ng/bDCyMo"
+            season: "겨울 쿨톤",
+            url: "https://coupa.ng/bDxXzm",
+            url2: "https://coupa.ng/bDCyMo"
         }
         return (
 
@@ -65,13 +70,13 @@ export default class WinterCool extends Component {
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤의 특징</p>
                     <p className="mt-3">겨울 쿨톤인 사람은 차갑고 강렬하며 이지적인 느낌을 지니고 있으며 깔끔하고 세련된 이미지를 지니는 사람이 많습니다. 전형적인 모던한 스타일로 선명하고 액티브한 이미지를 지니고 있어 존재감이 있으며 도시적인 감각을 지닌 유형입니다. </p>
                     <p className="mt-3">겨울 타입은 파랑과 흰색, 검정을 지닌 차가운 유형으로 선명(vivid) 하고 엷은(pale) 톤, 어두운(dark) 톤의 모던하며 도시적인 강렬함을 느끼게 합니다.</p>
-                    <img src="/images/personalColor/winterColor.png" alt="colorTable" style={{width : "100%", paddingLeft : "10%", paddingRight : "10%"}}></img>
+                    <img src="/images/personalColor/winterColor.png" alt="colorTable" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
                     <p className="mt-3">겨울 타입은 핏기가 없어 보일 정도의 창백하고 투명한 피부 톤을 가집니다. 눈동자는 푸른빛, 갈색빛으로 강렬하고 개성 있으며 카리스마가 있다. 푸른빛이 감도는 갈색 머리, 혹은 아주 까만 머리를 가지고 있습니다.</p>
                 </div>
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">겨울 컬러들은 파란색, 흰색, 검정을 내포하고 있는 차갑고 강렬한 컬러들의 그룹입니다. 선명하고 강하거나, 혹은 아주 여린 아이 시한 컬러들이 이 그룹에 속합니다. 모던하고 도회적인 이미지를 가지고 있는 팔레트입니다.</p>
-                {/* <Adsense format="fluid" layout="in-article" client="ca-pub-9106671749645972" slot="4501240490"></Adsense> */}
+                    {/* <Adsense format="fluid" layout="in-article" client="ca-pub-9106671749645972" slot="4501240490"></Adsense> */}
                     <p className="mt-3">겨울 타입에게 잘 어울리는 컬러는 화이트, 블랙과 같은 모노톤과 시리도록 차갑고 선명한 색과 아이스 컬러를 사용할 수 있는데, 대표적인 컬러는 아이스 블루, 아이스핑크, 쇼킹 핑크, 와인레드, 레몬옐로우, 크리스마스트리 그린, 사파이어 등 인공적이면서 얼음처럼 차갑고 강한 컬러들입니다. 겨울의 컬러는 차가움과 모던함, 카리스마 있는 이미지를 줍니다.</p>
                     <img alt="WarmSpectrum" className="specLip" src="/images/personalColor/winterSpectrum.png"></img>
                 </div>
@@ -86,7 +91,6 @@ export default class WinterCool extends Component {
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
                 {/* <Adsense format="auto" client="ca-pub-9106671749645972" slot="1655934358"></Adsense> */}
-                
             </div>
         )
     }
