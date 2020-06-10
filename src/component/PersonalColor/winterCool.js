@@ -17,14 +17,24 @@ export default class WinterCool extends Component {
     // }
     componentDidMount() {
         AdMove()
-      }
+    }
     render() {
-        var check =0;
-        var i =0;
-        while(check <2){
-            if(document.querySelector("head").childNodes[i].src.indexOf("localhost") > -1 || document.querySelector("head").childNodes[i].href.indexOf("localhost") > -1){
-                document.querySelector("head").childNodes[i].remove();
-                check++;
+        var check = 0;
+        var i = 0;
+        while (check < 2) {
+            if (document.querySelector("head").childNodes[i].src) {
+                if (document.querySelector("head").childNodes[i].src.indexOf("localhost") > -1) {
+                    document.querySelector("head").childNodes[i].remove();
+                    check++;
+                    console.log("삭제");
+                }
+            }
+            if (document.querySelector("head").childNodes[i].href) {
+                if (document.querySelector("head").childNodes[i].href.indexOf("localhost") > -1) {
+                    document.querySelector("head").childNodes[i].remove();
+                    check++;
+                    console.log("삭제");
+                }
             }
         }
         const metaData = {
@@ -35,9 +45,9 @@ export default class WinterCool extends Component {
             canonical2: "winterCoolMeta"
         }
         const coupangAds = {
-            season : "겨울 쿨톤",
-            url : "https://coupa.ng/bDxXzm",
-            url2 : "https://coupa.ng/bDCyMo"
+            season: "겨울 쿨톤",
+            url: "https://coupa.ng/bDxXzm",
+            url2: "https://coupa.ng/bDCyMo"
         }
         return (
 
@@ -73,7 +83,7 @@ export default class WinterCool extends Component {
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤의 특징</p>
                     <p className="mt-3">겨울 쿨톤인 사람은 차갑고 강렬하며 이지적인 느낌을 지니고 있으며 깔끔하고 세련된 이미지를 지니는 사람이 많습니다. 전형적인 모던한 스타일로 선명하고 액티브한 이미지를 지니고 있어 존재감이 있으며 도시적인 감각을 지닌 유형입니다. </p>
                     <p className="mt-3">겨울 타입은 파랑과 흰색, 검정을 지닌 차가운 유형으로 선명(vivid) 하고 엷은(pale) 톤, 어두운(dark) 톤의 모던하며 도시적인 강렬함을 느끼게 합니다.</p>
-                    <img src="/images/personalColor/winterColor.png" alt="colorTable" style={{width : "100%", paddingLeft : "10%", paddingRight : "10%"}}></img>
+                    <img src="/images/personalColor/winterColor.png" alt="colorTable" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
                     <p className="mt-3">겨울 타입은 핏기가 없어 보일 정도의 창백하고 투명한 피부 톤을 가집니다. 눈동자는 푸른빛, 갈색빛으로 강렬하고 개성 있으며 카리스마가 있다. 푸른빛이 감도는 갈색 머리, 혹은 아주 까만 머리를 가지고 있습니다.</p>
                 </div>
                 <Adsense client="ca-pub-9106671749645972" slot="4086317268"></Adsense>
@@ -93,7 +103,7 @@ export default class WinterCool extends Component {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
-                
+
             </div>
         )
     }
