@@ -35,6 +35,9 @@ export default class WinterCool extends Component {
                     check++;
                     console.log("삭제");
                 }
+                if(i==30){
+                    check =2;
+                }
             }
         }
         const metaData = {
