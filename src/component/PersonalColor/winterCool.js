@@ -16,15 +16,15 @@ export default class WinterCool extends Component {
     // }
     componentDidMount() {
         AdMove()
-        window.adsbygoogle = window.adsbygoogle || []
-        window.adsbygoogle.push({})
-      }
-    render() {
         var d = document, s = d.createElement('script');
     s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
     s.setAttribute('data-ad-client', 'ca-pub-9106671749645972');
     s.async = true;
-    (d.head || d.body).appendChild(s);
+        (d.head || d.body).appendChild(s);
+        window.adsbygoogle = window.adsbygoogle || []
+        window.adsbygoogle.push({})
+      }
+    render() {
     
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
