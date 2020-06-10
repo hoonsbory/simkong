@@ -18,7 +18,6 @@ export default class WinterCool extends Component {
         AdMove()
         var d = document, s = d.createElement('script');
     s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-    s.setAttribute('data-ad-client', 'ca-pub-9106671749645972');
     s.async = true;
         (d.head || d.body).appendChild(s);
         window.adsbygoogle = window.adsbygoogle || []
