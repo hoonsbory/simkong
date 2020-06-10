@@ -18,7 +18,8 @@ export default class WinterCool extends Component {
         AdMove()
       }
     render() {
-    
+        document.querySelector("head").childNodes[18].setAttribute("href","https://adservice.google.com/adsid/integrator.js?domain=mycolor.kr")
+        document.querySelector("head").childNodes[19].src = "https://adservice.google.com/adsid/integrator.js?domain=mycolor.kr"
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description: "나의 퍼스널 컬러는 뭘까??",

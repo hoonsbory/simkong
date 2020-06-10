@@ -68,7 +68,6 @@ html{
   top: 50%;
   z-index: 999;
   transform: translate(-50%,-50%);
-  padding-bottom: 2vh;
   background-color: rgba(230, 230, 230, 1 );
   font-size: 1.7vh;
   color: rgb(10, 59, 112);
@@ -569,7 +568,7 @@ font-size: 3vh;
   
   
  
-  #middleSec{
+  .middleSec{
     width: 1024px;
     display: block;
     margin: auto;
@@ -607,7 +606,7 @@ font-size: 3vh;
 
 }
 @media(max-width: 1024px){
-  #middleSec{
+  .middleSec{
     width: 100% !important;
   }
   #bgSpan, #noBgSpan{
