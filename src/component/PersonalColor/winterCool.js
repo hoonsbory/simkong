@@ -100,6 +100,7 @@ export default class WinterCool extends Component {
                         client="ca-pub-9106671749645972"
                         slot="8539007090"
                         style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
+                        format="horizontal"
                     />
             </div>
         )
