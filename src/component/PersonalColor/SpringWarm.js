@@ -5,6 +5,7 @@ import Meta from '../Meta'
 import ReTry from '../ReTry';
 import AdMove from '../AdMove';
 import CoupangAds from '../CoupangAds';
+import Adsense from '../Adsense';
 
 export default class SpringWarm extends Component {
     componentDidMount() {
@@ -63,6 +64,7 @@ export default class SpringWarm extends Component {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(230,187,163)", display: "inline", color: "white" }}># 봄 웜톤 컬러 팔레트</p>
                     <p className="mt-3">봄 컬러들은 전체적으로 노란색을 가지고 있는 그룹으로 밝고 선명하고 파스텔톤으로 이루어져 있어 화사하면서 활기찬 느낌이 나는 탄력 있는 팔레트입니다. 따라서 새싹과 꽃이 피어나는 봄의 맑은 이미지를 생각하며 스타일링 하는 것을 추천합니다.</p>
+                    <Adsense client="ca-pub-9106671749645972" slot="4086317268"></Adsense>
                     <p className="mt-3">봄 타입에게 잘 어울리는 컬러는 아이보리, 베이지와 같은 밝은 톤과 알록달록 캔디처럼 선명한 컬러를 사용할 수 있는데, 대표적인 컬러는 복숭아 핑크, 오렌지 레드, 해바라기 노란색, 새싹의 초록, 팬지꽃의 퍼플 등 싱그러운 과일이나 햇살을 듬뿍 머금은 선명한 컬러입니다.</p>
                     <img alt="WarmSpectrum" className="specLip" src="/images/personalColor/springSpectrum.png"></img>
                 </div>
@@ -77,6 +79,7 @@ export default class SpringWarm extends Component {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
+                <Adsense client="ca-pub-9106671749645972" slot="8539007090" style="width : '100%', height: '100px'"></Adsense>
             </div>
         )
     }
