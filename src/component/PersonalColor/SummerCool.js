@@ -60,6 +60,12 @@ export default class SummerCool extends Component {
                         </div>
                     </div>
                 </div>
+                <AdSense.Google
+                        client="ca-pub-9106671749645972"
+                        slot="7753265380"
+                        style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
+                        format="horizontal"
+                    />
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color : "white" }}># 여름 쿨톤의 특징</p>
                     <p className="mt-3">여름 쿨톤인 사람은 대체적으로 깨끗한 이미지를 가지고 있습니다. 또한 여름 타입은 자연스럽고 산뜻한 이미지로, 화사하며 부드럽고 여성스러운 스타일이 주로 많습니다. </p>
@@ -90,12 +96,12 @@ export default class SummerCool extends Component {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare  data={metaData}></KakaoShare>
-                <AdSense.Google
+                {/* <AdSense.Google
                         client="ca-pub-9106671749645972"
                         slot="8539007090"
                         style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
                         format="horizontal"
-                    />
+                    /> */}
             </div>
         )
     }

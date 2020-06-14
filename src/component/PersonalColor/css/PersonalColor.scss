@@ -4,9 +4,6 @@
     margin: auto !important;
     margin-top: 20px !important;
 }
-body{
-    opacity: 0;
-}
 .squareGroup span{
     width: 60px;
     padding-bottom: 60px;
@@ -52,7 +49,6 @@ p{
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: 20px;
 }
 #reTryP{
     font-size: 14px;
