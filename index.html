@@ -277,6 +277,8 @@
             document.documentElement.classList.add('fonts-loaded');
             alert("지원하지않는 브라우저입니다. 크롬,엣지,사파리 등의 브라우저를 이용해주세요");
         }
+
+        //애플 기기의 ios버전을 체크하기 위함.
         let osInfo;
         let realOs;
         let floatOs = 0;
@@ -312,6 +314,8 @@
             document.getElementById("fileInput").click();
         }
 
+
+        //상황에따라 다른 팝업창 구분
         function popupConfirm(div) {
             if (document.getElementById("checkSuccess").style.display == "block") {
                 moveRight("");
