@@ -77,7 +77,7 @@
                         <p style="margin-bottom : 15px">더 정확한 진단을 위해 다음 단계로 넘어갑니다</p>
                     </div>
                     <div class="confirmBtn" onclick="popupConfirm('checkResult')"><span class="popupConfirm" >확 인</span></div>
-                    <ins class="kakao_ad_area" style="display:block; margin-top: 10px" data-ad-unit="DAN-1h7fvl13rbh9w" data-ad-width="250"
+                    <ins class="kakao_ad_area" style="display:block; margin-top: 5px !important; margin : auto;" data-ad-unit="DAN-1h7fvl13rbh9w" data-ad-width="250"
                         data-ad-height="250"></ins>
         </div>
     </div>
@@ -111,6 +111,7 @@
                 <div class="drag-text">
                     <img src="pcImages/camera.png" />
                     <h1>내 피부 촬영하기 </h1>
+                    <p>※ 손목 안쪽 피부</p>
                 </div>
             </div>
             <div id="slider" style="display: none;">
@@ -255,7 +256,7 @@
         <div>제작 도움 - <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg"
                 style="color : rgb(10, 59, 112)">JoCoding Youtube</a></div>
         <div id="footerCenter"><a href="https://mycolor.kr/privacy" style="color : rgb(10, 59, 112)">개인정보 처리방침</a></div>
-        <div id="footerRight">Contact : tonymkcv93@gmail.com</div>
+        <div id="footerRight">Contact : 신재훈 -tonymkcv93@gmail.com</div>
     </div>
     <script type="text/javascript">
         //뒤로가기고 페이지에 진입하면 새로고침되게
@@ -978,7 +979,7 @@
                     }).then(function (stream) {
                         //video.src = window.URL.createObjectURL(stream);
                         document.getElementById("mainCam").style.display = "block"
-                        document.getElementById("cropNotice").innerHTML = "※ 피부가 잘보이는 상태에서 측정 버튼을 눌러주세요"
+                        document.getElementById("cropNotice").innerHTML = "※ 손목 안쪽이 잘보이는 상태에서 측정 버튼을 눌러주세요"
                         modeChange()
                         video.srcObject = stream;
                         video.play();

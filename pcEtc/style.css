@@ -109,6 +109,7 @@ html{
   color: white;
   padding-left: 2rem;
   padding-right: 2rem;
+  padding-bottom: 1px;
 }
 #stepDiv{
   width: 51px;
@@ -203,6 +204,7 @@ html{
   transform: translateX(-50%);
   margin-top: 15px;
   margin-bottom : 3.6rem;
+  padding-top: 4px;
 }
 #leftBtn span{
   left : -6rem;
@@ -266,6 +268,7 @@ p{
   font-size: 1.9vh;
   margin-bottom: 5vh;
   padding: 6px;
+  padding-bottom: 3px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -492,10 +495,20 @@ a.control_next {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  margin-top: 5px;
 }
 .drag-text img{
-width: 13vh;
-height: unset;
+  width: 13vh;
+  height: unset;
+}
+.drag-text p{
+  font-size: 2vh;
+    color: white;
+    background: red;
+    padding: 5px;
+    display: inline;
+    padding-bottom: 0px;
+    border-radius: 5px;
 }
 
 .drag-text h1 {
@@ -503,6 +516,7 @@ font-weight: 100;
 text-transform: uppercase;
 color: rgb(10, 59, 112);
 font-size: 3vh;
+margin-bottom: 5px;
 }
 .image-dropping,
 .image-upload-wrap:hover {
