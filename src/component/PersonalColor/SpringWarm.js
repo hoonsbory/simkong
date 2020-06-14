@@ -8,9 +8,9 @@ import CoupangAds from '../CoupangAds';
 import AdSense from 'react-adsense'
 
 export default class SpringWarm extends Component {
-    componentDidMount() {
-        AdMove()
-      }
+    // componentDidMount() {
+    //     AdMove()
+    //   }
     render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",

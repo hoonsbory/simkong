@@ -15,9 +15,9 @@ export default class FallWarm extends Component {
     //     s.setAttribute('data-timestamp', +new Date());
     //     (d.head || d.body).appendChild(s);
     // }
-    componentDidMount() {
-        AdMove()
-      }
+    // componentDidMount() {
+    //     AdMove()
+    //   }
     render() {
         //메타태그
         const metaData = {

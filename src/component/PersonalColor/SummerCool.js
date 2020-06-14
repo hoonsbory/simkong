@@ -15,9 +15,9 @@ export default class SummerCool extends Component {
     //     s.setAttribute('data-timestamp', +new Date());
     //     (d.head || d.body).appendChild(s);
     // }
-    componentDidMount() {
-       AdMove()
-      }
+    // componentDidMount() {
+    //    AdMove()
+    //   }
     render() {
         const metaData = {
             title: "퍼스널 컬러 진단하기!",

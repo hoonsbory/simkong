@@ -15,9 +15,9 @@ export default class WinterCool extends Component {
     //     s.setAttribute('data-timestamp', +new Date());
     //     (d.head || d.body).appendChild(s);
     // }
-    componentDidMount() {
-        AdMove()
-    }
+    // componentDidMount() {
+    //     AdMove()
+    // }
     render() {
         // var d = document, s = d.createElement('script');
         // s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
