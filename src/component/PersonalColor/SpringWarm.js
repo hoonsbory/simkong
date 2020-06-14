@@ -91,12 +91,13 @@ export default class SpringWarm extends Component {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
-                {/* <AdSense.Google
+                <AdSense.Google
                         client="ca-pub-9106671749645972"
                         slot="8539007090"
-                        style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
-                        format="horizontal"
-                    /> */}
+                        style={{ display: 'block', textAlign: "center"}}
+                        format="auto"
+                        responsive='true'
+                    />
             </div>
         )
     }

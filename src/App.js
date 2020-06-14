@@ -9,7 +9,6 @@ import SummerCoolMeta from "./component/PersonalColor/redirect/SummerCoolMeta";
 import FallWarmMeta from "./component/PersonalColor/redirect/FallWarmMeta";
 import WinterCoolMeta from "./component/PersonalColor/redirect/WinterCoolMeta";
 import Footer from "./component/Footer";
-import AdSense from 'react-adsense';
 
 
 export default class App extends Component {
@@ -47,12 +46,7 @@ export default class App extends Component {
           <Route exact path="/summerCoolMeta" component={SummerCoolMeta}></Route>
           <Route exact path="/fallWarmMeta" component={FallWarmMeta}></Route>
           <Route exact path="/winterCoolMeta" component={WinterCoolMeta}></Route>
-          <AdSense.Google
-                        client="ca-pub-9106671749645972"
-                        slot="8539007090"
-                        style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
-                        format="horizontal"
-                    />
+
           <div id="disqus_thread" />
 
           <Footer></Footer>
