@@ -19,6 +19,7 @@ export default class FallWarm extends Component {
         AdMove()
       }
     render() {
+        //메타태그
         const metaData = {
             title: "퍼스널 컬러 진단하기!",
             description : "나의 퍼스널 컬러는 뭘까??",
@@ -26,6 +27,7 @@ export default class FallWarm extends Component {
             canonical : "fallWarm",
             canonical2 : "fallWarmMeta"
         }
+        //쿠팡 광고
         const coupangAds = {
             season : "가을 웜톤",
             url : "https://coupa.ng/bDxZTH",
