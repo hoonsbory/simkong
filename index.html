@@ -31,9 +31,6 @@
 </head>
 
 <body>
-    <input id="color1" type="text">
-    <input id="color2" type="text">
-    <button onclick="colorTest()">측정</button>
     <img id="loading" src="pcImages/loading.gif"
         style="width : 65px; z-index : 999;display : none; position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%);">
     <canvas id="myCanvas" style="display: none;">
@@ -338,17 +335,7 @@
             return [l, a, b]
         }
 
-        function colorTest() {
-            var color1 = []
-            var color2 = []
-            color1 = document.getElementById("color1").value.split(",")
-            color2 = document.getElementById("color2").value.split(",")
-            var colorArray1 = xyzToLab(rgbToXyz(color1));
-            var labColor1 = { L: colorArray1[0], A: colorArray1[1], B: colorArray1[2] };
-            var colorArray2 = xyzToLab(rgbToXyz(color2));
-            var labColor2 = { L: colorArray2[0], A: colorArray2[1], B: colorArray2[2] };
-            window.module1(labColor1, labColor2)
-        }
+        
 
 
 
@@ -438,39 +425,7 @@
             document.documentElement.classList.add('fonts-loaded');
         });
 
-        //         function deltaE(rgbA, rgbB) {
-        //   let labA = rgb2lab(rgbA);
-        //   let labB = rgb2lab(rgbB);
-        //   let deltaL = labA[0] - labB[0];
-        //   let deltaA = labA[1] - labB[1];
-        //   let deltaB = labA[2] - labB[2];
-        //   let c1 = Math.sqrt(labA[1] * labA[1] + labA[2] * labA[2]);
-        //   let c2 = Math.sqrt(labB[1] * labB[1] + labB[2] * labB[2]);
-        //   let deltaC = c1 - c2;
-        //   let deltaH = deltaA * deltaA + deltaB * deltaB - deltaC * deltaC;
-        //   deltaH = deltaH < 0 ? 0 : Math.sqrt(deltaH);
-        //   let sc = 1.0 + 0.045 * c1;
-        //   let sh = 1.0 + 0.015 * c1;
-        //   let deltaLKlsl = deltaL / (1.0);
-        //   let deltaCkcsc = deltaC / (sc);
-        //   let deltaHkhsh = deltaH / (sh);
-        //   let i = deltaLKlsl * deltaLKlsl + deltaCkcsc * deltaCkcsc + deltaHkhsh * deltaHkhsh;
-        //   return i < 0 ? 0 : Math.sqrt(i);
-        // }
-
-        // function rgb2lab(rgb){
-        //   let r = rgb[0] / 255, g = rgb[1] / 255, b = rgb[2] / 255, x, y, z;
-        //   r = (r > 0.04045) ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
-        //   g = (g > 0.04045) ? Math.pow((g + 0.055) / 1.055, 2.4) : g / 12.92;
-        //   b = (b > 0.04045) ? Math.pow((b + 0.055) / 1.055, 2.4) : b / 12.92;
-        //   x = (r * 0.4124 + g * 0.3576 + b * 0.1805) / 0.95047;
-        //   y = (r * 0.2126 + g * 0.7152 + b * 0.0722) / 1.00000;
-        //   z = (r * 0.0193 + g * 0.1192 + b * 0.9505) / 1.08883;
-        //   x = (x > 0.008856) ? Math.pow(x, 1/3) : (7.787 * x) + 16/116;
-        //   y = (y > 0.008856) ? Math.pow(y, 1/3) : (7.787 * y) + 16/116;
-        //   z = (z > 0.008856) ? Math.pow(z, 1/3) : (7.787 * z) + 16/116;
-        //   return [(116 * x) - 16, 500 * (x - y), 200 * (y - z)]
-        // }
+      
         //페이스북 인앱 브라우저에서 accept속성때문에 업로드가 안되는 버그가 있어서 대응
 
         //크롭없이 회전후 크롭할 경우  크롭을 하는 것은, 원본이미지를 캔버스에 옮겨오는 것으로 시작하는데, 크롭버튼을 누르지않고 회전부터 할 경우, 나중에 크롭할때 회전도가 달라 문제가 생긴다.
@@ -1667,7 +1622,7 @@
 
                 // if (season2[0] < 200 || season1[0] < 200) {
                     if(!stream){
-                        season1[0] -= season2[0] * 0.1
+                        season1[0] -= season2[0] * 0.125
                     }else{
                         season1[0] -= season2[0] * 0.15
                     }

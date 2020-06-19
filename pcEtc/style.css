@@ -492,6 +492,7 @@ a.control_next {
   left: 50%;
   transform: translateX(-50%);
   background: white;
+  cursor: pointer;
 }
 .drag-text{
   position: relative;
