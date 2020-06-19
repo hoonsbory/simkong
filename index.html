@@ -12,7 +12,13 @@
     </script>
 
     <link rel="stylesheet" href="pcEtc/style.css">
-    <link rel="icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0" />
     <meta property="og:image" content="https://mycolor.kr/pcImages/metaImg.jpg" />
@@ -257,7 +263,7 @@
         <div id="footerCenter"><a href="https://mycolor.kr/privacy" style="color : rgb(10, 59, 112)">개인정보 처리방침</a></div>
         <div id="footerRight">Contact : 신재훈 -tonymkcv93@gmail.com</div>
     </div>
-   
+
     <script type="module">
         //delta E lab값으로 유사도 측정 몇개 공식중 00년도 공식이 젤 최신이라 프로토타입으로 연결되어 있던 거  다 버리고 얘만 가져옴
         import dE00 from "https://mycolor.kr/pcEtc/dE00.js"
@@ -269,10 +275,10 @@
         window.module1 = module1;
     </script>
     <script>
-       
 
 
-       //rgb값을 xyz로 변환 후 lab로 최종 변환
+
+        //rgb값을 xyz로 변환 후 lab로 최종 변환
         function rgbToXyz(hex) {
             const [r, g, b] = hex.map(_ => _ / 255).map(sRGBtoLinearRGB)
             const X = 0.4124 * r + 0.3576 * g + 0.1805 * b
@@ -335,7 +341,7 @@
             return [l, a, b]
         }
 
-        
+
 
 
 
@@ -425,7 +431,7 @@
             document.documentElement.classList.add('fonts-loaded');
         });
 
-      
+
         //페이스북 인앱 브라우저에서 accept속성때문에 업로드가 안되는 버그가 있어서 대응
 
         //크롭없이 회전후 크롭할 경우  크롭을 하는 것은, 원본이미지를 캔버스에 옮겨오는 것으로 시작하는데, 크롭버튼을 누르지않고 회전부터 할 경우, 나중에 크롭할때 회전도가 달라 문제가 생긴다.
@@ -709,7 +715,7 @@
                     checkFail.firstElementChild.nextElementSibling.innerHTML = "사각형에 피부가 꽉차게 편집해주세요!"
                     if (stream && colorNum == 21) {
                         checkFail.firstElementChild.nextElementSibling.innerHTML = "혹시 주변이 어두우시다면 피부가 화면에 꽉 찬 상태에서 시도해보세요!"
-                    }else if(stream && colorNum!= 21){
+                    } else if (stream && colorNum != 21) {
                         checkFail.firstElementChild.nextElementSibling.innerHTML = "피부가 화면에 꽉 찬 상태에서 시도해보세요!"
                     }
                     checkSuccess.style.display = "none"
@@ -1621,11 +1627,11 @@
                 // }
 
                 // if (season2[0] < 200 || season1[0] < 200) {
-                    if(!stream){
-                        season1[0] -= season2[0] * 0.125
-                    }else{
-                        season1[0] -= season2[0] * 0.15
-                    }
+                if (!stream) {
+                    season1[0] -= season2[0] * 0.125
+                } else {
+                    season1[0] -= season2[0] * 0.15
+                }
 
                 // }
                 colorNum = season1[0] == season2[0] ? calResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
