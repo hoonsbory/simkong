@@ -31,7 +31,9 @@
 </head>
 
 <body>
-    
+    <input id="color1" type="text">
+    <input id="color2" type="text">
+    <button onclick="colorTest()">측정</button>
     <img id="loading" src="pcImages/loading.gif"
         style="width : 65px; z-index : 999;display : none; position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%);">
     <canvas id="myCanvas" style="display: none;">
@@ -62,30 +64,30 @@
     </div>
     <div id="checkResult" style="display: none;">
         <div class="popupBg"></div>
-        
+
         <div class="popDiv">
             <!-- 메인페이지 팝업 -->
             <!-- <ins class="adsbygoogle" style="display:inline-block;width:250px;height:250px"
                 data-ad-client="ca-pub-9106671749645972" data-ad-slot="1187857035"></ins> -->
-                
-                    <div id="checkFail" style="margin-top: 10px;">
-                        <p>피부색과 너무 거리가 멀어요!</p>
-                        <p style="margin-bottom : 15px">다른 부위로 시도해 주세요</p>
-                    </div>
-                    <div id="checkSuccess" style="display: none; margin-top: 10px;">
-                        <p>피부 측정이 완료되었습니다!</p>
-                        <p style="margin-bottom : 15px">더 정확한 진단을 위해 다음 단계로 넘어갑니다</p>
-                    </div>
-                    <div class="confirmBtn" onclick="popupConfirm('checkResult')"><span class="popupConfirm" >확 인</span></div>
-                    <ins class="kakao_ad_area" style="display:block; margin-top: 5px !important; margin : auto;" data-ad-unit="DAN-1h7fvl13rbh9w" data-ad-width="250"
-                        data-ad-height="250"></ins>
+
+            <div id="checkFail" style="margin-top: 10px;">
+                <p>피부색과 너무 거리가 멀어요!</p>
+                <p style="margin-bottom : 15px"></p>
+            </div>
+            <div id="checkSuccess" style="display: none; margin-top: 10px;">
+                <p>피부 측정이 완료되었습니다!</p>
+                <p style="margin-bottom : 15px">더 정확한 진단을 위해 다음 단계로 넘어갑니다</p>
+            </div>
+            <div class="confirmBtn" onclick="popupConfirm('checkResult')"><span class="popupConfirm">확 인</span></div>
+            <ins class="kakao_ad_area" style="display:block; margin-top: 5px !important; margin : auto;"
+                data-ad-unit="DAN-1h7fvl13rbh9w" data-ad-width="250" data-ad-height="250"></ins>
         </div>
     </div>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- 결과페이지 하단2 -->
     <div class="middleSec">
-    <ins class="adsbygoogle" style="display:block; width: 100%; height: 100px;" data-ad-client="ca-pub-9106671749645972" data-ad-slot="1655934358"
-        ></ins>
+        <ins class="adsbygoogle" style="display:block; width: 100%; height: 100px;"
+            data-ad-client="ca-pub-9106671749645972" data-ad-slot="1655934358"></ins>
     </div>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
@@ -136,7 +138,7 @@
                             <img id="originalImg" style="display: none;" />
                         </div>
                         <div id="mainCam" style="display: none;">
-                            <video id="video" style="margin-bottom : 5vh; width: 100%; height : 60vh" autoplay
+                            <video id="video" style="margin-bottom : 5vh; width: 100%; height : 60vh" muted autoplay
                                 playsinline></video>
                             <div class="arrowBtn" onclick="camCheck()">피부톤 측정</div>
                             <canvas id="canvas" style="display: none;"></canvas>
@@ -258,7 +260,98 @@
         <div id="footerCenter"><a href="https://mycolor.kr/privacy" style="color : rgb(10, 59, 112)">개인정보 처리방침</a></div>
         <div id="footerRight">Contact : 신재훈 -tonymkcv93@gmail.com</div>
     </div>
-    <script type="text/javascript">
+   
+    <script type="module">
+        //delta E lab값으로 유사도 측정 몇개 공식중 00년도 공식이 젤 최신이라 프로토타입으로 연결되어 있던 거  다 버리고 얘만 가져옴
+        import dE00 from "https://mycolor.kr/pcEtc/dE00.js"
+        var module1 = function (labColor1, labColor2) {
+            var delta = new dE00(labColor1, labColor2);
+            return delta.getDeltaE();
+        }
+        //전역으로 등록
+        window.module1 = module1;
+    </script>
+    <script>
+       
+
+
+       //rgb값을 xyz로 변환 후 lab로 최종 변환
+        function rgbToXyz(hex) {
+            const [r, g, b] = hex.map(_ => _ / 255).map(sRGBtoLinearRGB)
+            const X = 0.4124 * r + 0.3576 * g + 0.1805 * b
+            const Y = 0.2126 * r + 0.7152 * g + 0.0722 * b
+            const Z = 0.0193 * r + 0.1192 * g + 0.9505 * b
+            // For some reason, X, Y and Z are multiplied by 100.
+            return [X, Y, Z].map(_ => _ * 100)
+        }
+
+        /**
+         * Undoes gamma-correction from an RGB-encoded color.
+         * https://en.wikipedia.org/wiki/SRGB#Specification_of_the_transformation
+         * https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
+         * @param  {number}
+         * @return {number}
+         */
+        function sRGBtoLinearRGB(color) {
+            // Send this function a decimal sRGB gamma encoded color value
+            // between 0.0 and 1.0, and it returns a linearized value.
+            if (color <= 0.04045) {
+                return color / 12.92
+            } else {
+                return Math.pow((color + 0.055) / 1.055, 2.4)
+            }
+        }
+
+        /**
+         * Converts hex color to RGB.
+         * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+         * @param  {string} hex
+         * @return {number[]} [rgb]
+         */
+        function hexToRgb(hex) {
+            const match = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+            if (match) {
+                match.shift()
+                return match.map(_ => parseInt(_, 16))
+            }
+        }
+        /**
+         * Converts CIE 1931 XYZ colors to CIE L*a*b*.
+         * The conversion formula comes from <http://www.easyrgb.com/en/math.php>.
+         * https://github.com/cangoektas/xyz-to-lab/blob/master/src/index.js
+         * @param   {number[]} color The CIE 1931 XYZ color to convert which refers to
+         *                           the D65/2° standard illuminant.
+         * @returns {number[]}       The color in the CIE L*a*b* color space.
+         */
+        // X, Y, Z of a "D65" light source.
+        // "D65" is a standard 6500K Daylight light source.
+        // https://en.wikipedia.org/wiki/Illuminant_D65
+        const D65 = [95.047, 100, 108.883]
+        function xyzToLab([x, y, z]) {
+            [x, y, z] = [x, y, z].map((v, i) => {
+                v = v / D65[i]
+                return v > 0.008856 ? Math.pow(v, 1 / 3) : v * 7.787 + 16 / 116
+            })
+            const l = 116 * y - 16
+            const a = 500 * (x - y)
+            const b = 200 * (y - z)
+            return [l, a, b]
+        }
+
+        function colorTest() {
+            var color1 = []
+            var color2 = []
+            color1 = document.getElementById("color1").value.split(",")
+            color2 = document.getElementById("color2").value.split(",")
+            var colorArray1 = xyzToLab(rgbToXyz(color1));
+            var labColor1 = { L: colorArray1[0], A: colorArray1[1], B: colorArray1[2] };
+            var colorArray2 = xyzToLab(rgbToXyz(color2));
+            var labColor2 = { L: colorArray2[0], A: colorArray2[1], B: colorArray2[2] };
+            window.module1(labColor1, labColor2)
+        }
+
+
+
         //뒤로가기고 페이지에 진입하면 새로고침되게
         //엣지는 뒤로가기해도 캐시가없이 스크립트가 실행되었고, 크롬 일부버전은 persisted값이 false로만 나오는 버그가 있다고 한다. 그래서 window.performance조건을 추가해줌
         if (document.addEventListener) {
@@ -273,7 +366,7 @@
 
         let appleCheck = false;
         let ua = navigator.userAgent || navigator.vendor || window.opera;
-        if ((navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (navigator.userAgent.indexOf("msie") != -1)) { // IE 일 경우
+        if ((navigator.appName == 'Netscape' && ua.search('Trident') != -1) || (ua.indexOf("msie") != -1)) { // IE 일 경우
             document.documentElement.classList.add('fonts-loaded');
             alert("지원하지않는 브라우저입니다. 크롬,엣지,사파리 등의 브라우저를 이용해주세요");
         }
@@ -309,8 +402,6 @@
         //비디오 에러 캐치
         function camErr() {
             document.getElementById("noCamDiv").style.display = "block"
-            // document.getElementById("fileInput").style.display = "block"
-            // document.getElementById("camDiv").remove();
             document.getElementById("fileInput").click();
         }
 
@@ -347,6 +438,39 @@
             document.documentElement.classList.add('fonts-loaded');
         });
 
+        //         function deltaE(rgbA, rgbB) {
+        //   let labA = rgb2lab(rgbA);
+        //   let labB = rgb2lab(rgbB);
+        //   let deltaL = labA[0] - labB[0];
+        //   let deltaA = labA[1] - labB[1];
+        //   let deltaB = labA[2] - labB[2];
+        //   let c1 = Math.sqrt(labA[1] * labA[1] + labA[2] * labA[2]);
+        //   let c2 = Math.sqrt(labB[1] * labB[1] + labB[2] * labB[2]);
+        //   let deltaC = c1 - c2;
+        //   let deltaH = deltaA * deltaA + deltaB * deltaB - deltaC * deltaC;
+        //   deltaH = deltaH < 0 ? 0 : Math.sqrt(deltaH);
+        //   let sc = 1.0 + 0.045 * c1;
+        //   let sh = 1.0 + 0.015 * c1;
+        //   let deltaLKlsl = deltaL / (1.0);
+        //   let deltaCkcsc = deltaC / (sc);
+        //   let deltaHkhsh = deltaH / (sh);
+        //   let i = deltaLKlsl * deltaLKlsl + deltaCkcsc * deltaCkcsc + deltaHkhsh * deltaHkhsh;
+        //   return i < 0 ? 0 : Math.sqrt(i);
+        // }
+
+        // function rgb2lab(rgb){
+        //   let r = rgb[0] / 255, g = rgb[1] / 255, b = rgb[2] / 255, x, y, z;
+        //   r = (r > 0.04045) ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
+        //   g = (g > 0.04045) ? Math.pow((g + 0.055) / 1.055, 2.4) : g / 12.92;
+        //   b = (b > 0.04045) ? Math.pow((b + 0.055) / 1.055, 2.4) : b / 12.92;
+        //   x = (r * 0.4124 + g * 0.3576 + b * 0.1805) / 0.95047;
+        //   y = (r * 0.2126 + g * 0.7152 + b * 0.0722) / 1.00000;
+        //   z = (r * 0.0193 + g * 0.1192 + b * 0.9505) / 1.08883;
+        //   x = (x > 0.008856) ? Math.pow(x, 1/3) : (7.787 * x) + 16/116;
+        //   y = (y > 0.008856) ? Math.pow(y, 1/3) : (7.787 * y) + 16/116;
+        //   z = (z > 0.008856) ? Math.pow(z, 1/3) : (7.787 * z) + 16/116;
+        //   return [(116 * x) - 16, 500 * (x - y), 200 * (y - z)]
+        // }
         //페이스북 인앱 브라우저에서 accept속성때문에 업로드가 안되는 버그가 있어서 대응
 
         //크롭없이 회전후 크롭할 경우  크롭을 하는 것은, 원본이미지를 캔버스에 옮겨오는 것으로 시작하는데, 크롭버튼을 누르지않고 회전부터 할 경우, 나중에 크롭할때 회전도가 달라 문제가 생긴다.
@@ -356,17 +480,22 @@
         //크롭버튼 클릭 유무. 크롭을 한적이 없다면 회전시 자동크롭
         var editCheck = false;
 
+        //lab값
+        var labColor;
         //자르기버튼 비활성화를 위한 체크.
         var cropCheck = true;
 
         //첫 크롭여부 확인 후 처음인 경우만 드래그 안내
         var firstCrop = true;
 
-        var uploadCheck = false;
+        //steram 지원 유무 
+        var stream = false;
         //업로드여부 체크해
-        var slideCheck = 0;
+        var uploadCheck = false;
         //슬라이드 위치체크
-
+        var slideCheck = 0;
+        //로딩
+        var loading = document.getElementById("loading");
         //회전율
         var rotateRate = 0;
         //첫 비교 결과값을 담을 변수
@@ -374,58 +503,68 @@
         //비교 후 결과값을 담을 변수
         var calResult = [];
 
-        //맨처음 색상분석을 위한 색상리스트
-        var colorList = [
-            [255, 233, 196],
-            [254, 224, 174],
-            [253, 215, 153],
-            [244, 203, 149],
-            [238, 219, 179],
-            [238, 210, 160],
-            [232, 191, 139],
-            [223, 180, 112],
-            [254, 236, 224],
-            [255, 227, 213],
-            [255, 222, 203],
-            [250, 208, 184],
-            [248, 230, 216],
-            [249, 226, 208],
-            [246, 216, 192],
-            [236, 205, 177],
-            //여기까지 톤색깔
-            [220, 0, 18],//빨강
-            [0, 152, 68],//초록
-            [0, 159, 232],//하늘색
-            [29, 32, 135],//파랑
-            [95, 100, 255],//보라
-            [254, 254, 254],//하양
-            [0, 0, 0]//검정
-        ]
+
         var warmColor = [
             //봄
-            [255, 233, 196],
-            [254, 224, 174],
-            [253, 215, 153],
-            [244, 203, 149],
+            { L: 93.24308501707372, A: 1.8831653918775504, B: 20.718646292445865 },
+            { L: 90.52289128383626, A: 3.233666015118153, B: 28.307937546766237 },
+            { L: 87.86424337552954, A: 5.039781815103062, B: 35.51057954854002 },
+            { L: 84.02555434458635, A: 7.303593750393079, B: 32.35239498551059 },
             //가을
-            [238, 219, 179],
-            [238, 210, 160],
-            [232, 191, 139],
-            [223, 180, 112]
+            { L: 88.01422576423417, A: 0.44469105936484343, B: 22.066594327876565 },
+            { L: 85.40709355772393, A: 2.6280755544423884, B: 28.39518318891747 },
+            { L: 79.77375484413481, A: 7.765231163705922, B: 31.730027579476207 },
+            { L: 75.76154718068078, A: 7.23321668208865, B: 40.38007858135049 }
 
         ]
         var coolColor = [
             //여름
-            [254, 236, 224],
-            [255, 227, 213],
-            [255, 222, 203],
-            [250, 208, 184],
+            { L: 94.50167496851937, A: 4.139834223156058, B: 7.996009480649668 },
+            { L: 92.13269969033836, A: 7.406843133354157, B: 10.332405216677664 },
+            { L: 90.69511899883976, A: 8.506748645930816, B: 13.506314388479757 },
+            { L: 86.45273910781171, A: 11.28147997114498, B: 17.43590092164615 },
             //겨울
-            [248, 230, 216],
-            [249, 226, 208],
-            [246, 216, 192],
-            [236, 205, 177]
+            { L: 92.35725352107004, A: 3.850753074886304, B: 9.013026210042252 },
+            { L: 91.2734226421461, A: 5.028273762088087, B: 11.6465909405429 },
+            { L: 88.21365467347522, A: 6.757624702209474, B: 15.649915754155597 },
+            { L: 84.31331292028791, A: 6.67861946731424, B: 17.951879223826882 }
         ]
+
+
+        //맨처음 색상분석을 위한 색상리스트
+        var colorList = [
+            warmColor[0],
+            warmColor[1],
+            warmColor[2],
+            warmColor[3],
+            warmColor[4],
+            warmColor[5],
+            warmColor[6],
+            warmColor[7],
+            coolColor[0],
+            coolColor[1],
+            coolColor[2],
+            coolColor[3],
+            coolColor[4],
+            coolColor[5],
+            coolColor[6],
+            coolColor[7],
+
+            { L: 54.94213801213769, A: -53.07384198363935, B: 34.43417705537093 },
+            { L: 62.18763178824342, A: -8.479405327875222, B: -46.28902249513915 },
+            { L: 20.217290355298722, A: 36.06355989320672, B: -57.05422997619636 },
+            { L: 50.41376744611719, A: 43.73719859707093, B: -77.79677741706573 },
+            { L: 99.65492223276894, A: 0.005244850979191362, B: -0.010377222171187306 },
+            { L: 0.27417592423966397, A: 0.00003730131757639921, B: -0.00007380574454374234 }
+            //여기까지 톤색깔
+            // [0, 152, 68],//초록
+            // [0, 159, 232],//하늘색
+            // [29, 32, 135],//파랑
+            // [95, 100, 255],//보라
+            // [254, 254, 254],//하양
+            // [0, 0, 0]//검정
+        ]
+
         var imgRed;
         var imgGreen;
         var imgBlue;
@@ -560,7 +699,11 @@
 
         //이미지에서 색상추출
         function color(src) {
-            document.getElementById("loading").style.display = "block"
+            var checkSuccess = document.getElementById("checkSuccess");
+            var checkFail = document.getElementById("checkFail");
+            var checkResult = document.getElementById("checkResult")
+
+            loading.style.display = "block"
             var colorThief = new ColorThief();
 
             var sourceImage = src
@@ -568,53 +711,59 @@
 
                 colorThief.getColor(sourceImage)
             } catch (error) {
-                document.getElementById("checkSuccess").style.display = "none"
-                document.getElementById("checkFail").style.display = "block"
-                document.getElementById("checkResult").style.display = "block"
-                document.getElementById("loading").style.display = "none"
+                checkSuccess.style.display = "none"
+                checkFail.style.display = "block"
+                checkResult.style.display = "block"
+                loading.style.display = "none"
             }
 
-            // Display palette of colors
-            // e.g [[55,37,29],[213,193,136],[110,204,223]]
-            imgRed = colorThief.getColor(sourceImage)[0];
-            imgGreen = colorThief.getColor(sourceImage)[1];
-            imgBlue = colorThief.getColor(sourceImage)[2];
-            for (var i = 0; i < colorList.length; i++) {
-                var color = "color" + i;
-                var red = (imgRed - colorList[i][0]);
-                red = red < 0 ? -(red) : red;
-                var green = (imgGreen - colorList[i][1]);
-                green = green < 0 ? -(green) : green;
-                var blue = (imgBlue - colorList[i][2]);
-                blue = blue < 0 ? -(blue) : blue;
+            // imgRed = colorThief.getColor(sourceImage)[0];
+            // imgGreen = colorThief.getColor(sourceImage)[1];
+            // imgBlue = colorThief.getColor(sourceImage)[2];
 
-                firstResult.push([red + green + blue, i]);
+            var colorArray = xyzToLab(rgbToXyz(colorThief.getColor(sourceImage)));
+            labColor = { L: colorArray[0], A: colorArray[1], B: colorArray[2] };
+
+            for (var i = 0; i < colorList.length; i++) {
+                // var color = "color" + i;
+                // var red = (imgRed - colorList[i][0]);
+                // red = red < 0 ? -(red) : red;
+                // var green = (imgGreen - colorList[i][1]);
+                // green = green < 0 ? -(green) : green;
+                // var blue = (imgBlue - colorList[i][2]);
+                // blue = blue < 0 ? -(blue) : blue;
+
+                firstResult.push([window.module1(labColor, colorList[i]), i]);
             }
             firstResult.sort(function (a, b) { // 오름차순 
                 return a[0] - b[0];
             });
             var colorNum = firstResult[0][1];
-
             setTimeout(function () {
 
-                document.getElementById("loading").style.display = "none"
+                loading.style.display = "none"
                 if (colorNum < 16) {
-                    document.getElementById("checkSuccess").style.display = "block"
-                    document.getElementById("checkFail").style.display = "none"
+                    checkSuccess.style.display = "block"
+                    checkFail.style.display = "none"
 
-                    document.getElementById("checkResult").style.display = "block"
+                    checkResult.style.display = "block"
 
                     return;
-                } else {
-                    document.getElementById("checkSuccess").style.display = "none"
-                    document.getElementById("checkFail").style.display = "block"
-                    document.getElementById("checkResult").style.display = "block"
+                }
+                else {
+                    checkFail.firstElementChild.nextElementSibling.innerHTML = "사각형에 피부가 꽉차게 편집해주세요!"
+                    if (stream && colorNum == 21) {
+                        checkFail.firstElementChild.nextElementSibling.innerHTML = "혹시 주변이 어두우시다면 피부가 화면에 꽉 찬 상태에서 시도해보세요!"
+                    }else if(stream && colorNum!= 21){
+                        checkFail.firstElementChild.nextElementSibling.innerHTML = "피부가 화면에 꽉 찬 상태에서 시도해보세요!"
+                    }
+                    checkSuccess.style.display = "none"
+                    checkFail.style.display = "block"
+                    checkResult.style.display = "block"
                 }
             }, 1500);
             firstResult = [];
 
-            // Display main color
-            // e.g [125, 189, 193]
         }
 
 
@@ -969,22 +1118,26 @@
 
         }
 
+        function streamTrue() {
+            document.getElementById("mainCam").style.display = "block"
+            document.getElementById("cropNotice").innerHTML = "※ 손목 안쪽이 잘보이는 상태에서 측정 버튼을 눌러주세요"
+            modeChange();
+            stream = true;
+        }
         function cameraCheck() {
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
                 //사파리는 해상도가 자동으로 조절되기때문에 해상도를 설정해주면 에러가난다. 그래서 사파리는 설정을 안해줘야하는데,
                 //기기 정보를 받아올때 크롬에는 사파리 크롬이 다 적혀있고, 사파리에는 사파리만 적혀있으므로 사파리를 특정하기 위해서는 
                 //사파리 문자를 포함하고 크롬 문자를 포함하지않는 조건을 충족시켜줘야한다
-                if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+                if (ua.indexOf('Safari') != -1 && ua.indexOf('Chrome') == -1) {
                     navigator.mediaDevices.getUserMedia({
                         video: {
                             facingMode: { exact: "environment" }
                         }
                     }).then(function (stream) {
                         //video.src = window.URL.createObjectURL(stream);
-                        document.getElementById("mainCam").style.display = "block"
-                        document.getElementById("cropNotice").innerHTML = "※ 손목 안쪽이 잘보이는 상태에서 측정 버튼을 눌러주세요"
-                        modeChange()
+                        streamTrue();
                         video.srcObject = stream;
                         video.play();
                     }).catch(function (err) {
@@ -1004,9 +1157,7 @@
                         }
                     }).then(function (stream) {
                         //video.src = window.URL.createObjectURL(stream);
-                        document.getElementById("mainCam").style.display = "block"
-                        document.getElementById("cropNotice").innerHTML = "※ 팔목 피부가 잘 보일 때 측정 버튼을 눌러주세요"
-                        modeChange()
+                        streamTrue();
                         video.srcObject = stream;
                         video.play();
                     }).catch(function (err) {
@@ -1021,9 +1172,7 @@
                         height: { min: 776, ideal: 720, max: 1080 }, facingMode: { exact: "user" }
                     }
                 }, function (stream) {
-                    document.getElementById("mainCam").style.display = "block"
-                    document.getElementById("cropNotice").innerHTML = "※ 팔목 피부가 잘 보일 때 측정 버튼을 눌러주세요"
-                    modeChange()
+                    streamTrue();
                     video.src = stream;
                     video.play();
                 }, camErr());
@@ -1034,9 +1183,7 @@
                         height: { min: 776, ideal: 720, max: 1080 }, facingMode: { exact: "user" }
                     }
                 }, function (stream) {
-                    document.getElementById("mainCam").style.display = "block"
-                    document.getElementById("cropNotice").innerHTML = "※ 팔목 피부가 잘 보일 때 측정 버튼을 눌러주세요"
-                    modeChange()
+                    streamTrue();
                     video.src = window.webkitURL.createObjectURL(stream);
                     video.play();
                 }, camErr());
@@ -1047,9 +1194,7 @@
                         height: { min: 776, ideal: 720, max: 1080 }, facingMode: { exact: "environment" }
                     }
                 }, function (stream) {
-                    document.getElementById("mainCam").style.display = "block"
-                    document.getElementById("cropNotice").innerHTML = "※ 팔목 피부가 잘 보일 때 측정 버튼을 눌러주세요"
-                    modeChange()
+                    streamTrue();
                     video.srcObject = stream;
                     video.play();
                 }, camErr());
@@ -1059,14 +1204,6 @@
         }
         function modeChange() {
             document.getElementById("mainbody").scrollIntoView();
-            // if (navigator.userAgent.indexOf("Android") > 0 ||
-            //     navigator.userAgent.indexOf("iPhone") > 0 ||
-            //     navigator.userAgent.indexOf("iPod") > 0 ||
-            //     navigator.userAgent.indexOf("iPad") > 0 ||
-            //     navigator.userAgent.indexOf("BlackBerry") > 0) {
-            //     document.getElementById("stepNum").style.paddingRight = "2.3vh";
-            //     document.getElementById("stepNum").style.paddingTop = ".6vh";
-            // }
             document.getElementById("subTitle").style.display = "none";
             document.getElementById("mainTitle").style.display = "none";
             document.getElementById("notice").style.display = "none";
@@ -1081,7 +1218,7 @@
         function readURL(input) {
 
             if ((input.files && input.files[0])) {
-                document.getElementById("loading").style.display = "block"
+                loading.style.display = "block"
 
                 // $('#originalImg').attr('src', tempImage.src);
 
@@ -1101,16 +1238,11 @@
                 var reader = new FileReader();
                 let tempImage = new Image();
                 reader.onload = function (e) {
-                    tempImage.src = e.target.result;
-                    tempImage.onload = function () {
 
-                        document.getElementById("originalImg").src = tempImage.src;
-                        $('.file-upload-image').attr('src', tempImage.src);
-                        modeChange();
-                        // @breif 캔버스 위에 이미지 그리기
+                    document.getElementById("originalImg").src = e.target.result;
+                    $('.file-upload-image').attr('src', e.target.result);
+                    modeChange();
 
-
-                    };
 
 
                     //회전값이 있는 사진을 정방향으로 돌리는 로직을 짜려했지만, 디바이스마다 회전값을 처리하는 기준이 달라서(특히 애플) 결국 포기하고 
@@ -1263,10 +1395,8 @@
                 }
 
                 reader.readAsDataURL(fileInfo);
-                document.getElementById("loading").style.display = "none"
+                loading.style.display = "none"
 
-            } else {
-                removeUpload();
             }
         }
 
@@ -1341,19 +1471,6 @@
 
             canvasContext.drawImage(rotateCanvas, 0, 0, rotateCanvas.width, rotateCanvas.height);
         }
-        function removeUpload() {
-            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-            $('.file-upload-content').hide();
-            $('.image-upload-wrap').show();
-        }
-        $('.image-upload-wrap').bind('dragover', function () {
-            $('.image-upload-wrap').addClass('image-dropping');
-        });
-        $('.image-upload-wrap').bind('dragleave', function () {
-            $('.image-upload-wrap').removeClass('image-dropping');
-        });
-
-
 
         //크롭 영역 지정 이벤트 함수
         var showCoords = function (c) {
@@ -1505,51 +1622,61 @@
 
         //색상과 질문 총 결과값을 종합하여 결과 도출
         function season(colorGroup, toneColor) {
-            document.getElementById("loading").style.display = "block"
+            loading.style.display = "block"
             var length = colorGroup.length
             for (var i = 0; i < length; i++) {
-                var red = (imgRed - colorGroup[i][0]);
-                red = red < 0 ? -(red) : red;
-                var green = (imgGreen - colorGroup[i][1]);
-                green = green < 0 ? -(green) : green;
-                var blue = (imgBlue - colorGroup[i][2]);
-                blue = blue < 0 ? -(blue) : blue;
+                // var red = (imgRed - colorGroup[i][0]);
+                // red = red < 0 ? -(red) : red;
+                // var green = (imgGreen - colorGroup[i][1]);
+                // green = green < 0 ? -(green) : green;
+                // var blue = (imgBlue - colorGroup[i][2]);
+                // blue = blue < 0 ? -(blue) : blue;
 
-                calResult.push([red + green + blue, i]);
+                calResult.push([window.module1(labColor, colorGroup[i]), i]);
+                // calResult.push([red + green + blue, i]);
 
             }
             var length2 = calResult.length
             var season1 = [];
             var season2 = [];
+            var colorNum;
             calResult.sort(function (a, b) { // 오름차순 
                 return a[0] - b[0];
             });
-            for (var i = 0; i < length2; i++) {
-                if (calResult[i][1] <= 3) {
-                    season1.push(calResult[i][0])
-                    season1.push(calResult[i][1])
-                } else {
-                    season2.push(calResult[i][0])
-                    season2.push(calResult[i][1])
-                }
-                if (season2[0] && season1[0]) {
-                    break;
-                }
-            }
-            // if (toneColor == "warm") {
-            //     season1 -= season1 / 5
-            // } else {
 
-            //     season1 -= season1 / 7.3
-            // }
-            if (season2[0] < 200 || season1[0] < 200) {
-                if (toneColor == "warm") {
-                    season1[0] -= season2[0] * 0.3
-                } else {
-                    season1[0] -= season2[0] * 0.26
+            //스트림 방식은 아무래도 카메라로 바로 측정하기 때문에 그늘지기도 하고 크롭으로 특정 부위를 자를수도 없어 좀 더 어둡기 때문에 인위적으로 벨런스를 조절해줌.
+            if (stream || toneColor == "warm") {
+                for (var i = 0; i < length2; i++) {
+                    if (calResult[i][1] <= 3) {
+                        season1.push(calResult[i][0])
+                        season1.push(calResult[i][1])
+                    } else {
+                        season2.push(calResult[i][0])
+                        season2.push(calResult[i][1])
+                    }
+                    if (season2[0] && season1[0]) {
+                        break;
+                    }
                 }
+                // if (toneColor == "warm") {
+                //     season1 -= season1 / 5
+                // } else {
+
+                //     season1 -= season1 / 7.3
+                // }
+
+                // if (season2[0] < 200 || season1[0] < 200) {
+                    if(!stream){
+                        season1[0] -= season2[0] * 0.1
+                    }else{
+                        season1[0] -= season2[0] * 0.15
+                    }
+
+                // }
+                colorNum = season1[0] == season2[0] ? calResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
+            } else {
+                colorNum = calResult[0][1]
             }
-            var colorNum = season1[0] == season2[0] ? calResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
             setTimeout(function () {
                 if (0 <= colorNum && colorNum <= 3 && toneColor == "warm") {
                     window.location.href = "https://mycolor.kr/springWarm"
@@ -1566,8 +1693,8 @@
         }
 
 
-
     </script>
+
     <script>
 
 

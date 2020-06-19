@@ -4,6 +4,7 @@
 html{
   font-size: 17px;
   scroll-behavior: smooth; 
+  word-break: keep-all;
 }
 @font-face {
   font-family: 'HSThin';
@@ -72,6 +73,7 @@ html{
   font-size: 1.7vh;
   color: rgb(10, 59, 112);
   word-break: keep-all;
+  max-width: 250px;
 }
 .popDivFB{
   position: fixed;
