@@ -66,7 +66,7 @@ export default class SummerCool extends Component {
                     style={{ display: 'block', textAlign: "center", width: "100%", height: "100px" }}
                     format="horizontal"
                 /> */}
-                <ins class="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="300"
+                <ins class="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
                     data-ad-height="250"></ins>
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color: "white" }}># 여름 쿨톤의 특징</p>
