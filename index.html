@@ -242,11 +242,11 @@
     <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
     <div class="middleSec">
 
-        <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-9106671749645972"
+        <!-- <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-9106671749645972"
             data-ad-slot="7150630154" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        </script> -->
         <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t89ovgrl5so5" data-ad-width="320"
             data-ad-height="100"></ins>
         <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t4tgk6re3upi" data-ad-width="320"
@@ -1582,6 +1582,10 @@
 
 
         //색상과 질문 총 결과값을 종합하여 결과 도출
+        //아래 주석처리된 부분이 원래로직. 단순하게 rgb값들의 오차를 절대값으로 더해서 가장 숫자가 적은, 즉 오차가 가장 적은 컬러가 가까운 컬러로 뽑히게 짰다.
+        //그러나 rgb값으로는 색의 오차를 수치로 판단하기가 힘들다. 예를들어 50,50,50을 비교하면, 100,100,100과는 총 150의 차이, 50,50,199와는 총 149의 차이로 후자가 더 비슷한 컬러로 결과가 나오지만,
+        //실제 인간이 봤을 때 비슷한 색은 100,100,100이다. 후자는 blue값이 149의 차이가 나기때문에 색이 완전히 다른 색이 되어버린다. 이처럼 세 영역의 벨런스를 잡아줄 수가 없어서 구글링을 해봤는데,
+        //CIE(국제조명위원회)가 LAB값을 활용한 공식을 발표했고(delta-e), 그걸 js로 만들어놓은 사람이 있어서 가져와서 모듈화해서 사용했다.
         function season(colorGroup, toneColor) {
             loading.style.display = "block"
             var length = colorGroup.length
