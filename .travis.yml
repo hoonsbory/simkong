@@ -14,7 +14,7 @@ env:
   CI : false
 before_deploy:
   - yarn build
-  # - cp ./index.html ./build
+  - cp ./index.html ./build
   - cp -r ./pcEtc ./build
 
 deploy:
