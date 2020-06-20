@@ -71,7 +71,7 @@ export default class FallWarm extends Component {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(226,186,139)", display: "inline", color: "white" }}># 가을 웜톤의 특징</p>
                     <p className="mt-3">가을 웜톤인 사람은 클래식하고 글램 한 느낌을 가집니다. 또한 포근하고 부드러우며 차분하고 원숙한 이미지를 지니고 있습니다. 상대방에게 친근함과 편안함을 느끼게 하는 이미지입니다.</p>
-                <ins class="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
+                <ins class="kakao_ad_area ads" style={{ display: "none", position : "relative", left : "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
                     data-ad-height="250"></ins>
                     <p className="mt-3">가을 타입은 황색을 지닌 따듯한 유형으로 강한(strong) 톤과 깊은(deep) 톤, 중후한(dull) 톤으로 편안함과 고급스러운 이미지를 느끼게 합니다.</p>
                     <img src="/images/personalColor/fallColor.png" alt="colorTable" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
