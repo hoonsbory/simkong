@@ -77,6 +77,9 @@ export default class SpringWarm extends Component {
                         format="auto"
                         responsive='true'
                     />
+                    <div style={{width : "100%", textAlign : "center"}}>
+                        <ins class="kakao_ad_area" style={{display : "none"}} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
+                            data-ad-height="250"></ins></div>
                     <p className="mt-3">봄 타입에게 잘 어울리는 컬러는 아이보리, 베이지와 같은 밝은 톤과 알록달록 캔디처럼 선명한 컬러를 사용할 수 있는데, 대표적인 컬러는 복숭아 핑크, 오렌지 레드, 해바라기 노란색, 새싹의 초록, 팬지꽃의 퍼플 등 싱그러운 과일이나 햇살을 듬뿍 머금은 선명한 컬러입니다.</p>
                     <img alt="WarmSpectrum" className="specLip" src="/images/personalColor/springSpectrum.png"></img>
                 </div>

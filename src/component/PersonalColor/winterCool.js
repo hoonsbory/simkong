@@ -89,6 +89,9 @@ export default class WinterCool extends Component {
                         format="auto"
                         responsive='true'
                     />
+                    <div style={{width : "100%", textAlign : "center"}}>
+                        <ins class="kakao_ad_area" style={{display : "none"}} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
+                            data-ad-height="250"></ins></div>
                     <p className="mt-3">겨울 타입에게 잘 어울리는 컬러는 화이트, 블랙과 같은 모노톤과 시리도록 차갑고 선명한 색과 아이스 컬러를 사용할 수 있는데, 대표적인 컬러는 아이스 블루, 아이스핑크, 쇼킹 핑크, 와인레드, 레몬옐로우, 크리스마스트리 그린, 사파이어 등 인공적이면서 얼음처럼 차갑고 강한 컬러들입니다. 겨울의 컬러는 차가움과 모던함, 카리스마 있는 이미지를 줍니다.</p>
                     <img alt="WarmSpectrum" className="specLip" src="/images/personalColor/winterSpectrum.png"></img>
                 </div>

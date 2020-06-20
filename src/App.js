@@ -1,4 +1,4 @@
-import React,{ Component } from "react"
+import React, { Component } from "react"
 import { Link, BrowserRouter as Router, Route } from "react-router-dom"
 import SpringWarm from "./component/PersonalColor/SpringWarm"
 import SpringWarmMeta from "./component/PersonalColor/redirect/SpringWarmMeta";
@@ -12,7 +12,7 @@ import Footer from "./component/Footer";
 
 
 export default class App extends Component {
-  
+
   render() {
     window.scrollTo(0, 0)
     window.Kakao.init('7e83cda1ddcc964d3fb6c99c8fd47645');
@@ -46,11 +46,11 @@ export default class App extends Component {
           <Route exact path="/summerCoolMeta" component={SummerCoolMeta}></Route>
           <Route exact path="/fallWarmMeta" component={FallWarmMeta}></Route>
           <Route exact path="/winterCoolMeta" component={WinterCoolMeta}></Route>
-<ins class="kakao_ad_area ads" style={{display:"none"}} data-ad-unit="DAN-u87wjanwcvg8" data-ad-width="320"
-    data-ad-height="50"></ins>
+          <ins class="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-qhq4nydjh6b5" data-ad-width="320"
+            data-ad-height="100"></ins>
+          <ins class="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-u87wjanwcvg8" data-ad-width="320"
+            data-ad-height="50"></ins>
           <div id="disqus_thread" />
-  <ins class="kakao_ad_area ads" style={{display:"none"}} data-ad-unit="DAN-qhq4nydjh6b5" data-ad-width="320"
-    data-ad-height="100"></ins>
 
           <Footer></Footer>
         </Router>
