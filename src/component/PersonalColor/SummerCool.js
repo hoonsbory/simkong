@@ -66,11 +66,11 @@ export default class SummerCool extends Component {
                     style={{ display: 'block', textAlign: "center", width: "100%", height: "100px" }}
                     format="horizontal"
                 /> */}
-                <ins class="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
-                    data-ad-height="250"></ins>
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color: "white" }}># 여름 쿨톤의 특징</p>
                     <p className="mt-3">여름 쿨톤인 사람은 대체적으로 깨끗한 이미지를 가지고 있습니다. 또한 여름 타입은 자연스럽고 산뜻한 이미지로, 화사하며 부드럽고 여성스러운 스타일이 주로 많습니다. </p>
+                <ins class="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
+                    data-ad-height="250"></ins>
                     <p className="mt-3">여름 타입은 흰색과 파랑을 지닌 차가운 유형으로 부드러움(soft)과 연한(light) 톤, 밝은 잿빛(light greyish) 톤의 시원스럽고 화려함을 느끼게 합니다.</p>
                     <img src="/images/personalColor/summerColor.png" alt="colorTable" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
                     <p className="mt-3">핑크빛과 붉은빛이 감도는 혈색 좋은 피부 톤을 가지고 있으며, 피부가 얇아 예민합니다. 차분하고 깊은 부드러운 갈색의 눈동자, 회갈색을 띠는 건조하고 얇으며 부스스한 머리카락, 지적이고 세련되며 우아한 인상이 여름 타입의 특징입니다.</p>
