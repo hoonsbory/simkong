@@ -86,7 +86,7 @@
                 data-ad-unit="DAN-1h7fvl13rbh9w" data-ad-width="250" data-ad-height="250"></ins>
         </div>
     </div>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
     <!-- 결과페이지 하단2 -->
     <!-- <div class="middleSec">
         <ins class="adsbygoogle" style="display:block; width: 100%; height: 100px;"
@@ -98,6 +98,12 @@
 
 
     <div id="mainbody">
+        <div id="notice2" style="text-align: center;"><span
+                style="background-color: rgb(10, 59, 112);color: white;padding: 3px; padding-bottom: 0px;">컬러리스트</span>가
+            제작한 퍼스널컬러 진단 사이트!<p> 인공지능이 Delta-e를 통해 <span
+                    style="background-color: rgb(10, 59, 112);color: white;padding: 3px; padding-bottom: 0px;"> 피부를
+                    진단합니다.</span></p>
+        </div>
         <div id="mainTitle">
             <p>나는 <span id="warmSpan">웜톤</span>일까? <span id="coolSpan">쿨톤</span>일까?</p>
             <span id="bgSpan">퍼스널컬러</span><span id="noBgSpan"> 진단</span>
@@ -276,8 +282,6 @@
     </script>
     <script>
 
-
-
         //rgb값을 xyz로 변환 후 lab로 최종 변환
         function rgbToXyz(hex) {
             const [r, g, b] = hex.map(_ => _ / 255).map(sRGBtoLinearRGB)
@@ -404,7 +408,6 @@
             if (document.getElementById("checkSuccess").style.display == "block") {
                 moveRight("");
                 uploadCheck = true;
-                firstResult = [];
             }
             document.getElementById(div).style.display = "none";
         }
@@ -525,7 +528,8 @@
             // [254, 254, 254],//하양
             // [0, 0, 0]//검정
         ]
-
+        var warm = 0;
+        var cool = 0;
         var imgRed;
         var imgGreen;
         var imgBlue;
@@ -628,8 +632,7 @@
                 answerStack.push("cool");
             }
             if (slideCheck == 6) {
-                var warm = 0;
-                var cool = 0;
+
                 for (var i = 0; i < answerStack.length; i++) {
                     if (answerStack[i] == "warm") {
                         warm++;
@@ -637,14 +640,14 @@
                         cool++;
                     }
                 }
-                if (warm < cool) {
-                    season(coolColor, "cool");
-                    return
-                } else {
-                    season(warmColor, "warm");
-                    return
-                }
-
+                // if (warm < cool) {
+                //     season(coolColor, "cool");
+                //     return
+                // } else {
+                //     season(warmColor, "warm");
+                //     return
+                // }
+                season();
 
             }
 
@@ -660,6 +663,7 @@
 
         //이미지에서 색상추출
         function color(src) {
+            firstResult = [];
             var checkSuccess = document.getElementById("checkSuccess");
             var checkFail = document.getElementById("checkFail");
             var checkResult = document.getElementById("checkResult")
@@ -672,6 +676,7 @@
 
                 colorThief.getColor(sourceImage)
             } catch (error) {
+                checkFail.firstElementChild.nextElementSibling.innerHTML = "사진을 잘못 올리신 거 같아요! 다시 시도해주세요"
                 checkSuccess.style.display = "none"
                 checkFail.style.display = "block"
                 checkResult.style.display = "block"
@@ -686,6 +691,8 @@
             labColor = { L: colorArray[0], A: colorArray[1], B: colorArray[2] };
 
             for (var i = 0; i < colorList.length; i++) {
+
+                //절대값을 구할때는 Math.ads로 구하면된다..
                 // var color = "color" + i;
                 // var red = (imgRed - colorList[i][0]);
                 // red = red < 0 ? -(red) : red;
@@ -703,10 +710,9 @@
             setTimeout(function () {
 
                 loading.style.display = "none"
-                if (colorNum < 16) {
+                if (colorNum < 16 && firstResult[0][0] <= 30) {
                     checkSuccess.style.display = "block"
                     checkFail.style.display = "none"
-
                     checkResult.style.display = "block"
 
                     return;
@@ -723,7 +729,7 @@
                     checkResult.style.display = "block"
                 }
             }, 1500);
-            firstResult = [];
+
 
         }
 
@@ -1361,7 +1367,12 @@
             }
         }
 
-
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
         //이미지 회전.
         function rotateImg(plusMinus) {
             document.getElementById("rotateBtn").style.animation = "fade 0.5s"
@@ -1586,41 +1597,78 @@
         //그러나 rgb값으로는 색의 오차를 수치로 판단하기가 힘들다. 예를들어 50,50,50을 비교하면, 100,100,100과는 총 150의 차이, 50,50,199와는 총 149의 차이로 후자가 더 비슷한 컬러로 결과가 나오지만,
         //실제 인간이 봤을 때 비슷한 색은 100,100,100이다. 후자는 blue값이 149의 차이가 나기때문에 색이 완전히 다른 색이 되어버린다. 이처럼 세 영역의 벨런스를 잡아줄 수가 없어서 구글링을 해봤는데,
         //CIE(국제조명위원회)가 LAB값을 활용한 공식을 발표했고(delta-e), 그걸 js로 만들어놓은 사람이 있어서 가져와서 모듈화해서 사용했다.
-        function season(colorGroup, toneColor) {
+        function season() {
             loading.style.display = "block"
-            var length = colorGroup.length
-            for (var i = 0; i < length; i++) {
-                // var red = (imgRed - colorGroup[i][0]);
-                // red = red < 0 ? -(red) : red;
-                // var green = (imgGreen - colorGroup[i][1]);
-                // green = green < 0 ? -(green) : green;
-                // var blue = (imgBlue - colorGroup[i][2]);
-                // blue = blue < 0 ? -(blue) : blue;
+            var length = firstResult.length
+            // for (var i = 0; i < length; i++) {
+            //     // var red = (imgRed - colorGroup[i][0]);
+            //     // red = red < 0 ? -(red) : red;
+            //     // var green = (imgGreen - colorGroup[i][1]);
+            //     // green = green < 0 ? -(green) : green;
+            //     // var blue = (imgBlue - colorGroup[i][2]);
+            //     // blue = blue < 0 ? -(blue) : blue;
 
-                calResult.push([window.module1(labColor, colorGroup[i]), i]);
-                // calResult.push([red + green + blue, i]);
+            //     firstResult.push([window.module1(labColor, colorGroup[i]), i]);
+            //     // calResult.push([red + green + blue, i]);
 
-            }
-            var length2 = calResult.length
+            // }
+            // var length2 = firstResult.length
             var season1 = [];
             var season2 = [];
-            var colorNum;
-            calResult.sort(function (a, b) { // 오름차순 
-                return a[0] - b[0];
-            });
+            // var colorNum;
+            // calResult.sort(function (a, b) { // 오름차순 
+            //     return a[0] - b[0];
+            // });
+
+
+            for (var i = 0; i < length; i++) {
+                if (firstResult[i][1] < 8 && !season1[0]) {
+                    season1.push(firstResult[i][0])
+                    season1.push(firstResult[i][1])
+                } else if (firstResult[i][1] < 16 && !season2[0]) {
+                    season2.push(firstResult[i][0])
+                    season2.push(firstResult[i][1])
+                }
+                if (season1[0] && season2[0]) break;
+            }
+            season1[0] = 50 - (50 / (100 / season1[0])) + (warm / 5);
+            season2[0] = 50 - (50 / (100 / season2[0])) + (cool / 5);
+
+            if (season1[0] > season2[0]) {
+                toneColor = "warm"
+            } else {
+                toneColor = "cool"
+            }
 
             //스트림 방식은 아무래도 카메라로 바로 측정하기 때문에 그늘지기도 하고 크롭으로 특정 부위를 자를수도 없어 좀 더 어둡기 때문에 인위적으로 벨런스를 조절해줌.
             if (stream || toneColor == "warm") {
-                for (var i = 0; i < length2; i++) {
-                    if (calResult[i][1] <= 3) {
-                        season1.push(calResult[i][0])
-                        season1.push(calResult[i][1])
-                    } else {
-                        season2.push(calResult[i][0])
-                        season2.push(calResult[i][1])
+                season1 = [];
+                season2 = [];
+                if (toneColor == "warm") {
+                    for (var i = 0; i < length; i++) {
+                        if (firstResult[i][1] <= 3 && !season1[0]) {
+                            season1.push(firstResult[i][0])
+                            season1.push(firstResult[i][1])
+                        } else if (firstResult[i][1] <= 7 && !season2[0]) {
+                            season2.push(firstResult[i][0])
+                            season2.push(firstResult[i][1])
+                        }
+                        if (season2[0] && season1[0]) {
+                            break;
+                        }
                     }
-                    if (season2[0] && season1[0]) {
-                        break;
+                } else {
+                    for (var i = 0; i < length; i++) {
+                        if ((firstResult[i][1] >= 8 && firstResult[i][1] <= 11) && !season1[0]) {
+                            season1.push(firstResult[i][0])
+                            season1.push(firstResult[i][1])
+                        } else if (firstResult[i][1] <= 15 && !season2[0]) {
+                            season2.push(firstResult[i][0])
+                            season2.push(firstResult[i][1])
+                        }
+                        if (season2[0] && season1[0]) {
+                            break;
+                        }
                     }
                 }
                 // if (toneColor == "warm") {
@@ -1636,21 +1684,27 @@
                 } else {
                     season1[0] -= season2[0] * 0.15
                 }
-
                 // }
-                colorNum = season1[0] == season2[0] ? calResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
+                colorNum = season1[0] == season2[0] ? firstResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
             } else {
-                colorNum = calResult[0][1]
+                colorNum = season2[1]
             }
+
             setTimeout(function () {
-                if (0 <= colorNum && colorNum <= 3 && toneColor == "warm") {
+
+                console.log(colorNum);
+                if (colorNum <= 3) {
                     window.location.href = "https://mycolor.kr/springWarm"
-                } else if (toneColor == "warm") {
+                    alert('봄');
+                } else if (colorNum <= 7) {
                     window.location.href = "https://mycolor.kr/fallWarm"
-                } else if (0 <= colorNum && colorNum <= 3 && toneColor == "cool") {
+                    alert('가을');
+                } else if (colorNum <= 11) {
                     window.location.href = "https://mycolor.kr/summerCool"
-                } else {
+                    alert('여름');
+                } else if (colorNum <= 15) {
                     window.location.href = "https://mycolor.kr/winterCool"
+                    alert("겨울");
                 }
             }, 1500);
 
