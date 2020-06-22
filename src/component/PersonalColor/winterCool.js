@@ -3,9 +3,7 @@ import './css/PersonalColor.scss'
 import KakaoShare from '../KakaoShare'
 import Meta from '../Meta'
 import ReTry from '../ReTry';
-import AdMove from '../AdMove';
 import CoupangAds from '../CoupangAds';
-import AdSense from 'react-adsense';
 
 export default class WinterCool extends Component {
     // componentDidMount(){
@@ -41,9 +39,9 @@ export default class WinterCool extends Component {
             <div className="pcMainDiv">
 
                 <Meta data={metaData} />
-                <img alt="WarmTitle" className="pcTitle" src="/images/personalColor/winterTitle.png"></img>
+                <img alt="당신은 겨울 쿨톤입니다" className="pcTitle" src="/images/personalColor/winterTitle.png"></img>
                 <div className="pcTopDiv">
-                    <img alt="WarmMain" className="pcMainImg" src="/images/personalColor/winterMain.png"></img>
+                    <img alt="겨울 쿨톤 이미지" className="pcMainImg" src="/images/personalColor/winterMain.png"></img>
                     <div className="mainRight">
                         <div className="squareGroup">
                             <div className="d-flex mb-2">
@@ -78,7 +76,7 @@ export default class WinterCool extends Component {
                 <ins class="kakao_ad_area ads" style={{ display: "none", position : "relative", left : "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
                     data-ad-height="250"></ins>
                     <p className="mt-3">겨울 타입은 파랑과 흰색, 검정을 지닌 차가운 유형으로 선명(vivid) 하고 엷은(pale) 톤, 어두운(dark) 톤의 모던하며 도시적인 강렬함을 느끼게 합니다.</p>
-                    <img src="/images/personalColor/winterColor.png" alt="colorTable" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
+                    <img src="/images/personalColor/winterColor.png" alt="겨울 쿨톤의 색상 특징" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
                     <p className="mt-3">겨울 타입은 핏기가 없어 보일 정도의 창백하고 투명한 피부 톤을 가집니다. 눈동자는 푸른빛, 갈색빛으로 강렬하고 개성 있으며 카리스마가 있다. 푸른빛이 감도는 갈색 머리, 혹은 아주 까만 머리를 가지고 있습니다.</p>
                 </div>
                 <div className="mt-3">
@@ -95,14 +93,14 @@ export default class WinterCool extends Component {
                         <ins class="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
                             data-ad-height="250"></ins></div>
                     <p className="mt-3">겨울 타입에게 잘 어울리는 컬러는 화이트, 블랙과 같은 모노톤과 시리도록 차갑고 선명한 색과 아이스 컬러를 사용할 수 있는데, 대표적인 컬러는 아이스 블루, 아이스핑크, 쇼킹 핑크, 와인레드, 레몬옐로우, 크리스마스트리 그린, 사파이어 등 인공적이면서 얼음처럼 차갑고 강한 컬러들입니다. 겨울의 컬러는 차가움과 모던함, 카리스마 있는 이미지를 줍니다.</p>
-                    <img alt="WarmSpectrum" className="specLip" src="/images/personalColor/winterSpectrum.png"></img>
+                    <img alt="겨울 쿨톤이 어울리는 색상" className="specLip" src="/images/personalColor/winterSpectrum.png"></img>
                 </div>
                 <div className="mt-4">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 메이크업 / 스타일링 팁</p>
                     <p className="mt-3">[주얼리] 실버 / 화이트골드 / 다이아몬드 / 백진주</p>
                     <p>[블러셔] 푸른빛이 강한 핑크 계열</p>
                     <p>[립스틱] 버건디 / 퍼플 / 딥로즈 / 플럼 / 체리 계열</p>
-                    <img alt="WarmLip" className="specLip" src="/images/personalColor/winterLip.png"></img>
+                    <img alt="겨울 쿨톤이 어울리는 립, 틴트색" className="specLip" src="/images/personalColor/winterLip.png"></img>
                 </div>
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>

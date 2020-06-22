@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <img id="loading" src="pcImages/loading.gif"
+    <img alt="로딩 loading" id="loading" src="pcImages/loading.gif"
         style="width : 65px; z-index : 999;display : none; position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%);">
     <canvas id="myCanvas" style="display: none;">
     </canvas>
@@ -56,7 +56,7 @@
         <div class="popupBg"></div>
         <div class="popDivFB" style=" background-color: rgba(230, 230, 230, 1);">
             <div>
-                <img src="pcImages/warning.png">
+                <img alt="warning 경고" src="pcImages/warning.png">
                 <p>현 브라우저는 호환되지 않을 수 있습니다.</p>
                 <p>아래의 경로로 재접속해주세요</p>
                 <p>* 우측하단 혹은 우측상단 터치 후</p>
@@ -120,7 +120,7 @@
                 onchange="readURL(this);" accept="image/*" ; style="display: none; z-index: 998;" />
             <div class="image-upload-wrap" onclick="cameraCheck()">
                 <div class="drag-text">
-                    <img src="pcImages/camera.png" />
+                    <img alt="camera 카메라" src="pcImages/camera.png" />
                     <h1>내 피부 촬영하기 </h1>
                     <p>※ 손목 안쪽 피부</p>
                 </div>
@@ -130,11 +130,11 @@
                 <ul>
                     <li>
                         <div class="file-upload-content" id="noCamDiv" style="display: none;">
-                            <img class="file-upload-image" id="realImage" src="#" alt="your image" />
+                            <img alt="내 피부 사진" class="file-upload-image" id="realImage" src="#" alt="your image" />
                             <div style="margin-top : 2vh;">
-                                <div class="btnGroup" id="editBtn" onclick="editImg()"><img
+                                <div class="btnGroup" id="editBtn" onclick="editImg()"><img alt="자르기 표시"
                                         src="pcImages/crop.png"><span>자르기</span></div>
-                                <div class="btnGroup" id="rotateBtn" onclick="rotateImg('right')"><img
+                                <div class="btnGroup" id="rotateBtn" onclick="rotateImg('right')"><img alt="회전표시"
                                         src="pcImages/rotate.png"><span>회전</span></div>
                                 <div class="btnGroup" id="refreshBtn" onclick="refresh()"><span
                                         style="padding-left: 0px">재설정</span></div>
@@ -144,7 +144,7 @@
                                 <span>새로운 사진으로
                                     재시도</span></div>
                             <div class="arrowBtn" onclick="next()">다음 단계로</div>
-                            <img id="originalImg" style="display: none;" />
+                            <img alt="" id="originalImg" style="display: none;" />
                         </div>
                         <div id="mainCam" style="display: none;">
                             <video id="video" style="margin-bottom : 5vh; width: 100%; height : 60vh" muted autoplay
@@ -261,7 +261,7 @@
     </div>
     <div id="footer">
         <div id="footerLeft">
-            <img src="pcImages/footerImg.png">
+            <img alt="마이퍼스널컬러 로고" src="pcImages/footerImg.png">
             <p>mycolor.kr</p>
         </div>
         <div>제작 도움 - <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg"
@@ -1174,6 +1174,7 @@
             document.getElementById("subTitle").style.display = "none";
             document.getElementById("mainTitle").style.display = "none";
             document.getElementById("notice").style.display = "none";
+            document.getElementById("notice2").style.display = "none";
             document.getElementById("stepInfo").style.display = "block";
             document.getElementById("cropNotice").style.display = "block";
             document.getElementById('editBtn').style.pointerEvents = 'auto';

@@ -719,4 +719,27 @@ max-width: 300px;
   #bgSpan, #noBgSpan{
     font-size: 27px !important;
   }
+  #stepInfo{
+    font-size: 17.5px;
+    height: 31px;
+    padding-left: 2px;
+    padding-right: 13px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  #stepDiv{
+    width: 31px;
+    padding-top: 31px;
+  }
+  #stepNum{
+    left: -20px;
+    top: -11px;
+  }
+  #subInfo{
+    top: 4px;
+  }
+  .arrowBtn{
+    padding: 13px;
+    padding-top: 13.8px;
+  }
 }
