@@ -23,8 +23,8 @@ export default class WinterCool extends Component {
         // s.async = true;
         // (d.head || d.body).appendChild(s);
         const metaData = {
-            title: "퍼스널 컬러 진단하기!",
-            description: "나의 퍼스널 컬러는 뭘까??",
+            title: "퍼스널 컬러 자가진단 테스트하기!",
+            description: "인공지능을 통해 퍼스널컬러를 진단받아보세요!",
             image: "https://mycolor.kr/images/personalColor/winterMeta.png",
             canonical: "winterCool",
             canonical2: "winterCoolMeta"
