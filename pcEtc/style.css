@@ -666,7 +666,7 @@ left : -6rem;
     font-size: 2vw;
     min-width: 58vw;
   }
-  .jcrop-holder:before{
+  /* .jcrop-holder:before{
     content: "드래그해서 영역을 선택한 후 완료 버튼을 눌러주세요";
     color: white;
     position: absolute;
@@ -675,7 +675,7 @@ left : -6rem;
     z-index: 100;
     min-width: 182px !important;
     max-width: 310px !important;
-    }
+    } */
   #slider ul li{
     width : 320px;
   }

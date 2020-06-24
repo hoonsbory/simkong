@@ -12,7 +12,7 @@ export default class Footer extends Component {
             fontSize : "12px"
         }
         return (
-            <div id="footer" style={footer}>
+            <footer id="footer" style={footer}>
                 <div id="footerLeft">
                     <img alt="마이퍼스널컬러 로고" style={{width : "8rem", marginBottom : ".5rem"}} src="/images/personalColor/footerImg.png" />
                     <p>mycolor.kr</p>
@@ -20,7 +20,7 @@ export default class Footer extends Component {
                 <div>제작 도움 - <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" style={{color : "rgb(10, 59, 112)"}}>JoCoding Youtube</a></div>
                 <div id="footerCenter"><a href="https://mycolor.kr/privacy" style={{color : "rgb(10, 59, 112)"}}>개인정보 처리방침</a></div>
                 <div id="footerRight">Contact : 신재훈 -tonymkcv93@gmail.com</div>
-            </div>
+            </footer>
         )
     }
 }
