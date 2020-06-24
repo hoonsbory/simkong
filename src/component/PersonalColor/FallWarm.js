@@ -35,28 +35,30 @@ export default class FallWarm extends Component {
 
             <section className="pcMainDiv">
                 <Meta data={metaData} />
-                <img alt="당신은 가을 웜톤입니다" className="pcTitle" src="/images/personalColor/fallTitle.png"></img>
-                <header className="pcTopDiv">
-                    <img alt="가을 웜톤 이미지" className="pcMainImg" src="/images/personalColor/fallMain.png"></img>
-                    <div className="mainRight">
-                        <div className="squareGroup">
-                            <div className="d-flex mb-2">
-                                <span style={{ background: "rgb(238,219,179)" }}></span>
-                                <span className="ml-2" style={{ background: "rgb(238,210,160)" }}></span>
+                <header>
+                    <img alt="당신은 가을 웜톤입니다" className="pcTitle" src="/images/personalColor/fallTitle.png"></img>
+                    <div className="pcTopDiv">
+                        <img alt="가을 웜톤 이미지" className="pcMainImg" src="/images/personalColor/fallMain.png"></img>
+                        <div className="mainRight">
+                            <div className="squareGroup">
+                                <div className="d-flex mb-2">
+                                    <span style={{ background: "rgb(238,219,179)" }}></span>
+                                    <span className="ml-2" style={{ background: "rgb(238,210,160)" }}></span>
+                                </div>
+                                <div className="d-flex mb-4">
+                                    <span style={{ background: "rgb(232,197,139)" }}></span>
+                                    <span className="ml-2" style={{ background: "rgb(223,180,112)" }}></span>
+                                </div>
                             </div>
-                            <div className="d-flex mb-4">
-                                <span style={{ background: "rgb(232,197,139)" }}></span>
-                                <span className="ml-2" style={{ background: "rgb(223,180,112)" }}></span>
+                            <div className="pcTopText">
+                                <p>#깊은</p>
+                                <p>#내추럴</p>
+                                <p>#클래식</p>
+                                <p>#섹시한</p>
+                                <p>#그윽한</p>
+                                <p>#편안한</p>
+                                <p>#차분한</p>
                             </div>
-                        </div>
-                        <div className="pcTopText">
-                            <p>#깊은</p>
-                            <p>#내추럴</p>
-                            <p>#클래식</p>
-                            <p>#섹시한</p>
-                            <p>#그윽한</p>
-                            <p>#편안한</p>
-                            <p>#차분한</p>
                         </div>
                     </div>
                 </header>
