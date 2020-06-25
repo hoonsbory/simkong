@@ -32,7 +32,7 @@ And in ios below version 13.4, cause the image has wrong orientation info we use
 - CloudFront
 - Travis CI
 
-### 🏠 [Homepage](mycolor.kr)
+### 🏠 [Homepage](https://mycolor.kr)
 <img src="https://s3.ap-northeast-2.amazonaws.com/jaehoon-dayoff.ml/pcImages/metaImg.jpg">
 
 ## Author
