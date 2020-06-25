@@ -22,9 +22,8 @@
 
 ```
 we using stream by html video tag, but it didn't work at several in-app browsers.
-so we had to change video tag to file input tag at several in-app browsers. 
-And in ios below version 13.4, the image has wrong orientation info. 
-So we had to used canvas tag and turned them in the right direction.
+So we had to change video tag to file input tag at several in-app browsers. 
+And in ios below version 13.4, cause the image has wrong orientation info we used canvas tag and turned them in the right direction.
 ```
 
 ### `Stack`
