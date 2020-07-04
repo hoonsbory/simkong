@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import './css/PersonalColor.scss'
-import KakaoShare from '../KakaoShare'
-import Meta from '../Meta'
-import ReTry from '../ReTry';
-import CoupangAds from '../CoupangAds';
+import 'component/PersonalColor/css/PersonalColor.scss'
+import KakaoShare from 'component/KakaoShare'
+import Meta from 'component/Meta'
+import ReTry from 'component/ReTry';
+import CoupangAds from 'component/CoupangAds';
 import queryString from 'query-string'
 
 

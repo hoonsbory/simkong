@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import "./share.scss"
+import "component/share.scss"
 
 const KakaoShare = ({data}) => {
     const [mainUrl,setMainUrl] = useState("https://mycolor.kr/")
