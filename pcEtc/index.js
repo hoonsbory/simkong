@@ -1,5 +1,4 @@
 
-
 //rgb값을 xyz로 변환 후 lab로 최종 변환
 function rgbToXyz(hex) {
     const [r, g, b] = hex.map(_ => _ / 255).map(sRGBtoLinearRGB)
@@ -9,7 +8,6 @@ function rgbToXyz(hex) {
     // For some reason, X, Y and Z are multiplied by 100.
     return [X, Y, Z].map(_ => _ * 100)
 }
-
 
 /**
  * Undoes gamma-correction from an RGB-encoded color.
@@ -86,6 +84,7 @@ if ((navigator.appName == 'Netscape' && ua.search('Trident') != -1) || (ua.index
     document.documentElement.classList.add('fonts-loaded');
     alert("지원하지않는 브라우저입니다. 크롬,엣지,사파리 등의 브라우저를 이용해주세요");
 }
+
 //애플 기기의 ios버전을 체크하기 위함.
 let osInfo;
 let realOs;
@@ -93,24 +92,22 @@ let floatOs = 0;
 if ((ua.indexOf("iPhone") > -1) || (ua.indexOf("iPad") > -1) || (ua.indexOf("iPod") > -1) || (ua.indexOf("Mac") > -1)) {
     appleCheck = true;
     //인스타그램, 페이스북, 카카오 전부 OS라는 문자옆에 버전이 적혀있는데 페이스북 메신저는 OS가 없고 다른 곳에 버전이 적혀있어서 따로 구현함.
-    if(ua.indexOf("FBSV") > -1){
-    osInfo = ua.split("FBSV")[1];
-    realOs = osInfo.substring(1, 3) + "." + osInfo.substring(4,5);
-    floatOs = parseFloat(realOs)
-    }else{
-    osInfo = ua.split("OS")[1]
-    realOs = osInfo.substring(1, 3) + "." + osInfo.substring(4, 5);
+    if (ua.indexOf("FBSV") > -1) {
+        osInfo = ua.split("FBSV")[1];
+        realOs = osInfo.substring(1, 3) + "." + osInfo.substring(4, 5);
+        floatOs = parseFloat(realOs)
+    } else {
+        osInfo = ua.split("OS")[1]
+        realOs = osInfo.substring(1, 3) + "." + osInfo.substring(4, 5);
 
-    //ios버전 추출해서 실수형으로.
-    floatOs = parseFloat(realOs)
+        //ios버전 추출해서 실수형으로.
+        floatOs = parseFloat(realOs)
     }
 }
-document.getElementById("bgSpan").innerHTML = ua.indexOf("Android")
 function isFacebookApp() {
     return (ua.indexOf("Android") > -1 && ((ua.indexOf("FBAN") > -1) || (ua.indexOf("Instagram") > -1) || (ua.indexOf("FBAV") > -1) || (ua.indexOf("FBSV") > -1) || (ua.indexOf("FBSS") > -1) || (ua.indexOf("FBCR") > -1) || (ua.indexOf("FBID") > -1) || (ua.indexOf("FBCL") > -1) || (ua.indexOf("FBMD") > -1) || (ua.indexOf("FBDV") > -1) || (ua.indexOf("FBSN") > -1)));
 };
-;
-//페이스북에서 파일 업로드가 안된다. accept속성을 지우면 된다는 얘기가 많은데 시도해봐도 되지를 않아서 외부 브라우저를 키도록 유도함.
+//안드로이드 페이스북메신저에서 파일 업로드가 안된다. accept속성을 지우면 된다는 얘기가 많은데 시도해봐도 되지를 않아서 외부 브라우저를 키도록 유도함.
 if (isFacebookApp()) {
     document.getElementById("popup").style.display = "block";
 }
@@ -277,6 +274,7 @@ var slideWidth = $('#slider ul li').width();
 var slideHeight = $('#slider ul li').height();
 var sliderUlWidth = slideCount * slideWidth;
 
+
 $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
 
 $('#slider ul li:last-child').prependTo('#slider ul');
@@ -374,6 +372,7 @@ function moveRight(tone) {
         //     return
         // }
         season();
+        return;
 
     }
 
@@ -407,7 +406,6 @@ function color(src) {
 
         var colorArray = xyzToLab(rgbToXyz(colorThief.getColor(sourceImage)));
 
-        console.log(colorThief.getColor(sourceImage));
         labColor = { L: colorArray[0], A: colorArray[1], B: colorArray[2] };
 
         for (var i = 0; i < colorList.length; i++) {
@@ -427,7 +425,6 @@ function color(src) {
             return a[0] - b[0];
         });
         var colorNum = firstResult[0][1];
-        console.log(firstResult);
         setTimeout(function () {
 
             loading.style.display = "none"
@@ -442,7 +439,7 @@ function color(src) {
             else {
                 checkFail.firstElementChild.nextElementSibling.innerHTML = "사각형에 피부가 꽉차게 편집해주세요!"
                 if (stream && colorNum == 21) {
-                    checkFail.firstElementChild.nextElementSibling.innerHTML = "혹시 주변이 어두우시다면 피부가 화면에 꽉 찬 상태에서 시도해보세요!"
+                    checkFail.firstElementChild.nextElementSibling.innerHTML = "혹시 주변이 어두우시다면 피부가 화면에 <br>꽉 찬 상태에서 시도해보세요!"
                 } else if (stream && colorNum != 21) {
                     checkFail.firstElementChild.nextElementSibling.innerHTML = "피부가 화면에 꽉 찬 상태에서 시도해보세요!"
                 }
@@ -453,7 +450,7 @@ function color(src) {
         }, 1500);
 
     } catch (error) {
-        checkFail.firstElementChild.nextElementSibling.innerHTML = "사진을 잘못 올리신 거 같아요! 다시 시도해주세요"
+        checkFail.firstElementChild.nextElementSibling.innerHTML = "사진을 잘못 올리신 거 같아요! <br>다시 시도해주세요"
         checkSuccess.style.display = "none"
         checkFail.style.display = "block"
         checkResult.style.display = "block"
@@ -566,6 +563,7 @@ function crop() {
 
 
         );
+
 
 
         if (jcropApi) {
@@ -699,7 +697,6 @@ function editImg(callback, plusMinus) {
 
     var image = new Image();
     image.src = document.getElementById("originalImg").src;
-
     image.onload = function () {
 
         canvas.width = this.width;
@@ -711,9 +708,7 @@ function editImg(callback, plusMinus) {
             jcropApi = this;
             div();
         });
-        try {
-            
-        
+
 
         //안드로이드인 내 폰에서는 방향에 맞게 자동으로 회전되어 등록되지만 애플은 그렇지 않다. 애플은 정방향에서 90도회전된 정보가 사진에 들어가 있다.
         //예를 들면 정방향에서 찍었으면 회전값이 1이어야 하는데 애플은 8이 나온다. 그래서 애플 디바이스를 위한 회전 로직을 따로 짜야했다.
@@ -736,7 +731,6 @@ function editImg(callback, plusMinus) {
             EXIF.getData(fileInfo, function () {
                 const orientation = EXIF.getTag(fileInfo, "Orientation");
                 // console.log("회전도는 " + orientation);
-                alert(orientation);
                 switch (orientation) {
 
                     // @details 이미지 회전값이 0인경우 ( 정방향 )
@@ -744,10 +738,6 @@ function editImg(callback, plusMinus) {
                         canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
                         if (plusMinus) callback(plusMinus);
                         break;
-                    case 0:
-                        canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-                        if (plusMinus) callback(plusMinus);
-                        break;    
                     case 1:
 
 
@@ -812,13 +802,10 @@ function editImg(callback, plusMinus) {
             canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
             if (plusMinus) callback(plusMinus);
         }
-    } catch (error) {
-            alert(error);
-        }
+
 
         // 사진편집을 누르면 편집 테두리가 전체를 감싸도록 설정
         $('.file-upload-content').show();
-
         // firstCrop = true;
     }
 
@@ -1359,7 +1346,6 @@ function season() {
     // calResult.sort(function (a, b) { // 오름차순 
     //     return a[0] - b[0];
     // });
-    console.log(firstResult);
 
 
     for (var i = 0; i < length; i++) {
@@ -1376,7 +1362,6 @@ function season() {
     //delta-e에서 리턴받은 값을 점수화해서 질문결과와 합침.
     //대부분 필터 같은 것들이 껴있어서 밝은 부분이 많아 쿨톤이 점수가 높게 나오기 때문에 웜톤을 상향 조정했다.
     if (stream) {
-        //스트림을 통한 측정은 필터가 없이 쌩으로 측정하기 때문에 아주 약간만 상향.
         season1[0] = 50 - (49 / (100 / season1[0]));
         season2[0] = 50 - (50 / (100 / season2[0]));
     }
@@ -1384,14 +1369,8 @@ function season() {
         season1[0] = 50 - (42 / (100 / season1[0]));
         season2[0] = 50 - (50 / (100 / season2[0]));
     }
-    console.log(season1[0]);
-    console.log(season2[0]);
-    console.log("warm=" + warm);
-    console.log("cool=" + cool);
     season1[0] += (warm / 2.5)
     season2[0] += (cool / 2.5)
-    console.log(season1[0]);
-    console.log(season2[0]);
 
     if (season1[0] > season2[0]) {
         toneColor = "warm"
@@ -1400,94 +1379,89 @@ function season() {
     }
 
     //스트림 방식은 아무래도 카메라로 바로 측정하기 때문에 그늘지기도 하고 크롭으로 특정 부위를 자를수도 없어 좀 더 어둡기 때문에 인위적으로 벨런스를 조절해줌.
-    if (stream || toneColor == "warm") {
-        season1 = [];
-        season2 = [];
-        if (toneColor == "warm") {
-            for (var i = 0; i < length; i++) {
-                if (firstResult[i][1] <= 3 && !season1[0]) {
-                    season1.push(firstResult[i][0])
-                    season1.push(firstResult[i][1])
-                }
-                if ((firstResult[i][1] >= 4 && firstResult[i][1] <= 7) && !season2[0]) {
-                    season2.push(firstResult[i][0])
-                    season2.push(firstResult[i][1])
-                }
-                if (season2[0] && season1[0]) {
-                    break;
-                }
+    season1 = [];
+    season2 = [];
+    if (toneColor == "warm") {
+        for (var i = 0; i < length; i++) {
+            if (firstResult[i][1] <= 3 && !season1[0]) {
+                season1.push(firstResult[i][0])
+                season1.push(firstResult[i][1])
             }
-            //웜톤은 가뜩이나 필터때문에 잘나오지 못하는데, 그나마 웜톤이 나왔을때는 사진이 다소 어두울 때라, 가을 웜톤에 결과가 치우친다.
-            //그래서 봄웜톤 살짝 상향 조정.
-            if (!stream) {
-                if (season2[0] <= 12) season1[0] -= season2[0] * 0.2
-                else if (season2[0] <= 24) season1[0] -= season2[0] * 0.15
+            if ((firstResult[i][1] >= 4 && firstResult[i][1] <= 7) && !season2[0]) {
+                season2.push(firstResult[i][0])
+                season2.push(firstResult[i][1])
             }
-            else {
-                if (season2[0] <= 12) season1[0] -= season2[0] * 0.14
-                else if (season2[0] <= 24) season1[0] -= season2[0] * 0.125
+            if (season2[0] && season1[0]) {
+                break;
             }
-        } else {
-            for (var i = 0; i < length; i++) {
-                if ((firstResult[i][1] >= 8 && firstResult[i][1] <= 11) && !season1[0]) {
-                    season1.push(firstResult[i][0])
-                    season1.push(firstResult[i][1])
-                }
-                if ((firstResult[i][1] >= 12 && firstResult[i][1] <= 15) && !season2[0]) {
-                    season2.push(firstResult[i][0])
-                    season2.push(firstResult[i][1])
-                }
-                if (season2[0] && season1[0]) {
-                    break;
-                }
-            }
-            if (season2[0] <= 12) season1[0] -= season2[0] * 0.125
-            else if (season2[0] <= 24) season1[0] -= season2[0] * 0.1
         }
-        // if (toneColor == "warm") {
-        //     season1 -= season1 / 5
-        // } else {
-
-        //     season1 -= season1 / 7.3
-        // }
-
-        // if (season2[0] < 200 || season1[0] < 200) {
-
-        console.log(season1[0]);
-        // }
-        colorNum = season1[0] == season2[0] ? firstResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
+        //웜톤은 가뜩이나 필터때문에 잘나오지 못하는데, 그나마 웜톤이 나왔을때는 사진이 다소 어두울 때라, 가을 웜톤에 결과가 치우친다.
+        //그래서 봄웜톤 살짝 상향 조정.
+        if (!stream) {
+            if (season2[0] <= 12) season1[0] -= season2[0] * 0.2
+            else if (season2[0] <= 24) season1[0] -= season2[0] * 0.15
+        }
+        else {
+            if (season2[0] <= 12) season1[0] -= season2[0] * 0.14
+            else if (season2[0] <= 24) season1[0] -= season2[0] * 0.125
+        }
     } else {
-        console.log(season1);
-        console.log(season2);
-        colorNum = season2[1]
+        for (var i = 0; i < length; i++) {
+            if ((firstResult[i][1] >= 8 && firstResult[i][1] <= 11) && !season1[0]) {
+                season1.push(firstResult[i][0])
+                season1.push(firstResult[i][1])
+            }
+            if ((firstResult[i][1] >= 12 && firstResult[i][1] <= 15) && !season2[0]) {
+                season2.push(firstResult[i][0])
+                season2.push(firstResult[i][1])
+            }
+            if (season2[0] && season1[0]) {
+                break;
+            }
+        }
+        if (stream) {
+            if (season2[0] <= 12) season1[0] -= season2[0] * 0.135
+            else if (season2[0] <= 24) season1[0] -= season2[0] * 0.12
+        }
+    }
+    // if (toneColor == "warm") {
+    //     season1 -= season1 / 5
+    // } else {
+
+    //     season1 -= season1 / 7.3
+    // }
+
+    // if (season2[0] < 200 || season1[0] < 200) {
+
+    // }
+    colorNum = season1[0] == season2[0] ? firstResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
+    //100점 기준으로 점수 변환
+    if (season1[0] > season2[0]) {
+        var percentage = (season1[0] - season2[0]) * 20;
+        if (percentage > 50) percentage = 50;
+        season2[0] = Math.round(50 + percentage);
+        season1[0] = Math.round(50 - percentage);
+    } else {
+        var percentage = (season2[0] - season1[0]) * 20;
+        if (percentage > 50) percentage = 50;
+        season1[0] = Math.round(50 + percentage);
+        season2[0] = Math.round(50 - percentage);
     }
 
     setTimeout(function () {
-
-        console.log(colorNum);
         if (colorNum <= 3) {
-            // window.location.href = "https://mycolor.kr/springWarm"
-            alert('봄');
+            window.location.href = "https://mycolor.kr/springWarm?spring="+season1[0]+"&fall="+season2[0]
         } else if (colorNum <= 7) {
-            // window.location.href = "https://mycolor.kr/fallWarm"
-            alert('가을');
+            window.location.href = "https://mycolor.kr/fallWarm?spring="+season1[0]+"&fall="+season2[0]
         } else if (colorNum <= 11) {
-            // window.location.href = "https://mycolor.kr/summerCool"
-            alert('여름');
+            window.location.href = "https://mycolor.kr/summerCool?summer="+season1[0]+"&winter="+season2[0]
         } else if (colorNum <= 15) {
-            // window.location.href = "https://mycolor.kr/winterCool"
-            alert("겨울");
+            window.location.href = "https://mycolor.kr/winterCool?summer="+season1[0]+"&winter="+season2[0]
         }
     }, 1500);
 
     calResult = [];
 }
-
-
-
-
-
-
 
 
 (function () { // DON'T EDIT BELOW THIS LINE
@@ -1496,4 +1470,3 @@ function season() {
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
 })();
-
