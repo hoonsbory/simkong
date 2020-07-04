@@ -10,7 +10,6 @@ const WinterCool = ({ location }) => {
     const query = queryString.parse(location.search);
     useEffect(() => {
         if (Object.keys(query).length != 2) {
-            console.log(11);
             document.getElementsByClassName("resultBar")[0].style.display = "none";
         }
     })
@@ -88,7 +87,7 @@ const WinterCool = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤의 특징</p>
                     <p className="mt-3">겨울 쿨톤인 사람은 차갑고 강렬하며 이지적인 느낌을 지니고 있으며 깔끔하고 세련된 이미지를 지니는 사람이 많습니다. 전형적인 모던한 스타일로 선명하고 액티브한 이미지를 지니고 있어 존재감이 있으며 도시적인 감각을 지닌 유형입니다. </p>
-                    <ins class="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
+                    <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
                         data-ad-height="250"></ins>
                     <p className="mt-3">겨울 타입은 파랑과 흰색, 검정을 지닌 차가운 유형으로 선명(vivid) 하고 엷은(pale) 톤, 어두운(dark) 톤의 모던하며 도시적인 강렬함을 느끼게 합니다.</p>
                     <img src="/images/personalColor/winterColor.png" alt="겨울 쿨톤의 색상 특징" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
@@ -105,7 +104,7 @@ const WinterCool = ({ location }) => {
                 responsive='true'
             /> */}
                     <div style={{ width: "100%", textAlign: "center" }}>
-                        <ins class="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
+                        <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
                             data-ad-height="250"></ins></div>
                     <p className="mt-3">겨울 타입에게 잘 어울리는 컬러는 화이트, 블랙과 같은 모노톤과 시리도록 차갑고 선명한 색과 아이스 컬러를 사용할 수 있는데, 대표적인 컬러는 아이스 블루, 아이스핑크, 쇼킹 핑크, 와인레드, 레몬옐로우, 크리스마스트리 그린, 사파이어 등 인공적이면서 얼음처럼 차갑고 강한 컬러들입니다. 겨울의 컬러는 차가움과 모던함, 카리스마 있는 이미지를 줍니다.</p>
                     <img alt="겨울 쿨톤이 어울리는 색상" className="specLip" src="/images/personalColor/winterSpectrum.png"></img>
