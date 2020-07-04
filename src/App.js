@@ -4,7 +4,7 @@ import SpringWarm from "./component/PersonalColor/SpringWarm"
 import SpringWarmMeta from "./component/PersonalColor/redirect/SpringWarmMeta";
 import SummerCool from "./component/PersonalColor/SummerCool";
 import FallWarm from "./component/PersonalColor/FallWarm";
-import WinterCool from "./component/PersonalColor/WinterCool";
+import WinterCool from "./component/PersonalColor/WinterCool.js";
 import SummerCoolMeta from "./component/PersonalColor/redirect/SummerCoolMeta";
 import FallWarmMeta from "./component/PersonalColor/redirect/FallWarmMeta";
 import WinterCoolMeta from "./component/PersonalColor/redirect/WinterCoolMeta";
