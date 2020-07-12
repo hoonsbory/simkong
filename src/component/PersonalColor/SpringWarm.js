@@ -9,8 +9,8 @@ import queryString from 'query-string'
 const SpringWarm = ({ location }) => {
     const query = queryString.parse(location.search);
     useEffect(() => {
-        if (Object.keys(query).length != 2) {
-            document.getElementsByClassName("resultBar")[0].style.display = "none";
+        if (Object.keys(query).length == 2) {
+            document.getElementsByClassName("resultBar")[0].style.display = "block";
         }
     })
     const metaData = {

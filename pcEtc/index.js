@@ -1450,13 +1450,13 @@ function season() {
 
     setTimeout(function () {
         if (colorNum <= 3) {
-            window.location.href = "https://mycolor.kr/springWarm?spring="+season1[0]+"&fall="+season2[0]
+            window.location.href = "https://mycolor.kr/springWarm/?spring="+season1[0]+"&fall="+season2[0]
         } else if (colorNum <= 7) {
-            window.location.href = "https://mycolor.kr/fallWarm?spring="+season1[0]+"&fall="+season2[0]
+            window.location.href = "https://mycolor.kr/fallWarm/?spring="+season1[0]+"&fall="+season2[0]
         } else if (colorNum <= 11) {
-            window.location.href = "https://mycolor.kr/summerCool?summer="+season1[0]+"&winter="+season2[0]
+            window.location.href = "https://mycolor.kr/summerCool/?summer="+season1[0]+"&winter="+season2[0]
         } else if (colorNum <= 15) {
-            window.location.href = "https://mycolor.kr/winterCool?summer="+season1[0]+"&winter="+season2[0]
+            window.location.href = "https://mycolor.kr/winterCool/?summer="+season1[0]+"&winter="+season2[0]
         }
     }, 1500);
 
