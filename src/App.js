@@ -33,7 +33,12 @@ const App = () => {
   return (
     <div>
       <Router>
-        <NavMenu></NavMenu>
+      <ul id="navBar">
+                <Link to="/springWarm" style={{background : "rgb(230,187,163)"}}>봄 웜톤</Link>
+                <Link to="/fallWarm" style={{background : "rgb(226,186,139)"}}>가을 웜톤</Link>
+                <Link to="/summerCool" style={{background : "rgb(168,189,247)"}}>여름 웜톤</Link>
+                <Link to="/winterCool" style={{background : "rgb(168,233,239)"}}>겨울 웜톤</Link>
+            </ul>
         <div style={{ width: "100%", textAlign : "center" }}>
           <div onClick={() => window.location.href = "https://mycolor.kr"} className="px-5 pt-2" style={retry}>
             피부 테스트하러 가기
@@ -43,10 +48,10 @@ const App = () => {
         <Link to="/summerCoolMeta"></Link>
         <Link to="/springWarmMeta"></Link>
         <Link to="/fallWarmMeta"></Link>
-        <Link to="/winterCool"></Link>
+        {/* <Link to="/winterCool"></Link>
         <Link to="/summerCool"></Link>
         <Link to="/springWarm"></Link>
-        <Link to="/fallWarm"></Link>
+        <Link to="/fallWarm"></Link> */}
         <Route exact path="/springWarm" component={SpringWarm}></Route>
         <Route exact path="/summerCool" component={SummerCool}></Route>
         <Route exact path="/fallWarm" component={FallWarm}></Route>
