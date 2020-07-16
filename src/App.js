@@ -9,6 +9,8 @@ import SummerCoolMeta from "component/PersonalColor/redirect/SummerCoolMeta";
 import FallWarmMeta from "component/PersonalColor/redirect/FallWarmMeta";
 import WinterCoolMeta from "component/PersonalColor/redirect/WinterCoolMeta";
 import Footer from "component/Footer";
+import NavMenu from './component/PersonalColor/NavMenu';
+import ReTry from "component/ReTry.js"
 
 const App = () => {
   window.scrollTo(0, 0)
@@ -18,10 +20,25 @@ const App = () => {
   s.src = 'https://personalcolor.disqus.com/embed.js';
   s.setAttribute('data-timestamp', +new Date());
   (d.head || d.body).appendChild(s);
+
+  const retry = {
+    background: "rgb(206,222,247)",
+    borderRadius: "100px",
+    color: "white",
+    fontSize: "1.2rem",
+    display: "inline",
+    cursor: "pointer",
+  }
+
   return (
     <div>
       <Router>
-
+        <NavMenu></NavMenu>
+        <div style={{ width: "100%", textAlign : "center" }}>
+          <div onClick={() => window.location.href = "https://mycolor.kr"} className="px-5 pt-2" style={retry}>
+            피부 테스트하러 가기
+          </div>
+        </div>
         <Link to="/winterCoolMeta"></Link>
         <Link to="/summerCoolMeta"></Link>
         <Link to="/springWarmMeta"></Link>
