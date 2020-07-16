@@ -47,7 +47,6 @@ const App = () => {
         <Link to="/summerCool"></Link>
         <Link to="/springWarm"></Link>
         <Link to="/fallWarm"></Link>
-
         <Route exact path="/springWarm" component={SpringWarm}></Route>
         <Route exact path="/summerCool" component={SummerCool}></Route>
         <Route exact path="/fallWarm" component={FallWarm}></Route>
