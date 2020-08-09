@@ -9,7 +9,6 @@ import SummerCoolMeta from "component/PersonalColor/redirect/SummerCoolMeta";
 import FallWarmMeta from "component/PersonalColor/redirect/FallWarmMeta";
 import WinterCoolMeta from "component/PersonalColor/redirect/WinterCoolMeta";
 import Footer from "component/Footer";
-import NavMenu from './component/PersonalColor/NavMenu';
 import ReTry from "component/ReTry.js"
 
 const App = () => {
@@ -34,6 +33,7 @@ const App = () => {
     <div>
       <Router>
       <ul id="navBar">
+        {/* 리액트 스냅으로 렌더링을 해야하는데, Link를 쓰면 기존의 스크립트방식의 렌더를 사용해서 seo최적화를 할 수가 없음. 그래서 a태그로 바꿈 */}
                 <a href="/springWarm" style={{background : "rgb(230,187,163)"}}>봄 웜톤</a>
                 <a href="/fallWarm" style={{background : "rgb(226,186,139)"}}>가을 웜톤</a>
                 <a href="/summerCool" style={{background : "rgb(168,189,247)"}}>여름 웜톤</a>
