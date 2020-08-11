@@ -32,14 +32,14 @@ const App = () => {
   return (
     <div>
       <Router>
-      <ul id="navBar">
-        {/* 리액트 스냅으로 렌더링을 해야하는데, Link를 쓰면 기존의 스크립트방식의 렌더를 사용해서 seo최적화를 할 수가 없음. 그래서 a태그로 바꿈 */}
-                <a href="/springWarm" style={{background : "rgb(230,187,163)"}}>봄 웜톤</a>
-                <a href="/fallWarm" style={{background : "rgb(226,186,139)"}}>가을 웜톤</a>
-                <a href="/summerCool" style={{background : "rgb(168,189,247)"}}>여름 웜톤</a>
-                <a href="/winterCool" style={{background : "rgb(168,233,239)"}}>겨울 웜톤</a>
-            </ul>
-        <div style={{ width: "100%", textAlign : "center" }}>
+        <ul id="navBar">
+          {/* 리액트 스냅으로 렌더링을 해야하는데, Link를 쓰면 기존의 스크립트방식의 렌더를 사용해서 seo최적화를 할 수가 없음. 그래서 a태그로 바꿈 */}
+          <a href="/springWarm" style={{ background: "rgb(230,187,163)" }}>봄 웜톤</a>
+          <a href="/fallWarm" style={{ background: "rgb(226,186,139)" }}>가을 웜톤</a>
+          <a href="/summerCool" style={{ background: "rgb(168,189,247)" }}>여름 쿨톤</a>
+          <a href="/winterCool" style={{ background: "rgb(168,233,239)" }}>겨울 쿨톤</a>
+        </ul>
+        <div style={{ width: "100%", textAlign: "center" }}>
           <div onClick={() => window.location.href = "https://mycolor.kr"} className="px-5 pt-2" style={retry}>
             피부 테스트하러 가기
           </div>
@@ -60,11 +60,13 @@ const App = () => {
         <Route exact path="/summerCoolMeta" component={SummerCoolMeta}></Route>
         <Route exact path="/fallWarmMeta" component={FallWarmMeta}></Route>
         <Route exact path="/winterCoolMeta" component={WinterCoolMeta}></Route>
+        <div id="disqus_thread" />
         <ins className="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-qhq4nydjh6b5" data-ad-width="320"
           data-ad-height="100"></ins>
-
-        <div id="disqus_thread" />
-
+        <ins className="kakao_ad_area" style={{display: "none"}}
+          data-ad-unit="DAN-u87wjanwcvg8"
+          data-ad-width="320"
+          data-ad-height="50"></ins>
         <Footer></Footer>
       </Router>
     </div>

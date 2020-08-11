@@ -5,6 +5,8 @@ import Meta from 'component/Meta'
 import ReTry from 'component/ReTry';
 import CoupangAds from 'component/CoupangAds';
 import queryString from 'query-string'
+import AdSense from 'react-adsense'
+
 
 const WinterCool = ({ location }) => {
     const query = queryString.parse(location.search);
@@ -68,12 +70,12 @@ const WinterCool = ({ location }) => {
                     </div>
                 </div>
             </header>
-            {/* <AdSense.Google
+            <AdSense.Google
                 client="ca-pub-9106671749645972"
                 slot="7753265380"
                 style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
                 format="horizontal"
-            /> */}
+            />
             <article>
                 <div className="resultBar">
                     <span style={{ color: "rgb(168,189,247)" }}>여름
@@ -87,8 +89,10 @@ const WinterCool = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤의 특징</p>
                     <p className="mt-3">겨울 쿨톤인 사람은 차갑고 강렬하며 이지적인 느낌을 지니고 있으며 깔끔하고 세련된 이미지를 지니는 사람이 많습니다. 전형적인 모던한 스타일로 선명하고 액티브한 이미지를 지니고 있어 존재감이 있으며 도시적인 감각을 지닌 유형입니다. </p>
-                    <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
-                        data-ad-height="250"></ins>
+
+                    {/* <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
+                        data-ad-height="250"></ins> */}
+                        
                     <p className="mt-3">겨울 타입은 파랑과 흰색, 검정을 지닌 차가운 유형으로 선명(vivid) 하고 엷은(pale) 톤, 어두운(dark) 톤의 모던하며 도시적인 강렬함을 느끼게 합니다.</p>
                     <img src="/images/personalColor/winterColor.png" alt="겨울 쿨톤의 색상 특징" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
                     <p className="mt-3">겨울 타입은 핏기가 없어 보일 정도의 창백하고 투명한 피부 톤을 가집니다. 눈동자는 푸른빛, 갈색빛으로 강렬하고 개성 있으며 카리스마가 있다. 푸른빛이 감도는 갈색 머리, 혹은 아주 까만 머리를 가지고 있습니다.</p>
@@ -96,16 +100,16 @@ const WinterCool = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">겨울 컬러들은 파란색, 흰색, 검정을 내포하고 있는 차갑고 강렬한 컬러들의 그룹입니다. 선명하고 강하거나, 혹은 아주 여린 아이 시한 컬러들이 이 그룹에 속합니다. 모던하고 도회적인 이미지를 가지고 있는 팔레트입니다.</p>
-                    {/* <AdSense.Google
+                    <AdSense.Google
                 client="ca-pub-9106671749645972"
                 slot="4086317268"
                 style={{ display: 'block', textAlign: "center" }}
                 format="auto"
                 responsive='true'
-            /> */}
-                    <div style={{ width: "100%", textAlign: "center" }}>
+            />
+                    {/* <div style={{ width: "100%", textAlign: "center" }}>
                         <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
-                            data-ad-height="250"></ins></div>
+                            data-ad-height="250"></ins></div> */}
                     <p className="mt-3">겨울 타입에게 잘 어울리는 컬러는 화이트, 블랙과 같은 모노톤과 시리도록 차갑고 선명한 색과 아이스 컬러를 사용할 수 있는데, 대표적인 컬러는 아이스 블루, 아이스핑크, 쇼킹 핑크, 와인레드, 레몬옐로우, 크리스마스트리 그린, 사파이어 등 인공적이면서 얼음처럼 차갑고 강한 컬러들입니다. 겨울의 컬러는 차가움과 모던함, 카리스마 있는 이미지를 줍니다.</p>
                     <img alt="겨울 쿨톤이 어울리는 색상" className="specLip" src="/images/personalColor/winterSpectrum.png"></img>
                 </div>
@@ -119,13 +123,13 @@ const WinterCool = ({ location }) => {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
-                {/* <AdSense.Google
+                <AdSense.Google
             client="ca-pub-9106671749645972"
             slot="8539007090"
             style={{ display: 'block', textAlign: "center" }}
             format="auto"
             responsive='true'
-        /> */}
+        />
             </article>
         </section>
     )
