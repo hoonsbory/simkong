@@ -70,12 +70,7 @@ const SpringWarm = ({ location }) => {
                     </div>
                 </div>
             </header>
-            <AdSense.Google
-                client="ca-pub-9106671749645972"
-                slot="7753265380"
-                style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
-                format="horizontal"
-            />
+            
             <article>
                 <div className="resultBar">
                     <span style={{ color: "rgb(230,187,163)" }}>봄
@@ -86,6 +81,12 @@ const SpringWarm = ({ location }) => {
                     </span>
                     <span style={{ color: "rgb(226,186,139)" }}>가을</span>
                 </div>
+                <AdSense.Google
+                client="ca-pub-9106671749645972"
+                slot="7753265380"
+                style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
+                format="horizontal"
+            />
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(230,187,163)", display: "inline", color: "white" }}># 봄 웜톤의 특징</p>
                     <p className="mt-3">한국인의 많은 사람이 봄 웜톤의 피부색을 가지고 있습니다. 봄 웜톤인 사람은 사랑스럽고 귀여운 이미지로 어려 보이고 생동감이 있으며 활기가 넘칩니다. 로맨틱하면서 경쾌한 이미지가 많으며 사람들에게 인기가 많은 편입니다.  </p>

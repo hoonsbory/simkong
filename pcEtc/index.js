@@ -78,6 +78,7 @@ if (document.addEventListener) {
         false);
 }
 
+
 let appleCheck = false;
 let ua = navigator.userAgent || navigator.vendor || window.opera;
 if ((navigator.appName == 'Netscape' && ua.search('Trident') != -1) || (ua.indexOf("msie") != -1)) { // IE 일 경우
@@ -124,6 +125,9 @@ var video = document.getElementById('video');
 function camErr() {
     document.getElementById("noCamDiv").style.display = "block"
     document.getElementById("fileInput").click();
+    document.getElementById("openVideoBtn").style.display = "none"
+    // document.getElementById("videoSource").src = "https://mycolor.kr/video/테스트비디오.mp4"
+    // document.getElementById("guideVideo").load()
 }
 
 
@@ -157,6 +161,31 @@ var font = new FontFaceObserver('HSThin');
 font.load(null, 3000).then(function () {
     document.documentElement.classList.add('fonts-loaded');
 });
+
+function openVideo() {
+    if (window.innerWidth < 768) {
+        if (window.innerWidth >= window.innerHeight) {
+            document.getElementById("guideVideo").style.height = "100%"
+            document.getElementById("guideVideo").style.width = "unset"
+        } else {
+            document.getElementById("guideVideo").style.width = "100%"
+            document.getElementById("guideVideo").style.height = "unset"
+        }
+    } else {
+        document.getElementById("guideVideo").style.height = "unset"
+        document.getElementById("guideVideo").style.width = "500px"
+    }
+    document.getElementById("guideDiv").style.display = "block"
+    document.getElementById("guideVideo").play()
+    document.getElementById("close").style.display = "block"
+}
+
+
+function closeVideo() {
+    document.getElementById("guideDiv").style.display = "none"
+    document.getElementById("guideVideo").pause()
+    document.getElementById("close").style.display = "none"
+}
 
 
 //페이스북 인앱 브라우저에서 accept속성때문에 업로드가 안되는 버그가 있어서 대응
@@ -898,11 +927,10 @@ function cameraCheck() {
 function modeChange() {
     document.getElementById("mainbody").scrollIntoView();
     document.getElementById("subTitle").style.display = "none";
-    document.getElementById("mainTitle").style.display = "none";
-    document.getElementById("notice").style.display = "none";
-    document.getElementById("notice2").style.display = "none";
     document.getElementById("stepInfo").style.display = "block";
     document.getElementById("cropNotice").style.display = "block";
+    document.getElementById("notice").style.display = "none";
+    document.getElementById("notice2").style.display = "none";
     document.getElementById('editBtn').style.pointerEvents = 'auto';
     $('.image-upload-wrap').hide();
     $('.file-upload-image').removeAttr("style");
@@ -1450,14 +1478,15 @@ function season() {
 
     setTimeout(function () {
         if (colorNum <= 3) {
-            window.location.href = "https://mycolor.kr/springWarm/?spring="+season1[0]+"&fall="+season2[0]
+            window.location.href = "https://mycolor.kr/springWarm/?spring=" + season1[0] + "&fall=" + season2[0]
         } else if (colorNum <= 7) {
-            window.location.href = "https://mycolor.kr/fallWarm/?spring="+season1[0]+"&fall="+season2[0]
+            window.location.href = "https://mycolor.kr/fallWarm/?spring=" + season1[0] + "&fall=" + season2[0]
         } else if (colorNum <= 11) {
-            window.location.href = "https://mycolor.kr/summerCool/?summer="+season1[0]+"&winter="+season2[0]
+            window.location.href = "https://mycolor.kr/summerCool/?summer=" + season1[0] + "&winter=" + season2[0]
         } else if (colorNum <= 15) {
-            window.location.href = "https://mycolor.kr/winterCool/?summer="+season1[0]+"&winter="+season2[0]
+            window.location.href = "https://mycolor.kr/winterCool/?summer=" + season1[0] + "&winter=" + season2[0]
         }
+        
     }, 1500);
 
     calResult = [];

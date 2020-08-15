@@ -51,7 +51,8 @@ const KakaoShare = ({data}) => {
             window.open('https://story.kakao.com/share?url=' + subUrl, "name", size)
         }
         function twitter() {
-            window.open('http://twitter.com/intent/tweet?text=' + subUrl, "name", size)
+            //이상하게 트위터에서는 리다이렉트용 페이지의 썸네일이 나오지않는다. 그래서 리다이렉트페이지를 포기하고 실제 결과페이지로 바꿈.
+            window.open('http://twitter.com/intent/tweet?text=' + mainUrl + data.canonical, "name", size)
         }
         function naver() {
             window.open('http://share.naver.com/web/shareView.nhn?url=' + subUrl + "&title=퍼스널컬러", "name", size)

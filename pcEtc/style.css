@@ -17,6 +17,28 @@ html{
   url(../font/HSThin.otf) format('opentype')
   /* 파이썬의 pyftsubset을 통해 경량화함 */
 }
+#openVideoBtn{
+  font-size: 1.7vh;
+  border: 2px solid rgb(10, 59, 112);
+  display: none;
+  margin-bottom: 4px;
+  border-radius: 7px;
+  padding-top : .3vh;
+  padding-left: .7vh;
+  padding-right: .7vh;
+  background-color: white;
+  color: rgb(10, 59, 112);
+  cursor: pointer;
+}
+#guideVideo{
+  width: 500px;
+  z-index: 999;
+  position: fixed;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%,-50%);
+  top: 50%;
+}
 .fonts-loaded body {
   font-family: 'HSThin';
   opacity: 1;
@@ -279,6 +301,7 @@ p{
   padding-left: 4vh;
   padding-right: 4vh;
   padding-top: .8vh;
+  display: inline-block;
 }
 #mainbody{
   display: flex;

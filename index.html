@@ -60,6 +60,15 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/exif-js"></script>
 
     <section>
+        <div id="guideDiv" style="display: none;">
+            <div class="popupBg" onclick="closeVideo()"></div>
+            <p id="close" onclick="closeVideo()"
+                style="cursor : pointer; z-index: 999; display : none; color : white; position : fixed; top : 0; right : 20px; margin : 0; font-size : 3rem;">
+                x</p>
+            <video controls id="guideVideo" muted autoplay playsinline>
+                <source src="https://mycolor.kr/video/퍼스널컬러홍보영상.mp4" type="video/mp4" />
+            </video>
+        </div>
         <div id="popup" style="display: none;">
             <div class="popupBg"></div>
             <div class="popDivFB" style=" background-color: rgba(230, 230, 230, 1);">
@@ -108,13 +117,11 @@
 
 
     <section id="mainbody">
-        <header style="display: contents;">
-            <div id="notice2" style="text-align: center;"><span
-                    style="background-color: rgb(10, 59, 112);color: white;padding: 3px; padding-bottom: 0px;">컬러리스트</span>가
-                제작한 퍼스널컬러 진단 사이트!<p> 인공지능이 Delta-e를 통해 <span
-                        style="background-color: rgb(10, 59, 112);color: white;padding: 3px; padding-bottom: 0px;"> 피부를
-                        진단합니다.</span></p>
-            </div>
+        <header id="notice2" style="text-align: center; display: contents;"><span
+                style="background-color: rgb(10, 59, 112);color: white;padding: 3px; padding-bottom: 0px;">컬러리스트</span>가
+            제작한 퍼스널컬러 진단 사이트!<p> 인공지능이 Delta-e를 통해 <span
+                    style="background-color: rgb(10, 59, 112);color: white;padding: 3px; padding-bottom: 0px;"> 피부를
+                    진단합니다.</span></p>
             <div id="mainTitle">
                 <p>나는 <span id="warmSpan">웜톤</span>일까? <span id="coolSpan">쿨톤</span>일까?</p>
                 <span id="bgSpan">퍼스널컬러</span><span id="noBgSpan"> 진단</span>
@@ -128,6 +135,7 @@
                     촬영</span>
             </div>
             <div id="cropNotice">※ 손목 안쪽 피부가 꽉 차게 편집해주세요</div>
+            <div id="openVideoBtn" onclick="openVideo()">▶ 튜토리얼 보기 ◀</div>
             <div class="file-upload">
 
                 <input class="file-upload-input" id="fileInput" type='file' onclick="removeValue()"
@@ -139,6 +147,7 @@
                         <p>※ 손목 안쪽 피부</p>
                     </div>
                 </div>
+
                 <div id="slider" style="display: none;">
 
                     <ul>
@@ -276,7 +285,7 @@
         <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-t4tgk6re3upi" data-ad-width="320"
             data-ad-height="50"></ins>
     </section>
-    
+
     <footer id="footer">
         <div id="footerLeft">
             <img alt="마이퍼스널컬러 로고" src="pcImages/footerImg.png">

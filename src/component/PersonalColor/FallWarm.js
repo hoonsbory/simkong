@@ -70,12 +70,6 @@ const FallWarm = ({ location }) => {
                     </div>
                 </div>
             </header>
-            <AdSense.Google
-                        client="ca-pub-9106671749645972"
-                        slot="7753265380"
-                        style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
-                        format="horizontal"
-                    />
             <article>
                 <div className="resultBar">
                     <span style={{ color: "rgb(230,187,163)" }}>봄
@@ -86,6 +80,12 @@ const FallWarm = ({ location }) => {
                     </span>
                     <span style={{ color: "rgb(226,186,139)" }}>가을</span>
                 </div>
+            <AdSense.Google
+                        client="ca-pub-9106671749645972"
+                        slot="7753265380"
+                        style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
+                        format="horizontal"
+                    />
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(226,186,139)", display: "inline", color: "white" }}># 가을 웜톤의 특징</p>
                     <p className="mt-3">가을 웜톤인 사람은 클래식하고 글램 한 느낌을 가집니다. 또한 포근하고 부드러우며 차분하고 원숙한 이미지를 지니고 있습니다. 상대방에게 친근함과 편안함을 느끼게 하는 이미지입니다.</p>
