@@ -17,6 +17,18 @@ html{
   url(../font/HSThin.otf) format('opentype')
   /* 파이썬의 pyftsubset을 통해 경량화함 */
 }
+#close{
+  cursor : pointer; 
+  z-index: 999; 
+  display : none; 
+  color : white; 
+  position : fixed; 
+  top : 0; 
+  right : 20px;
+  margin : 0; 
+  font-size : 7vh;
+  font-family: "Nunito",sans-serif;
+}
 #openVideoBtn{
   font-size: 1.7vh;
   border: 2px solid rgb(10, 59, 112);
