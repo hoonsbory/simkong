@@ -843,6 +843,7 @@ function editImg(callback, plusMinus) {
 function streamTrue() {
     document.getElementById("mainCam").style.display = "block"
     document.getElementById("cropNotice").innerHTML = "※ 손목 안쪽이 잘보이는 상태에서 측정 버튼을 눌러주세요"
+    document.getElementById("openVideoBtn").style.display = "block";
     modeChange();
     stream = true;
 }
@@ -927,8 +928,9 @@ function cameraCheck() {
 function modeChange() {
     document.getElementById("mainbody").scrollIntoView();
     document.getElementById("subTitle").style.display = "none";
-    document.getElementById("stepInfo").style.display = "block";
-    document.getElementById("cropNotice").style.display = "block";
+    document.getElementById("mainTitle").style.display = "none";
+    document.getElementById("stepInfo").style.display = "inline-block";
+    document.getElementById("cropNotice").style.display = "inline-block";
     document.getElementById("notice").style.display = "none";
     document.getElementById("notice2").style.display = "none";
     document.getElementById('editBtn').style.pointerEvents = 'auto';
