@@ -1467,12 +1467,14 @@ function season() {
     colorNum = season1[0] == season2[0] ? firstResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
     //100점 기준으로 점수 변환
     if (season1[0] > season2[0]) {
-        var percentage = (season1[0] - season2[0]) * 20;
+        //겨울쿨톤에 가까울 때
+        var percentage = (season1[0] - season2[0]) * 12;
         if (percentage > 50) percentage = 50;
         season2[0] = Math.round(50 + percentage);
         season1[0] = Math.round(50 - percentage);
     } else {
-        var percentage = (season2[0] - season1[0]) * 20;
+        //여름쿨톤에 가까울 때
+        var percentage = (season2[0] - season1[0]) * 23;
         if (percentage > 50) percentage = 50;
         season1[0] = Math.round(50 + percentage);
         season2[0] = Math.round(50 - percentage);
