@@ -79,12 +79,12 @@ const SummerCool = ({ location }) => {
                     </span>
                     <span style={{ color: "rgb(168,233,239)" }}>겨울</span>
                 </div>
-                <AdSense.Google
+                {/* <AdSense.Google
                     client="ca-pub-9106671749645972"
                     slot="7753265380"
                     style={{ display: 'block', textAlign: "center", width: "100%", height: "100px" }}
                     format="horizontal"
-                />
+                /> */}
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color: "white" }}># 여름 쿨톤의 특징</p>
                     <p className="mt-3">여름 쿨톤인 사람은 대체적으로 깨끗한 이미지를 가지고 있습니다. 또한 여름 타입은 자연스럽고 산뜻한 이미지로, 화사하며 부드럽고 여성스러운 스타일이 주로 많습니다. </p>
@@ -99,13 +99,13 @@ const SummerCool = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color: "white" }}># 여름 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">흰색과 파란색을 머금고 있는 여름 컬러들은 소프트하고 밝은 컬러, 그레이 시한 컬러들로 이루어져 있어 시원하고 화려한 인상을 줍니다. 여름 쿨톤의 컬러들은 블루 베이스로 이루어져 있고 난색이어도 차가운 느낌을 가집니다.</p>
-                    <AdSense.Google
+                    {/* <AdSense.Google
                         client="ca-pub-9106671749645972"
                         slot="4086317268"
                         style={{ display: 'block', textAlign: "center" }}
                         format="auto"
                         responsive='true'
-                    />
+                    /> */}
                     {/* <div style={{ width: "100%", textAlign: "center" }}>
                         <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="320"
           data-ad-height="100"></ins></div> */}
@@ -122,13 +122,13 @@ const SummerCool = ({ location }) => {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
-                <AdSense.Google
+                {/* <AdSense.Google
                     client="ca-pub-9106671749645972"
                     slot="8539007090"
                     style={{ display: 'block', textAlign: "center" }}
                     format="auto"
                     responsive='true'
-                />
+                /> */}
             </article>
         </section>
     )

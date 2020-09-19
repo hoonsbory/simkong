@@ -80,12 +80,12 @@ const FallWarm = ({ location }) => {
                     </span>
                     <span style={{ color: "rgb(226,186,139)" }}>가을</span>
                 </div>
-            <AdSense.Google
+            {/* <AdSense.Google
                         client="ca-pub-9106671749645972"
                         slot="7753265380"
                         style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
                         format="horizontal"
-                    />
+                    /> */}
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(226,186,139)", display: "inline", color: "white" }}># 가을 웜톤의 특징</p>
                     <p className="mt-3">가을 웜톤인 사람은 클래식하고 글램 한 느낌을 가집니다. 또한 포근하고 부드러우며 차분하고 원숙한 이미지를 지니고 있습니다. 상대방에게 친근함과 편안함을 느끼게 하는 이미지입니다.</p>
@@ -101,13 +101,13 @@ const FallWarm = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(226,186,139)", display: "inline", color: "white" }}># 가을 웜톤 컬러 팔레트</p>
                     <p className="mt-3">가을 컬러들은 노란색보다 짙은 황색을 지니고 있는 색의 그룹으로 깊고 강하면서 고급스럽고 편안한 컬러들이 주를 이루며, 어른스럽고 차분한 이미지를 가지고 있는 팔레트입니다.</p>
-                    <AdSense.Google
+                    {/* <AdSense.Google
                         client="ca-pub-9106671749645972"
                         slot="4086317268"
                         style={{ display: 'block', textAlign: "center" }}
                         format="auto"
                         responsive='true'
-                    />
+                    /> */}
                     {/* <div style={{ width: "100%", textAlign: "center" }}>
                         <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
                             data-ad-height="250"></ins></div> */}
@@ -124,13 +124,13 @@ const FallWarm = ({ location }) => {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
-                <AdSense.Google
+                {/* <AdSense.Google
                     client="ca-pub-9106671749645972"
                     slot="8539007090"
                     style={{ display: 'block', textAlign: "center" }}
                     format="auto"
                     responsive='true'
-                />
+                /> */}
 
             </article>
         </section>

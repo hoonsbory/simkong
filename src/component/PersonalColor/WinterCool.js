@@ -81,12 +81,12 @@ const WinterCool = ({ location }) => {
                     </span>
                     <span style={{ color: "rgb(168,233,239)" }}>겨울</span>
                 </div>
-                <AdSense.Google
+                {/* <AdSense.Google
                 client="ca-pub-9106671749645972"
                 slot="7753265380"
                 style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
                 format="horizontal"
-            />
+            /> */}
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤의 특징</p>
                     <p className="mt-3">겨울 쿨톤인 사람은 차갑고 강렬하며 이지적인 느낌을 지니고 있으며 깔끔하고 세련된 이미지를 지니는 사람이 많습니다. 전형적인 모던한 스타일로 선명하고 액티브한 이미지를 지니고 있어 존재감이 있으며 도시적인 감각을 지닌 유형입니다. </p>
@@ -101,13 +101,13 @@ const WinterCool = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,233,239)", display: "inline", color: "white" }}># 겨울 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">겨울 컬러들은 파란색, 흰색, 검정을 내포하고 있는 차갑고 강렬한 컬러들의 그룹입니다. 선명하고 강하거나, 혹은 아주 여린 아이 시한 컬러들이 이 그룹에 속합니다. 모던하고 도회적인 이미지를 가지고 있는 팔레트입니다.</p>
-                    <AdSense.Google
+                    {/* <AdSense.Google
                 client="ca-pub-9106671749645972"
                 slot="4086317268"
                 style={{ display: 'block', textAlign: "center" }}
                 format="auto"
                 responsive='true'
-            />
+            /> */}
                     {/* <div style={{ width: "100%", textAlign: "center" }}>
                         <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
                             data-ad-height="250"></ins></div> */}
@@ -124,13 +124,13 @@ const WinterCool = ({ location }) => {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
-                <AdSense.Google
+                {/* <AdSense.Google
             client="ca-pub-9106671749645972"
             slot="8539007090"
             style={{ display: 'block', textAlign: "center" }}
             format="auto"
             responsive='true'
-        />
+        /> */}
             </article>
         </section>
     )

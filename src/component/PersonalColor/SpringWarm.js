@@ -81,12 +81,12 @@ const SpringWarm = ({ location }) => {
                     </span>
                     <span style={{ color: "rgb(226,186,139)" }}>가을</span>
                 </div>
-                <AdSense.Google
+                {/* <AdSense.Google
                 client="ca-pub-9106671749645972"
                 slot="7753265380"
                 style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
                 format="horizontal"
-            />
+            /> */}
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(230,187,163)", display: "inline", color: "white" }}># 봄 웜톤의 특징</p>
                     <p className="mt-3">한국인의 많은 사람이 봄 웜톤의 피부색을 가지고 있습니다. 봄 웜톤인 사람은 사랑스럽고 귀여운 이미지로 어려 보이고 생동감이 있으며 활기가 넘칩니다. 로맨틱하면서 경쾌한 이미지가 많으며 사람들에게 인기가 많은 편입니다.  </p>
@@ -102,13 +102,13 @@ const SpringWarm = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(230,187,163)", display: "inline", color: "white" }}># 봄 웜톤 컬러 팔레트</p>
                     <p className="mt-3">봄 컬러들은 전체적으로 노란색을 가지고 있는 그룹으로 밝고 선명하고 파스텔톤으로 이루어져 있어 화사하면서 활기찬 느낌이 나는 탄력 있는 팔레트입니다. 따라서 새싹과 꽃이 피어나는 봄의 맑은 이미지를 생각하며 스타일링 하는 것을 추천합니다.</p>
-                    <AdSense.Google
+                    {/* <AdSense.Google
                 client="ca-pub-9106671749645972"
                 slot="4086317268"
                 style={{ display: 'block', textAlign: "center" }}
                 format="auto"
                 responsive='true'
-            />
+            /> */}
                     {/* <div style={{ width: "100%", textAlign: "center" }}>
                         <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
                             data-ad-height="250"></ins></div> */}
@@ -126,13 +126,13 @@ const SpringWarm = ({ location }) => {
                 <CoupangAds data={coupangAds}></CoupangAds>
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
-                <AdSense.Google
+                {/* <AdSense.Google
             client="ca-pub-9106671749645972"
             slot="8539007090"
             style={{ display: 'block', textAlign: "center" }}
             format="auto"
             responsive='true'
-        />
+        /> */}
             </article>
         </section>
     )
