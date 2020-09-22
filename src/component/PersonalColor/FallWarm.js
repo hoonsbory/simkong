@@ -90,8 +90,8 @@ const FallWarm = ({ location }) => {
                     <p className="px-1 pt-1" style={{ background: "rgb(226,186,139)", display: "inline", color: "white" }}># 가을 웜톤의 특징</p>
                     <p className="mt-3">가을 웜톤인 사람은 클래식하고 글램 한 느낌을 가집니다. 또한 포근하고 부드러우며 차분하고 원숙한 이미지를 지니고 있습니다. 상대방에게 친근함과 편안함을 느끼게 하는 이미지입니다.</p>
 
-                    {/* <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
-                        data-ad-height="250"></ins> */}
+                    <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="300"
+                        data-ad-height="250"></ins>
                         
                     <p className="mt-3">가을 타입은 황색을 지닌 따듯한 유형으로 강한(strong) 톤과 깊은(deep) 톤, 중후한(dull) 톤으로 편안함과 고급스러운 이미지를 느끼게 합니다.</p>
                     <img src="/images/personalColor/fallColor.png" alt="가을 웜톤의 색상 특징" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
@@ -108,9 +108,9 @@ const FallWarm = ({ location }) => {
                         format="auto"
                         responsive='true'
                     /> */}
-                    {/* <div style={{ width: "100%", textAlign: "center" }}>
+                    <div style={{ width: "100%", textAlign: "center" }}>
                         <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
-                            data-ad-height="250"></ins></div> */}
+                            data-ad-height="250"></ins></div>
                     <p className="mt-3">가을 타입에게 잘 어울리는 컬러는 아이보리, 베이지와 같은 밝은 톤과 골드와 브라운과 같은 진한 톤에서 어두운 톤까지 많은 영역의 컬러를 사용할 수 있습니다. 대표적인 컬러는 잘 익은 토마토, 연어 살색, 가을의 단풍, 가을의 황금벌판, 황토색 등 가을의 자연에서 흔히 볼 수 있는 컬러입니다. 가을의 컬러는 따듯함과 안정감, 편안한 이미지를 줍니다. </p>
                     <img alt="가을 웜톤이 어울리는 색상" className="specLip" src="/images/personalColor/fallSpectrum.png"></img>
                 </div>

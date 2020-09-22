@@ -86,8 +86,7 @@ const KakaoShare = ({data}) => {
                 <img className="shareIcon" onClick={() => band()} alt="Share" src="/images/snsIcon/band.png" />
                 <img className="shareIcon" onClick={() => fbmessage()} alt="Share" src="/images/snsIcon/messenger.png"/>
             </div>
-                <ins className="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-qhq4nydjh6b5" data-ad-width="320"
-                data-ad-height="100"></ins>
+                
                 </div>
     )
 }
