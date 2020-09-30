@@ -10,6 +10,8 @@ import FallWarmMeta from "component/PersonalColor/redirect/FallWarmMeta";
 import WinterCoolMeta from "component/PersonalColor/redirect/WinterCoolMeta";
 import Footer from "component/Footer";
 import ReTry from "component/ReTry.js"
+import AdSense from 'react-adsense'
+
 
 const App = () => {
   window.scrollTo(0, 0)
@@ -56,6 +58,13 @@ const App = () => {
         <Route exact path="/summerCoolMeta" component={SummerCoolMeta}></Route>
         <Route exact path="/fallWarmMeta" component={FallWarmMeta}></Route>
         <Route exact path="/winterCoolMeta" component={WinterCoolMeta}></Route>
+        <AdSense.Google
+                client="ca-pub-9106671749645972"
+                slot="4086317268"
+                style={{ display: 'block', textAlign: "center" }}
+                format="auto"
+                responsive='true'
+            />
         <ins className="kakao_ad_area ads" style={{ display: "none" }} data-ad-unit="DAN-qhq4nydjh6b5" data-ad-width="320"
                 data-ad-height="100"></ins>
         <Footer></Footer>
