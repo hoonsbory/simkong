@@ -17,6 +17,7 @@ html{
   url(../font/HSThin.otf) format('opentype')
   /* 파이썬의 pyftsubset을 통해 경량화함 */
 }
+
 #close{
   cursor : pointer; 
   z-index: 2147483649; 
@@ -587,7 +588,14 @@ margin-bottom: 5px;
 .file-upload-image {
   margin: auto;
 }
-
+.middleBar{
+  background: white;
+  height: 50vh;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 /* jquery.Jcrop.min.css v0.9.12 (build:20130126) */
 .jcrop-holder{margin:auto;direction:ltr;text-align:center; border : 5px solid rgb(10, 59, 112);}
