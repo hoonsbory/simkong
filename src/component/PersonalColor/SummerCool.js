@@ -89,8 +89,8 @@ const SummerCool = ({ location }) => {
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color: "white" }}># 여름 쿨톤의 특징</p>
                     <p className="mt-3">여름 쿨톤인 사람은 대체적으로 깨끗한 이미지를 가지고 있습니다. 또한 여름 타입은 자연스럽고 산뜻한 이미지로, 화사하며 부드럽고 여성스러운 스타일이 주로 많습니다. </p>
 
-                    {/* <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
-                        data-ad-height="250"></ins> */}
+                    <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
+                        data-ad-height="250"></ins>
 
                     <p className="mt-3">여름 타입은 흰색과 파랑을 지닌 차가운 유형으로 부드러움(soft)과 연한(light) 톤, 밝은 잿빛(light greyish) 톤의 시원스럽고 화려함을 느끼게 합니다.</p>
                     <img src="/images/personalColor/summerColor.png" alt="여름 쿨톤의 색상 특징" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
@@ -99,16 +99,16 @@ const SummerCool = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(168,189,247)", display: "inline", color: "white" }}># 여름 쿨톤 컬러 팔레트</p>
                     <p className="mt-3">흰색과 파란색을 머금고 있는 여름 컬러들은 소프트하고 밝은 컬러, 그레이 시한 컬러들로 이루어져 있어 시원하고 화려한 인상을 줍니다. 여름 쿨톤의 컬러들은 블루 베이스로 이루어져 있고 난색이어도 차가운 느낌을 가집니다.</p>
-                    <AdSense.Google
+                    {/* <AdSense.Google
                         client="ca-pub-9106671749645972"
                         slot="2983623548"
                         style={{ display: 'block', textAlign: "center" }}
                         format="auto"
                         responsive='true'
-                    />
-                    {/* <div style={{ width: "100%", textAlign: "center" }}>
+                    /> */}
+                    <div style={{ width: "100%", textAlign: "center" }}>
                         <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
-                            data-ad-height="250"></ins></div> */}
+                            data-ad-height="250"></ins></div>
                     <p className="mt-3">여름 타입에게 잘 어울리는 컬러는 화이트, 그레이, 네이비 등 차가운 느낌의 컬러를 기본색으로 그레이쉬한 파스텔톤과 함께 사용할 수 있는데, 대표적인 컬러는 딸기 우유 핑크, 루비 레드, 민트 그린, 라벤더의 연보라, 시원한 파스텔블루 등 안개가 낀 듯 뿌옇고 부드럽게 보이는 게 특징입니다. 여름의 컬러는 시원함과 시크함, 세련된 느낌의 이미지를 보여줍니다.</p>
                     <img alt="여름 쿨톤이 어울리는 색상" className="specLip" src="/images/personalColor/summerSpectrum.png"></img>
                 </div>
