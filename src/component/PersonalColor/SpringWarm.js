@@ -28,13 +28,13 @@ const SpringWarm = ({ location }) => {
         url2: "https://coupa.ng/bDCzdT"
     }
     const span1 = {
-        width: (query.spring < 10 ? 10 : query.spring >90 ? 90 : query.spring) + "%",
+        width: (query.spring < 10 ? 10 : query.spring > 90 ? 90 : query.spring) + "%",
         background: "rgb(230,187,163)",
         borderTopRightRadius: "unset",
         borderBottomRightRadius: "unset"
     }
     const span2 = {
-        width: (query.fall < 10 ? 10 :query.fall >90 ? 90 : query.fall) + "%",
+        width: (query.fall < 10 ? 10 : query.fall > 90 ? 90 : query.fall) + "%",
         background: "rgb(226,186,139)",
         borderTopLeftRadius: "unset",
         borderBottomLeftRadius: "unset"
@@ -70,7 +70,7 @@ const SpringWarm = ({ location }) => {
                     </div>
                 </div>
             </header>
-            
+
             <article>
                 <div className="resultBar">
                     <span style={{ color: "rgb(230,187,163)" }}>봄
@@ -87,19 +87,25 @@ const SpringWarm = ({ location }) => {
                 style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
                 format="horizontal"
             /> */}
-            <AdSense.Google
-                client="ca-pub-9106671749645972"
-                slot="7753265380"
-                style={{ display: 'block', textAlign: "center", width : "100%", height : "100px"}}
-                format="horizontal"
-            />
+                <AdSense.Google
+                    client="ca-pub-9106671749645972"
+                    slot="7753265380"
+                    style={{ display: 'block', textAlign: "center", width: "100%", height: "100px" }}
+                    format="horizontal"
+                />
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(230,187,163)", display: "inline", color: "white" }}># 봄 웜톤의 특징</p>
                     <p className="mt-3">한국인의 많은 사람이 봄 웜톤의 피부색을 가지고 있습니다. 봄 웜톤인 사람은 사랑스럽고 귀여운 이미지로 어려 보이고 생동감이 있으며 활기가 넘칩니다. 로맨틱하면서 경쾌한 이미지가 많으며 사람들에게 인기가 많은 편입니다.  </p>
 
-                    <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
-                        data-ad-height="250"></ins>
-                        
+                    {/* <ins className="kakao_ad_area ads" style={{ display: "none", position: "relative", left: "-10px" }} data-ad-unit="DAN-1h7rg7uqgmjw2" data-ad-width="250"
+                        data-ad-height="250"></ins> */}
+                    <AdSense.Google
+                        client="ca-pub-9106671749645972"
+                        slot="4086317268"
+                        style={{ display: 'block', textAlign: "center" }}
+                        format="auto"
+                        responsive='true'
+                    />
                     <p className="mt-3">봄 타입은 노란색을 지닌 따듯한 유형으로 선명(vivid) 하고 밝은(bright) 톤과 엷은(pale) 톤으로 화사하며 생동감과 에너지를 느끼게 합니다.</p>
                     <img src="/images/personalColor/springColor.png" alt="봄 웜톤의 색상 특징" style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}></img>
                     <p className="mt-3">봄 타입은 복숭앗빛 이 감도는 밝고 노란빛의 피부를 가지고 있습니다. 눈동자는 반짝반짝하고 생기가 있는 밝은 갈색빛을 띄고 있으며 찰랑찰랑 윤기가 나는 머릿결이 특징입니다. 피부는 밝으면서 매끄럽고 투명한 분들이 많고 피부가 얇아서 주근깨같이 잡티가 있는 경우도 있습니다.</p>
@@ -108,13 +114,7 @@ const SpringWarm = ({ location }) => {
                 <div className="mt-3">
                     <p className="px-1 pt-1" style={{ background: "rgb(230,187,163)", display: "inline", color: "white" }}># 봄 웜톤 컬러 팔레트</p>
                     <p className="mt-3">봄 컬러들은 전체적으로 노란색을 가지고 있는 그룹으로 밝고 선명하고 파스텔톤으로 이루어져 있어 화사하면서 활기찬 느낌이 나는 탄력 있는 팔레트입니다. 따라서 새싹과 꽃이 피어나는 봄의 맑은 이미지를 생각하며 스타일링 하는 것을 추천합니다.</p>
-                    {/* <AdSense.Google
-                client="ca-pub-9106671749645972"
-                slot="4086317268"
-                style={{ display: 'block', textAlign: "center" }}
-                format="auto"
-                responsive='true'
-            /> */}
+
                     <div style={{ width: "100%", textAlign: "center" }}>
                         <ins className="kakao_ad_area" style={{ display: "none" }} data-ad-unit="DAN-t842nwjwbg34" data-ad-width="250"
                             data-ad-height="250"></ins></div>
@@ -133,12 +133,12 @@ const SpringWarm = ({ location }) => {
                 <ReTry></ReTry>
                 <KakaoShare data={metaData}></KakaoShare>
                 <AdSense.Google
-            client="ca-pub-9106671749645972"
-            slot="8539007090"
-            style={{ display: 'block', textAlign: "center" }}
-            format="auto"
-            responsive='true'
-        />
+                    client="ca-pub-9106671749645972"
+                    slot="8539007090"
+                    style={{ display: 'block', textAlign: "center" }}
+                    format="auto"
+                    responsive='true'
+                />
             </article>
         </section>
     )
