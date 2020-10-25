@@ -31,6 +31,11 @@ And in ios below version 13.4, cause the image has wrong orientation info we use
 - AWS S3
 - CloudFront
 - Travis CI
+### `Images`
+
+<b>Responsive Web</b>
+<img src="/responsive.gif" width="900px" />
+
 
 ### 🏠 [Homepage](https://mycolor.kr)
 <img src="https://s3.ap-northeast-2.amazonaws.com/jaehoon-dayoff.ml/pcImages/metaImg.jpg">
