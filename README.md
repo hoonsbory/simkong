@@ -33,8 +33,23 @@ And in ios below version 13.4, cause the image has wrong orientation info we use
 - Travis CI
 ### `Images`
 
-<b>Responsive Web</b>
+<h2>Responsive Web</h2>
 <img src="/responsive.gif" width="900px" />
+<img src="/responsive2.gif" width="900px" />
+
+<br>
+<br>
+
+<div>
+<h2>Video Stream Measure / Image Crop Measure</h2>
+<img src="/stream.gif" />
+<img src="/crop.gif" width="382px" height="680px" />
+</div>
+
+<br>
+<br>
+<h2>Question & Result</h2>
+<img src="/question.gif"/>
 
 
 ### 🏠 [Homepage](https://mycolor.kr)
