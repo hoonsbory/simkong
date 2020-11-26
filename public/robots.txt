@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+DaumWebMasterTool:72048bd0047e86964053c28503e4615d8b31931206e3b9ebfd40846fefff404a:9AUoiyCCKj46CM0LTxqP8A==
