@@ -17,7 +17,40 @@ html{
   url(../font/HSThin.otf) format('opentype')
   /* 파이썬의 pyftsubset을 통해 경량화함 */
 }
+#progressContainer{
+  width : 40vh;
+  background: rgba(74, 114, 176,.7);
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+  border : .5px solid rgb(10, 59, 112);
+  display: none;
+}
 
+#progressContainer span{
+  position : absolute;
+  left : 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+#progressBar{
+  float: left;
+  background: rgb(10, 59, 112);
+  height: 1.6rem;
+  width: 0%;
+  transition: all 0.17s;
+  border-radius: 10px;
+}
+
+#video, #faceCanvas, #colorCanvas, .imageMode{
+  width : 60vh  !important;
+  height : 60vh !important;
+}
+#video{
+  object-fit : fill;
+  transform: scale(-1, 1)  !important;
+}
 #close{
   cursor : pointer; 
   z-index: 2147483649; 
@@ -53,12 +86,12 @@ html{
   transform: translate(-50%,-50%);
   top: 50%;
 }
-.fonts-loaded body {
+.fonts-loaded {
   font-family: 'HSThin';
   opacity: 1;
 }
 #realImage{
-  border : 5px solid rgb(10, 59, 112);
+  /* border : 5px solid rgb(10, 59, 112); */
 }
 #checkFail, #checkSuccess{
   width: 90%;
@@ -110,7 +143,7 @@ html{
   font-size: 11px;
   color: rgb(10, 59, 112);
   word-break: keep-all;
-  max-width: 250px;
+  padding: 10px 5px;
 }
 .popDivFB{
   position: fixed;
@@ -168,7 +201,7 @@ html{
     padding-left: .4vh;
     height: 6.9vh;
     padding-bottom: .51vh;
-    margin-top: 5vh;
+    margin-bottom : 3vh;
   }
 #stepNum{
   color: rgb(74, 114, 176);
@@ -191,9 +224,11 @@ html{
   background-repeat: no-repeat;
   font-size: 2vh;
   padding: 3vh;
-  padding-top: 3.2vh;
+  padding-top: 2.4vh;
+  padding-left: 2vh;
   left : 0 !important;
   cursor: pointer;
+  top : 4vh;
   }
 .arrowBtn img{
   width: 9rem;
@@ -216,7 +251,14 @@ html{
     background-color: white;
     color : rgb(10, 59, 112);
     cursor: pointer;
-    
+    transition: all 0.3s ease-out 0s;
+}
+.btnGroup.clicked{
+  border: 2px solid rgb(10, 59, 112);
+  display: inline;
+  background-color: rgb(10, 59, 112);
+  color : white;
+  cursor: pointer;
 }
 
 #askFooter{
@@ -250,7 +292,6 @@ html{
 }
 
 .btnGroup span{
-  padding-left: .6vh;
   font-size: 1.7vh;
   word-break: keep-all;
 }
@@ -413,7 +454,7 @@ p{
   }
 #slider {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 20px auto 0 auto;
   margin-top: 0px;
   border-radius: 4px;
@@ -631,14 +672,14 @@ margin-bottom: 5px;
     width : 3300px !important;
     margin-left : -550px !important;
   }
-  #realImage{
+  /* .imageMode{
     width: 43vh !important;
     height: 43vh !important;
     max-width: 580px !important;
     max-height: 580px !important;
     min-width: 236px !important;
     min-height: 236px !important;
-  }
+  } */
   .file-upload {
     width: 550px;
   }
@@ -653,8 +694,12 @@ margin-bottom: 5px;
 }
 
 @media(min-width : 768px) and (max-width : 1024px){
-  #video{
+  /* #video, #canvas , #faceCanvas{
     height: 80vh;
+  } */
+  #video, #faceCanvas, #colorCanvas, .imageMode{
+    width : 600px  !important;
+    height : 600px !important;
   }
   #slider ul li{
     width : 600px;
@@ -666,12 +711,12 @@ margin-bottom: 5px;
     width : 3600px !important;
     margin-left : -600px !important;
   }
-  #realImage{
+  /* .imageMode{
     width: 43vh !important;
     height: 43vh !important;
     max-width: 580px !important;
     max-height: 580px !important;
-  }
+  } */
   #newfile{
     max-width: 450px;
   }
@@ -703,12 +748,16 @@ left : -6rem;
 
 }
 @media(max-width: 767px){
+  #video, #faceCanvas, #colorCanvas, .imageMode{
+    width : 320px  !important;
+    height : 320px !important;
+  }
   #popup img{
     width: 6vw;
   }
-  .popDivFB{
+  .popDiv{
     font-size: 2vw;
-    min-width: 58vw;
+    width : 100%;
   }
   /* .jcrop-holder:before{
     content: "드래그해서 영역을 선택한 후 완료 버튼을 눌러주세요";
@@ -739,14 +788,14 @@ max-width: 300px;
     width : 1920px !important;
     margin-left : -320px !important;
   }
-  #realImage{
+  /* .imageMode{
     width: 48vh !important;
     height: 48vh !important;
     min-width: 182px !important;
     max-width: 310px !important;
     max-height: 310px !important;
     min-height: 182px !important;
-  }
+  } */
   
 }
 @media(max-height : 439px){

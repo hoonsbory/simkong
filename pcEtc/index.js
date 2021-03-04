@@ -1,70 +1,8 @@
-
-//rgb값을 xyz로 변환 후 lab로 최종 변환
-function rgbToXyz(hex) {
-    const [r, g, b] = hex.map(_ => _ / 255).map(sRGBtoLinearRGB)
-    const X = 0.4124 * r + 0.3576 * g + 0.1805 * b
-    const Y = 0.2126 * r + 0.7152 * g + 0.0722 * b
-    const Z = 0.0193 * r + 0.1192 * g + 0.9505 * b
-    // For some reason, X, Y and Z are multiplied by 100.
-    return [X, Y, Z].map(_ => _ * 100)
-}
-
-/**
- * Undoes gamma-correction from an RGB-encoded color.
- * https://en.wikipedia.org/wiki/SRGB#Specification_of_the_transformation
- * https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
- * @param  {number}
- * @return {number}
- */
-function sRGBtoLinearRGB(color) {
-    // Send this function a decimal sRGB gamma encoded color value
-    // between 0.0 and 1.0, and it returns a linearized value.
-    if (color <= 0.04045) {
-        return color / 12.92
-    } else {
-        return Math.pow((color + 0.055) / 1.055, 2.4)
-    }
-}
-
-/**
- * Converts hex color to RGB.
- * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
- * @param  {string} hex
- * @return {number[]} [rgb]
- */
-function hexToRgb(hex) {
-    const match = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-    if (match) {
-        match.shift()
-        return match.map(_ => parseInt(_, 16))
-    }
-}
-/**
- * Converts CIE 1931 XYZ colors to CIE L*a*b*.
- * The conversion formula comes from <http://www.easyrgb.com/en/math.php>.
- * https://github.com/cangoektas/xyz-to-lab/blob/master/src/index.js
- * @param   {number[]} color The CIE 1931 XYZ color to convert which refers to
- *                           the D65/2° standard illuminant.
- * @returns {number[]}       The color in the CIE L*a*b* color space.
- */
-// X, Y, Z of a "D65" light source.
-// "D65" is a standard 6500K Daylight light source.
-// https://en.wikipedia.org/wiki/Illuminant_D65
-const D65 = [95.047, 100, 108.883]
-function xyzToLab([x, y, z]) {
-    [x, y, z] = [x, y, z].map((v, i) => {
-        v = v / D65[i]
-        return v > 0.008856 ? Math.pow(v, 1 / 3) : v * 7.787 + 16 / 116
-    })
-    const l = 116 * y - 16
-    const a = 500 * (x - y)
-    const b = 200 * (y - z)
-    return [l, a, b]
-}
-
-
-
-
+import colorAvg from './colorAvg.js'
+import streamMode from './streamMode.js'
+import videoPlayEvent from './videoPlayEvent.js'
+import seasonResult from './seasonResult.js'
+import imageModeFaceBoard from './imageModeFaceBoard.js'
 
 //뒤로가기고 페이지에 진입하면 새로고침되게
 //엣지는 뒤로가기해도 캐시가없이 스크립트가 실행되었고, 크롬 일부버전은 persisted값이 false로만 나오는 버그가 있다고 한다. 그래서 window.performance조건을 추가해줌
@@ -125,16 +63,23 @@ var video = document.getElementById('video');
 function camErr() {
     document.getElementById("noCamDiv").style.display = "block"
     document.getElementById("fileInput").click();
-    document.getElementById("openVideoBtn").style.display = "block"
-    document.getElementById("videoSource").src = "https://s3.ap-northeast-2.amazonaws.com/jaehoon-dayoff.ml/video/퍼스널컬러홍보영상2.mp4"
+    // document.getElementById("openVideoBtn").style.display = "block"
+    // document.getElementById("videoSource").src = "https://s3.ap-northeast-2.amazonaws.com/jaehoon-dayoff.ml/video/퍼스널컬러홍보영상2.mp4"
 }
 
+document.getElementById("resultPopup").onclick = () => { popupConfirm('checkResult') }
+document.getElementById("noticePopup").onclick = () => { popupConfirm('popup') }
 
 //상황에따라 다른 팝업창 구분
 function popupConfirm(div) {
     if (document.getElementById("checkSuccess").style.display == "block") {
-        moveRight("");
-        uploadCheck = true;
+        // moveRight("");
+        console.log(123)
+        faceBoard = true;
+        console.log(uploadCheck)
+        if (uploadCheck) new imageModeFaceBoard(facePositions, faceBoardCanvas, faceBoardResult, firstResult)
+
+        else video.play()
     }
     document.getElementById(div).style.display = "none";
 }
@@ -142,14 +87,20 @@ function popupConfirm(div) {
 
 
 //캠화면 캡쳐 및 주요컬러 도출
-function camCheck() {
-    var camCanvas = document.getElementById('canvas');
-    camCanvas.width = video.clientWidth;
-    camCanvas.height = video.clientHeight;
-    var context = camCanvas.getContext('2d');
-    context.drawImage(video, 0, 0, video.clientWidth, video.clientHeight);
-    color(camCanvas)
+function camCheck(colorSum) {
+    
+    if (colorSum.length !==4)
+        colorSum.forEach((i, idx) => {
+            colorSum[idx] = i / 30
+        })
+    else colorSum = colorSum.slice(0,3)
+    // document.getElementById("subInfo").style.backgroundColor = `rgb(${colorSum[0]}, ${colorSum[1]}, ${colorSum[2]})`
+    // var context = camCanvas.getContext('2d');
+    // context.drawImage(video, 0, 0, video.clientWidth, video.clientHeight);
+    firstResult = []
+    colorAvg(colorSum, firstResult, labColor, colorList, stream, colorNum)
 }
+// document.getElementById("toneCheck").onclick = camCheck
 
 //폰트가 로드되기전까지 투명도를 줘서 안보이게 했다가 3초이내에 로딩되면 보이게함.
 //3초가 지나면 기본폰트로
@@ -158,34 +109,39 @@ setTimeout(function () {
 }, 3000)
 var font = new FontFaceObserver('HSThin');
 font.load(null, 3000).then(function () {
-    document.documentElement.classList.add('fonts-loaded');
+    document.body.classList.add('fonts-loaded');
 });
 
-function openVideo() {
-    if (window.innerWidth < 768) {
-        if (window.innerWidth >= window.innerHeight) {
-            document.getElementById("guideVideo").style.height = "100%"
-            document.getElementById("guideVideo").style.width = "unset"
-        } else {
-            document.getElementById("guideVideo").style.width = "100%"
-            document.getElementById("guideVideo").style.height = "unset"
-        }
-    } else {
-        document.getElementById("guideVideo").style.height = "unset"
-        document.getElementById("guideVideo").style.width = "500px"
-    }
-    document.getElementById("guideVideo").load()
-    document.getElementById("guideDiv").style.display = "block"
-    document.getElementById("guideVideo").play()
-    document.getElementById("close").style.display = "block"
-}
+// document.getElementById("openVideoBtn").onclick = openVideo
 
+// function openVideo() {
+//     if (window.innerWidth < 768) {
+//         if (window.innerWidth >= window.innerHeight) {
+//             guideVideo.style.height = "100%"
+//             guideVideo.style.width = "unset"
+//         } else {
+//             guideVideo.style.width = "100%"
+//             guideVideo.style.height = "unset"
+//         }
+//     } else {
+//         guideVideo.style.height = "unset"
+//         guideVideo.style.width = "500px"
+//     }
+//     guideVideo.load()
+//     document.getElementById("guideDiv").style.display = "block"
+//     guideVideo.play()
+//     document.getElementById("close").style.display = "block"
+// }
+// document.querySelectorAll(".closeVideo").forEach(i=>{
+//     i.onclick = closeVideo
+// })
 
-function closeVideo() {
-    document.getElementById("guideDiv").style.display = "none"
-    document.getElementById("guideVideo").pause()
-    document.getElementById("close").style.display = "none"
-}
+// function closeVideo() {
+//     document.getElementById("guideDiv").style.display = "none"
+//     guideVideo.pause()
+//     document.getElementById("close").style.display = "none"
+// }
+
 
 
 //페이스북 인앱 브라우저에서 accept속성때문에 업로드가 안되는 버그가 있어서 대응
@@ -194,33 +150,35 @@ function closeVideo() {
 //그래서 크롭을 시작하기전에 회전을 할 경우에만 한해서 캔버스에 그리고 시작한다. 사진을 올리자마자 캔버스에 그리는 게 편하지만, 편집을 원하지 않는 경우엔 불필요한 로딩을 하는 것이라 
 //따로 크롭 버튼을 넣은 것이다.
 var rotateCrop = false;
-//크롭버튼 클릭 유무. 크롭을 한적이 없다면 회전시 자동크롭
-var editCheck = false;
 
-//lab값
-var labColor;
-//자르기버튼 비활성화를 위한 체크.
-var cropCheck = true;
+const guideVideo = document.getElementById("guideVideo") //튜토리얼 비디오
 
-//첫 크롭여부 확인 후 처음인 경우만 드래그 안내
-var firstCrop = true;
+var editCheck = false; //크롭버튼 클릭 유무. 크롭을 한적이 없다면 회전시 자동크롭
 
-//steram 지원 유무 
-var stream = false;
-//업로드여부 체크해
-var uploadCheck = false;
-//슬라이드 위치체크
-var slideCheck = 0;
-//로딩
-var loading = document.getElementById("loading");
-//회전율
-var rotateRate = 0;
-//첫 비교 결과값을 담을 변수
-var firstResult = [];
-//비교 후 결과값을 담을 변수
-var calResult = [];
+var labColor; //lab값
+
+var cropCheck = true; //자르기버튼 비활성화를 위한 체크.
 
 
+var firstCrop = true; //첫 크롭여부 확인 후 처음인 경우만 드래그 안내
+
+var stream = false; //steram 지원 유무 
+
+var uploadCheck = false; //업로드여부 체크해
+
+var slideCheck = 0; //슬라이드 위치체크
+
+var loading = document.getElementById("loading"); //로딩
+
+var rotateRate = 0; //회전율
+
+var firstResult = []; //첫 비교 결과값을 담을 변수
+
+var colorNum
+var faceBoardCanvas;
+var facePositions;
+var faceBoard = false;
+var faceBoardResult = 'warm'
 var warmColor = [
     //봄
     { L: 93.24308501707372, A: 1.8831653918775504, B: 20.718646292445865 },
@@ -267,12 +225,12 @@ var colorList = [
     coolColor[6],
     coolColor[7],
 
-    { L: 54.94213801213769, A: -53.07384198363935, B: 34.43417705537093 },
-    { L: 62.18763178824342, A: -8.479405327875222, B: -46.28902249513915 },
-    { L: 20.217290355298722, A: 36.06355989320672, B: -57.05422997619636 },
-    { L: 50.41376744611719, A: 43.73719859707093, B: -77.79677741706573 },
-    { L: 99.65492223276894, A: 0.005244850979191362, B: -0.010377222171187306 },
-    { L: 0.27417592423966397, A: 0.00003730131757639921, B: -0.00007380574454374234 }
+    // { L: 54.94213801213769, A: -53.07384198363935, B: 34.43417705537093 },
+    // { L: 62.18763178824342, A: -8.479405327875222, B: -46.28902249513915 },
+    // { L: 20.217290355298722, A: 36.06355989320672, B: -57.05422997619636 },
+    // { L: 50.41376744611719, A: 43.73719859707093, B: -77.79677741706573 },
+    // { L: 99.65492223276894, A: 0.005244850979191362, B: -0.010377222171187306 },
+    // { L: 0.27417592423966397, A: 0.00003730131757639921, B: -0.00007380574454374234 }
     //여기까지 톤색깔
     // [0, 152, 68],//초록
     // [0, 159, 232],//하늘색
@@ -283,9 +241,6 @@ var colorList = [
 ]
 var warm = 0;
 var cool = 0;
-var imgRed;
-var imgGreen;
-var imgBlue;
 
 //답변 갯수를 종합해줄 스택
 var answerStack = [];
@@ -300,7 +255,6 @@ var resizeCheck;
 
 var slideCount = $('#slider ul li').length;
 var slideWidth = $('#slider ul li').width();
-var slideHeight = $('#slider ul li').height();
 var sliderUlWidth = slideCount * slideWidth;
 
 
@@ -335,6 +289,7 @@ window.addEventListener("resize", function () {
     }
 
 });
+
 function div() {
     document.getElementsByClassName("jcrop-holder")[0].lastElementChild.id = "jcropImg";
     document.getElementsByClassName("jcrop-holder")[0].lastElementChild.style.opacity = 0.6;
@@ -347,7 +302,9 @@ function div() {
     }
 
 }
-
+document.querySelectorAll(".leftArrow").forEach(i => {
+    i.onclick = moveLeft
+})
 //뒤로가기
 function moveLeft() {
     document.getElementById("mainbody").scrollIntoView();
@@ -357,6 +314,7 @@ function moveLeft() {
         document.getElementById("cropNotice").style.display = "block"
         document.getElementById("stepNum").innerHTML = "1";
         document.getElementById("subInfo").innerHTML = "피부\u00A0사진\u00A0촬영"
+        document.getElementById("progressContainer").style.display = "flex";
     }
     answerStack.pop();
     var slideWidth = $('#slider ul li').width();
@@ -367,8 +325,13 @@ function moveLeft() {
         $('#slider ul li:last-child').prependTo('#slider ul');
         $('#slider ul').css('left', '');
     });
-
 };
+document.querySelectorAll(".leftChoose").forEach(i => {
+    i.onclick = () => moveRight('warm')
+})
+document.querySelectorAll(".rightChoose").forEach(i => {
+    i.onclick = () => moveRight('cool')
+})
 //다음 단계로
 function moveRight(tone) {
     document.getElementById("mainbody").scrollIntoView();
@@ -378,6 +341,7 @@ function moveRight(tone) {
         document.getElementById("cropNotice").style.display = "none"
         document.getElementById("stepNum").innerHTML = "2";
         document.getElementById("subInfo").innerHTML = "질문\u00A05단계"
+        document.getElementById("progressContainer").style.display = "none";
     }
     if (tone == "warm") {
         answerStack.push("warm");
@@ -393,14 +357,7 @@ function moveRight(tone) {
                 cool++;
             }
         }
-        // if (warm < cool) {
-        //     season(coolColor, "cool");
-        //     return
-        // } else {
-        //     season(warmColor, "warm");
-        //     return
-        // }
-        season();
+        seasonResult(firstResult, stream, colorNum, warm, cool);
         return;
 
     }
@@ -415,88 +372,7 @@ function moveRight(tone) {
 
 };
 
-//이미지에서 색상추출
-function color(src) {
-    firstResult = [];
-    var checkSuccess = document.getElementById("checkSuccess");
-    var checkFail = document.getElementById("checkFail");
-    var checkResult = document.getElementById("checkResult")
 
-    loading.style.display = "block"
-    var colorThief = new ColorThief();
-
-    var sourceImage = src
-    try {
-
-
-        // imgRed = colorThief.getColor(sourceImage)[0];
-        // imgGreen = colorThief.getColor(sourceImage)[1];
-        // imgBlue = colorThief.getColor(sourceImage)[2];
-
-        var colorArray = xyzToLab(rgbToXyz(colorThief.getColor(sourceImage)));
-
-        labColor = { L: colorArray[0], A: colorArray[1], B: colorArray[2] };
-
-        for (var i = 0; i < colorList.length; i++) {
-
-            //절대값을 구할때는 Math.ads로 구하면된다..
-            // var color = "color" + i;
-            // var red = (imgRed - colorList[i][0]);
-            // red = red < 0 ? -(red) : red;
-            // var green = (imgGreen - colorList[i][1]);
-            // green = green < 0 ? -(green) : green;
-            // var blue = (imgBlue - colorList[i][2]);
-            // blue = blue < 0 ? -(blue) : blue;
-
-            firstResult.push([window.module1(labColor, colorList[i]), i]);
-        }
-        firstResult.sort(function (a, b) { // 오름차순 
-            return a[0] - b[0];
-        });
-        var colorNum = firstResult[0][1];
-        setTimeout(function () {
-
-            loading.style.display = "none"
-            if (colorNum < 16 && firstResult[0][0] <= 30) {
-                checkSuccess.style.display = "block"
-                checkFail.style.display = "none"
-
-                checkResult.style.display = "block"
-
-                return;
-            }
-            else {
-                checkFail.firstElementChild.nextElementSibling.innerHTML = "사각형에 피부가 꽉차게 편집해주세요!"
-                if (stream && colorNum == 21) {
-                    checkFail.firstElementChild.nextElementSibling.innerHTML = "혹시 주변이 어두우시다면 피부가 화면에 <br>꽉 찬 상태에서 시도해보세요!"
-                } else if (stream && colorNum != 21) {
-                    checkFail.firstElementChild.nextElementSibling.innerHTML = "피부가 화면에 꽉 찬 상태에서 시도해보세요!"
-                }
-                checkSuccess.style.display = "none"
-                checkFail.style.display = "block"
-                checkResult.style.display = "block"
-            }
-        }, 1500);
-
-    } catch (error) {
-        checkFail.firstElementChild.nextElementSibling.innerHTML = "사진을 잘못 올리신 거 같아요! <br>다시 시도해주세요"
-        checkSuccess.style.display = "none"
-        checkFail.style.display = "block"
-        checkResult.style.display = "block"
-        loading.style.display = "none"
-    }
-
-}
-
-
-
-$('a.control_prev').click(function () {
-    moveLeft();
-});
-
-$('a.control_next').click(function () {
-    moveRight("aa");
-});
 
 
 
@@ -599,15 +475,7 @@ function crop() {
             jcropApi.destroy();
             jcropApi = null;
         }
-        // let canvas2 = document.getElementById("copyCanvas");
 
-        // let canvasContext2 = canvas2.getContext("2d");
-        // var image = new Image();
-        // image.src = document.getElementById("realImage").src;
-        // image.onload = function () {
-
-        //     canvasContext2.drawImage(image, 0, 0, 200, 200);
-        // }
         $(".file-upload-image").attr("src", getBase64Image());
 
         document.getElementById("realImage").style.transform = "none";
@@ -629,54 +497,6 @@ function crop() {
 
 
 };
-//이미지 경로 설정
-
-
-// function readURL(input) {
-//     if (input.files && input.files[0]) {
-
-//         if (jcropApi) {
-//             jcropApi.destroy();
-
-//             jcropApi = null;
-//         }
-//         var files = input.files;
-//         var fileType = files[0].type;
-//         loadImage(files[0], function (img, data) {
-//             img.toBlob(function (blob) {
-//                 var rotateFile = new File([blob], files[0].name, {
-//                     type: fileType
-//                 });
-//                 sel_file = rotateFile;
-//                 var reader = new FileReader();
-//                 reader.onload = function (e) {
-//                     $('.image-upload-wrap').hide();
-//                     $('.file-upload-image').removeAttr("style");
-//                     $('.file-upload-image').attr('src', e.target.result);
-//                     $('.file-upload-image').css("display", "none");
-//                     $('#realImage').attr('src', document.getElementById("ToneImage").getAttribute("src"));
-//                     $('.file-upload-content').show();
-
-//                     $('.image-title').html(input.files[0].name);
-//                     $("#realImage").Jcrop({
-//                         onSelect: showCoords
-//                     }, function () {
-//                         jcropApi = this;
-//                     });
-//                 }
-//                 reader.readAsDataURL(rotateFile);
-//             }, fileType)
-//         }, {
-//             orientation: true
-//         });//end loadImage
-
-
-
-//     } else {
-//         removeUpload();
-//     }
-// }  블롭을 통해 자동으로 로테이트하는 함수, 그러나 지원하지 않는 브라우저가 많아서 포기.
-
 
 //브라우저 리사이징시 크롭 새롭게 불러와서 크기 맞게 적용.
 function resize() {
@@ -840,91 +660,27 @@ function editImg(callback, plusMinus) {
 
 }
 
+//비디오 스트리밍 모드 활성화
 function streamTrue() {
     document.getElementById("mainCam").style.display = "block"
-    document.getElementById("cropNotice").innerHTML = "※ 손목 안쪽이 잘보이는 상태에서 측정 버튼을 눌러주세요"
-    document.getElementById("openVideoBtn").style.display = "block";
+    document.getElementById("cropNotice").innerHTML = "※ 피부를 측정할 때까지 얼굴이 인식된 상태에서 기다려주세요"
+    // document.getElementById("openVideoBtn").style.display = "block";
+    document.getElementById("progressContainer").style.display = "flex";
     modeChange();
     stream = true;
 }
-function cameraCheck() {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
-        //사파리는 해상도가 자동으로 조절되기때문에 해상도를 설정해주면 에러가난다. 그래서 사파리는 설정을 안해줘야하는데,
-        //기기 정보를 받아올때 크롬에는 사파리 크롬이 다 적혀있고, 사파리에는 사파리만 적혀있으므로 사파리를 특정하기 위해서는 
-        //사파리 문자를 포함하고 크롬 문자를 포함하지않는 조건을 충족시켜줘야한다
-        if (ua.indexOf('Safari') != -1 && ua.indexOf('Chrome') == -1) {
-            navigator.mediaDevices.getUserMedia({
-                video: {
-                    facingMode: { exact: "environment" }
-                }
-            }).then(function (stream) {
-                //video.src = window.URL.createObjectURL(stream);
-                streamTrue();
-                video.srcObject = stream;
-                video.play();
-            }).catch(function (err) {
-                //err은 문자열이 아니기 때문에 문자열로 만들어줘야 indexOf가 가능
-                err = err + "";
-                if (err.indexOf("NotAllowedError") > -1) {
-                    window.location.reload();
-                }
-                camErr()
-            });
-        } else {
-            // Not adding `{ audio: true }` since we only want video now
-            navigator.mediaDevices.getUserMedia({
-                video: {
-                    width: { min: 1024, ideal: 1280, max: 1920 },
-                    height: { min: 776, ideal: 720, max: 1080 }, facingMode: { exact: "environment" }
-                }
-            }).then(function (stream) {
-                //video.src = window.URL.createObjectURL(stream);
-                streamTrue();
-                video.srcObject = stream;
-                video.play();
-            }).catch(function (err) {
-                camErr()
-            });
-        }
-    }
-    else if (navigator.getUserMedia) { // Standard
-        navigator.getUserMedia({
-            video: {
-                width: { min: 1024, ideal: 1280, max: 1920 },
-                height: { min: 776, ideal: 720, max: 1080 }, facingMode: { exact: "user" }
-            }
-        }, function (stream) {
-            streamTrue();
-            video.src = stream;
-            video.play();
-        }, camErr());
-    } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
-        navigator.webkitGetUserMedia({
-            video: {
-                width: { min: 1024, ideal: 1280, max: 1920 },
-                height: { min: 776, ideal: 720, max: 1080 }, facingMode: { exact: "user" }
-            }
-        }, function (stream) {
-            streamTrue();
-            video.src = window.webkitURL.createObjectURL(stream);
-            video.play();
-        }, camErr());
-    } else if (navigator.mozGetUserMedia) { // Mozilla-prefixed
-        navigator.mozGetUserMedia({
-            video: {
-                width: { min: 1024, ideal: 1280, max: 1920 },
-                height: { min: 776, ideal: 720, max: 1080 }, facingMode: { exact: "environment" }
-            }
-        }, function (stream) {
-            streamTrue();
-            video.srcObject = stream;
-            video.play();
-        }, camErr());
-    } else {
-        camErr();
-    }
-}
+//AI 모듈 로드
+Promise.all([
+    faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+    faceapi.nets.faceLandmark68TinyNet.loadFromUri('/models'),
+])
+
+
+document.getElementById("cameraBtn").onclick = () => { streamMode(ua, streamTrue, camErr, video) }
+
+video.addEventListener('play', () => { videoPlayEvent(video, camCheck, faceBoard, faceBoardResult, firstResult) })
+
 function modeChange() {
     document.getElementById("mainbody").scrollIntoView();
     document.getElementById("subTitle").style.display = "none";
@@ -933,196 +689,87 @@ function modeChange() {
     document.getElementById("cropNotice").style.display = "inline-block";
     document.getElementById("notice").style.display = "none";
     document.getElementById("notice2").style.display = "none";
-    document.getElementById('editBtn').style.pointerEvents = 'auto';
     $('.image-upload-wrap').hide();
-    $('.file-upload-image').removeAttr("style");
     $('#slider').show();
 }
 //인풋창 파일 업로드 시 
-function readURL(input) {
+document.getElementById("fileInput").onclick = document.getElementById("fileInput").value = ""
+document.getElementById("fileInput").onchange =
+    function readURL(input) {
+        if ((input.target.files && input.target.files[0])) {
+            loading.style.display = "block"
 
-    if ((input.files && input.files[0])) {
-        loading.style.display = "block"
+            uploadCheck = false;
 
-        // $('#originalImg').attr('src', tempImage.src);
+            editCheck = false;
+            if (jcropApi) {
+                jcropApi.destroy();
 
+                jcropApi = null;
+            }
+            firstCrop = true;
+            const fileInfo = input.target.files[0];
+            var reader = new FileReader();
+            reader.onload = async function (e) {
 
-        // $('.file-upload-image').css("display", "none");
-        // $('#realImage').attr('src', e.target.result);
-        uploadCheck = false;
-
-        editCheck = false;
-        if (jcropApi) {
-            jcropApi.destroy();
-
-            jcropApi = null;
-        }
-        firstCrop = true;
-        const fileInfo = input.files[0];
-        var reader = new FileReader();
-        let tempImage = new Image();
-        reader.onload = function (e) {
-
-            document.getElementById("originalImg").src = e.target.result;
-            $('.file-upload-image').attr('src', e.target.result);
-            modeChange();
+                try {
 
 
+                    var input = document.getElementById("realImage")
+                    input.src = e.target.result
 
-            //회전값이 있는 사진을 정방향으로 돌리는 로직을 짜려했지만, 디바이스마다 회전값을 처리하는 기준이 달라서(특히 애플) 결국 포기하고 
-            //있는 그대로의 사진을 올리고 유저가 회전시킬 수 있게 바꾸었다...
+                    const detectionsWithLandmarks = await faceapi.detectAllFaces(input, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks(true)
+                    if (detectionsWithLandmarks.length === 0) {
+                        alert('얼굴이 인식되지 않습니다. 다른 사진으로 시도해주세요.')
+                    }
+                    else if (detectionsWithLandmarks.length > 1) {
+                        alert("사진 속에 얼굴이 2개 이상 인식되었습니다. 혼자 찍은 사진을 올려주세요.")
+                    }
+                    else {
+                        $('.file-upload-image').attr('src', e.target.result);
+                        modeChange();
+                        uploadCheck = true
+                        faceBoardCanvas = document.createElement("canvas")
 
+                        var camCanvas = document.createElement("canvas")
+                        camCanvas.className = "imageMode"
+                        camCanvas.style.position = 'absolute'
+                        camCanvas.style.zIndex = '998'
+                        camCanvas.width = input.width
+                        camCanvas.height = input.height
+                        // document.getElementById("mainCam").appendChild(camCanvas)
+                        var context = camCanvas.getContext('2d');
+                        context.drawImage(input, 0, 0, camCanvas.width, camCanvas.height);
+                        faceBoardCanvas = faceapi.createCanvasFromMedia(input)
+                        faceBoardCanvas.style.position = "absolute"
+                        faceBoardCanvas.className = 'imageMode'
+                        document.getElementById("noCamDiv").insertBefore(faceBoardCanvas, input)
+                        const displaySize = { width: input.width, height: input.height }
 
-            // canvasContext.drawImage(tempImage, 0, 0, canvas.width, canvas.height);
+                        faceapi.matchDimensions(faceBoardCanvas, displaySize)
+                        const resizedDetections = faceapi.resizeResults(detectionsWithLandmarks, displaySize)
+                        facePositions = resizedDetections[0].landmarks.positions
+                        faceapi.draw.drawFaceLandmarks(faceBoardCanvas, resizedDetections)
 
-            //     await EXIF.getData(fileInfo, async () => {
-            //         // if (navigator.userAgent.indexOf('Mobile') != -1) {
-            //         //     canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-            //         //     // console.log("모바일기기입니다.")
-            //         //     return
-            //         // }
-            //         fileInfo.exifdata = null;
-            //         console.log(EXIF.getAllTags(fileInfo));
-            //         const orientation = EXIF.getTag(fileInfo, "Orientation");
-            //         console.log("회전도는 "+orientation);
+                        const nose = facePositions[31]
+                        const leftChin = facePositions[2]
+                        const leftCheek = { x: (nose.x + leftChin.x) / 2, y: (nose.y + leftChin.y) / 2 }
+                        var cheekAvgColor = context.getImageData(leftCheek.x, leftCheek.y, 1, 1).data
+                        console.log(leftCheek)
+                        console.log(cheekAvgColor)
+                        camCheck(cheekAvgColor)
+                    }
 
-            //         switch (orientation) {
+                } catch (error) {
+                    console.log(error)
+                }
+            }
 
-            //             // @details 이미지 회전값이 0인경우 ( 정방향 )
-            //             case undefined:
-
-            //                 canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-            //                 $('.image-upload-wrap').hide();
-            // $('.file-upload-image').removeAttr("style");
-            // $('.file-upload-image').attr('src', getBase64Image());
-
-            //  $('#originalImg').attr('src', getBase64Image());
-            //   $("#realImage").Jcrop({
-            //     onSelect: showCoords,
-            // }, function () {
-            //     jcropApi = this;
-            // });
-
-            // // $('.file-upload-image').css("display", "none");
-            // // $('#realImage').attr('src', e.target.result);
-            // $('.file-upload-content').show();
-            // $('.image-title').html(input.files[0].name);
-            //             //    callback(canvas);
-
-            //                 break;
-            //             case 1:
-
-            //                 canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-            //                 break;
-            //             case 0:
-
-            //                 canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-            //                 break;
-            //             // @details 이미지 회전값이 180 기운 경우
-            //             case 3:
-            //                 // document.getElementById("realImage").style.transform = "rotate( 180deg )";
-            //                 // document.getElementById("originalImg").style.transform = "rotate( 180deg )";
-            //                 // document.getElementsByClassName("file-upload-image")[1].style.transform = "rotate( 180deg )";
-            //                 // document.getElementsByClassName("jcrop-holder")[0].firstElementChild.firstElementChild.firstElementChild.style.transform = "rotate(180deg)";
-
-
-
-
-
-            //                 // canvasContext.rotate((180) * Math.PI / 180);
-
-            //                 canvasContext.translate(canvas.width / 2, canvas.height / 2);
-            //                 canvasContext.rotate(Math.PI);
-            //                 canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-
-
-
-
-            //                 // @details 이미지가 180° 회전 했을 경우 x, y축의 값을 업로드 이미지의 넓이와 높이를 음수로 변경한다.
-
-            //                 canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-
-            //                 break;
-
-            //             // @details 이미지 회전값이 270 기운 경우 ( 왼쪽으로 90 기운 경우 )
-            //             case 6:
-            //                 if (canvas.width < canvas.height) {
-            //                     canvas.width = canvas.height;
-            //                 } else {
-            //                     canvas.height = canvas.width;
-            //                 }
-            //                 // document.getElementById("realImage").style.transform = "rotate( 90deg )";
-            //                 // document.getElementById("originalImg").style.transform = "rotate( 90deg )";
-            //                 // document.getElementsByClassName("file-upload-image")[1].style.transform = "rotate( 90deg )";
-            //                 // document.getElementsByClassName("jcrop-holder")[0].firstElementChild.firstElementChild.firstElementChild.style.transform = "rotate(90deg)";
-            //                 // @details 270° 회전의 경우 이미지의 높이와 넓이를 서로 바꿔준다.
-
-
-            //                 // tempImage.src = document.getElementById("ToneImage").getAttribute("src");
-            //                 // canvasContext.save();
-            //                 // canvasContext.translate(tempImage.width / 2, tempImage.height / 2);
-            //                 // canvasContext.rotate(Math.PI * 0.5);
-
-            //                 // canvasContext.drawImage(this, -1490,-0);
-
-            //                 // canvasContext.restore();
-            //                 console.log("ㅅㅂ");
-            //                 canvasContext.translate(canvas.width / 2, canvas.height / 2);
-            //                 canvasContext.rotate(Math.PI * 0.5);
-            //                 canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-            //                 canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-
-
-
-            //                 // @details 이미지가 270° 회전 했을 경우 x축의 값을 업로드 이미지의 넓이를 음수로 변경한다.
-
-
-            //                 break;
-
-            //             // @details 이미지 회전값이 90 기운 경우
-            //             case 8:
-            //                 //회전하기전에 정사각형을 만들어주자.
-            //                 if (canvas.width < canvas.height) {
-            //                     canvas.width = canvas.height;
-            //                 } else {
-            //                     canvas.height = canvas.width;
-            //                 }
-            //                 // document.getElementById("realImage").style.transform = "rotate( 270deg )";
-            //                 // document.getElementById("originalImg").style.transform = "rotate( 270deg )";
-            //                 // document.getElementsByClassName("file-upload-image")[1].style.transform = "rotate( 270deg )";
-            //                 // document.getElementsByClassName("jcrop-holder")[0].firstElementChild.firstElementChild.firstElementChild.style.transform = "rotate(270deg)";
-            //                 // @details 90° 회전의 경우 이미지의 높이와 넓이를 서로 바꿔준다.
-
-
-
-
-            //                 // canvasContext.rotate((90) * Math.PI / 180);
-
-            //                 //캔버스의 중심점 설정.
-            //                 canvasContext.translate(canvas.width / 2, canvas.height / 2);
-            //                 canvasContext.rotate(Math.PI * 1.5);
-            //                 //회전시킨 후 다시 중심점 0,0으로 설정.
-            //                 canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-
-
-            //                 // @details 이미지가 90° 회전 했을 경우 y축의 값을 업로드 이미지의 높이를 음수로 변경한다.
-            //                 canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-            //                 break;
-            //         }
-            //     });
-            // let dataURI = canvas.toDataURL("image/jpeg");
-
-            // document.querySelector("#ToneImage").src = dataURI;
-
-
+            reader.readAsDataURL(fileInfo);
+            loading.style.display = "none"
 
         }
-
-        reader.readAsDataURL(fileInfo);
-        loading.style.display = "none"
-
     }
-}
 
 $('.image-upload-wrap').bind('dragover', function () {
     $('.image-upload-wrap').addClass('image-dropping');
@@ -1131,367 +778,8 @@ $('.image-upload-wrap').bind('dragleave', function () {
     $('.image-upload-wrap').removeClass('image-dropping');
 });
 //이미지 회전.
-function rotateImg(plusMinus) {
-    document.getElementById("rotateBtn").style.animation = "fade 0.5s"
-    setTimeout(function () {
-        document.getElementById("rotateBtn").style.animation = "unset"
-    }, 500);
-    if (plusMinus == "right") {
-        rotateRate += 90;
-    } else {
-        rotateRate -= 90;
-    }
 
-    if (rotateRate == 360 || rotateRate == -360) {
-        rotateRate = 0;
-    }
 
-    if (!editCheck) {
-        firstCrop = false;
-        rotateCrop = true;
-        //캔버스에 그림이 그려진 후 회전을 시켜야해서 콜백함수로 순서를 맞춤.
-        editImg(rotateCall, plusMinus);
 
-    } else {
-        rotateCall(plusMinus);
-    }
 
-}
-function rotateCall(plusMinus) {
-    let canvas = document.getElementById("copyCanvas");
 
-    let canvasContext = canvas.getContext("2d");
-
-    let rotateCanvas = document.getElementById("myCanvas");
-    let rtx = rotateCanvas.getContext("2d");
-    document.getElementById("realImage").style.transform = "rotate( " + rotateRate + "deg )";
-    document.getElementById("originalImg").style.transform = "rotate( " + rotateRate + "deg )";
-    if (document.getElementsByClassName("jcrop-holder")[0]) {
-        document.getElementsByClassName("file-upload-image")[1].style.transform = "rotate( " + rotateRate + "deg )";
-        document.getElementsByClassName("jcrop-holder")[0].firstElementChild.firstElementChild.firstElementChild.style.transform = "rotate( " + rotateRate + "deg )";
-
-    }
-    rotateCanvas.width = canvas.width;
-    rotateCanvas.height = canvas.height;
-
-    if (rotateCanvas.width < rotateCanvas.height) {
-        rotateCanvas.width = rotateCanvas.height;
-    } else {
-        rotateCanvas.height = rotateCanvas.width;
-    }
-
-    // 캔버스의 중심점 설정.
-    rtx.translate(rotateCanvas.width / 2, rotateCanvas.height / 2);
-    if (plusMinus == "right") {
-        rtx.rotate(Math.PI * 0.5);
-    } else {
-        rtx.rotate(Math.PI * -0.5);
-
-    }
-    rtx.translate(-rotateCanvas.width / 2, -rotateCanvas.height / 2);
-    rtx.drawImage(canvas, 0, 0, rotateCanvas.width, rotateCanvas.height);
-
-
-
-    //회전용 캔버스의 내용을 다시 메인 캔버스에 복사해준다. 이미지를 회전시켜 캔버스에 그리면 편하나, 원래 이미지를 회전시킨건 단순 css를 통한 회전이다
-    //캔버스에는 회전이 적용되지않은 원래의 이미지가 그려지기 때문에 메인캔버스의 그림을 불러와 서브캔버스에 회전한 상태를 그린 후, 다시 서브에서 메인으로 옮겨 그린다.
-    canvas.width = rotateCanvas.width;
-    canvas.height = rotateCanvas.height;
-
-    canvasContext.drawImage(rotateCanvas, 0, 0, rotateCanvas.width, rotateCanvas.height);
-}
-
-//크롭 영역 지정 이벤트 함수
-var showCoords = function (c) {
-    cropCheck = false;
-    if (document.getElementsByClassName("jcrop-holder")[0]) {
-        document.getElementsByClassName("jcrop-holder")[0].className = "jcrop-holder aft";
-    }
-
-    x = c.x;
-    y = c.y;
-    w = c.w;
-    h = c.h;
-};
-
-//캔버스의 이미지를 base64로 변환
-function getBase64Image() {
-
-    var canvas = document.getElementById("copyCanvas");
-
-    var dataURL = canvas.toDataURL("image/png");
-
-    return dataURL; // dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-
-}
-
-
-//사진 원상복구. 숨겨놓앗던 오리지널 이미지태그를 불러와 캔버스에 다시그림
-function refresh() {
-    document.getElementById("refreshBtn").style.animation = "fade 0.5s"
-    setTimeout(function () {
-        document.getElementById("refreshBtn").style.animation = "unset"
-    }, 500);
-    uploadCheck = false;
-    cropCheck = true;
-    rotateRate = 0;
-    document.getElementById("refreshBtn").disabled = true;
-    document.getElementById("originalImg").style.transform = "none";
-    var image = new Image();
-    image.src = document.getElementById("originalImg").src;
-    document.getElementById("realImage").src = image.src;
-    document.getElementsByClassName("file-upload-image")[1].src = image.src;
-    document.getElementsByClassName("jcrop-holder")[0].firstElementChild.firstElementChild.firstElementChild.src = image.src;
-    document.getElementsByClassName("file-upload-image")[1].style.transform = "none";
-    document.getElementsByClassName("jcrop-holder")[0].firstElementChild.firstElementChild.firstElementChild.style.transform = "none";
-
-    var canvas = document.getElementById("copyCanvas");
-    var canvasContext = canvas.getContext("2d");
-
-
-
-    // canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-    try {
-
-
-        image.onload = function () {
-            canvas.width = this.width;
-            canvas.height = this.height;
-            if (appleCheck) {
-                if (floatOs >= 13.4) {
-                    canvasContext.drawImage(this, 0, 0, canvas.width, canvas.height);
-                    if (plusMinus) callback(plusMinus);
-                    return
-                }
-                var fileInfo = document.getElementById("fileInput").files[0];
-                EXIF.getData(fileInfo, function () {
-                    const orientation = EXIF.getTag(fileInfo, "Orientation");
-                    // console.log("회전도는 " + orientation);
-                    switch (orientation) {
-
-                        // @details 이미지 회전값이 0인경우 ( 정방향 )
-
-                        case 1:
-
-
-                            canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-                            break;
-                        case undefined:
-
-
-                            canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-                            break;
-
-                        case 3:
-
-
-                            canvasContext.translate(canvas.width / 2, canvas.height / 2);
-                            canvasContext.rotate(Math.PI);
-                            canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-
-
-
-                            // @details 이미지가 180° 회전 했을 경우 x, y축의 값을 업로드 이미지의 넓이와 높이를 음수로 변경한다.
-
-                            canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-                            break;
-
-                        // @details 이미지 회전값이 270 기운 경우 ( 왼쪽으로 90 기운 경우 )
-                        case 6:
-                            if (canvas.width < canvas.height) {
-                                canvas.width = canvas.height;
-                            } else {
-                                canvas.height = canvas.width;
-                            }
-
-                            canvasContext.translate(canvas.width / 2, canvas.height / 2);
-                            canvasContext.rotate(Math.PI * 0.5);
-                            canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-                            canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-
-
-                            // @details 이미지가 270° 회전 했을 경우 x축의 값을 업로드 이미지의 넓이를 음수로 변경한다.
-
-
-                            break;
-
-                        // @details 이미지 회전값이 90 기운 경우
-                        case 8:
-                            if (canvas.width < canvas.height) {
-                                canvas.width = canvas.height;
-                            } else {
-                                canvas.height = canvas.width;
-                            }
-
-                            canvasContext.translate(canvas.width / 2, canvas.height / 2);
-                            canvasContext.rotate(Math.PI * 1.5);
-                            canvasContext.translate(-canvas.width / 2, -canvas.height / 2);
-                            canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-                            //회전하기전에 정사각형을 만들어주자.x
-                            break;
-                    }
-
-
-                })
-            } else {
-                canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-
-
-            }
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-//색상과 질문 총 결과값을 종합하여 결과 도출
-//아래 주석처리된 부분이 원래로직. 단순하게 rgb값들의 오차를 절대값으로 더해서 가장 숫자가 적은, 즉 오차가 가장 적은 컬러가 가까운 컬러로 뽑히게 짰다.
-//그러나 rgb값으로는 색의 오차를 수치로 판단하기가 힘들다. 예를들어 50,50,50을 비교하면, 100,100,100과는 총 150의 차이, 50,50,199와는 총 149의 차이로 후자가 더 비슷한 컬러로 결과가 나오지만,
-//실제 인간이 봤을 때 비슷한 색은 100,100,100이다. 후자는 blue값이 149의 차이가 나기때문에 색이 완전히 다른 색이 되어버린다. 이처럼 세 영역의 벨런스를 잡아줄 수가 없어서 구글링을 해봤는데,
-//CIE(국제조명위원회)가 LAB값을 활용한 공식을 발표했고(delta-e), 그걸 js로 만들어놓은 사람이 있어서 가져와서 모듈화해서 사용했다.
-function season() {
-    loading.style.display = "block"
-    var length = firstResult.length
-    // for (var i = 0; i < length; i++) {
-    //     // var red = (imgRed - colorGroup[i][0]);
-    //     // red = red < 0 ? -(red) : red;
-    //     // var green = (imgGreen - colorGroup[i][1]);
-    //     // green = green < 0 ? -(green) : green;
-    //     // var blue = (imgBlue - colorGroup[i][2]);
-    //     // blue = blue < 0 ? -(blue) : blue;
-
-    //     firstResult.push([window.module1(labColor, colorGroup[i]), i]);
-    //     // calResult.push([red + green + blue, i]);
-
-    // }
-    // var length2 = firstResult.length
-    var season1 = [];
-    var season2 = [];
-    // var colorNum;
-    // calResult.sort(function (a, b) { // 오름차순 
-    //     return a[0] - b[0];
-    // });
-
-
-    for (var i = 0; i < length; i++) {
-        if (firstResult[i][1] < 8 && !season1[0]) {
-            season1.push(firstResult[i][0])
-            season1.push(firstResult[i][1])
-        }
-        if ((firstResult[i][1] >= 8 && firstResult[i][1] < 16) && !season2[0]) {
-            season2.push(firstResult[i][0])
-            season2.push(firstResult[i][1])
-        }
-        if (season1[0] && season2[0]) break;
-    }
-    //delta-e에서 리턴받은 값을 점수화해서 질문결과와 합침.
-    //대부분 필터 같은 것들이 껴있어서 밝은 부분이 많아 쿨톤이 점수가 높게 나오기 때문에 웜톤을 상향 조정했다.
-    if (stream) {
-        season1[0] = 50 - (49 / (100 / season1[0]));
-        season2[0] = 50 - (50 / (100 / season2[0]));
-    }
-    else {
-        season1[0] = 50 - (42 / (100 / season1[0]));
-        season2[0] = 50 - (50 / (100 / season2[0]));
-    }
-    season1[0] += (warm / 2.5)
-    season2[0] += (cool / 2.5)
-
-    if (season1[0] > season2[0]) {
-        toneColor = "warm"
-    } else {
-        toneColor = "cool"
-    }
-
-    //스트림 방식은 아무래도 카메라로 바로 측정하기 때문에 그늘지기도 하고 크롭으로 특정 부위를 자를수도 없어 좀 더 어둡기 때문에 인위적으로 벨런스를 조절해줌.
-    season1 = [];
-    season2 = [];
-    if (toneColor == "warm") {
-        for (var i = 0; i < length; i++) {
-            if (firstResult[i][1] <= 3 && !season1[0]) {
-                season1.push(firstResult[i][0])
-                season1.push(firstResult[i][1])
-            }
-            if ((firstResult[i][1] >= 4 && firstResult[i][1] <= 7) && !season2[0]) {
-                season2.push(firstResult[i][0])
-                season2.push(firstResult[i][1])
-            }
-            if (season2[0] && season1[0]) {
-                break;
-            }
-        }
-        //웜톤은 가뜩이나 필터때문에 잘나오지 못하는데, 그나마 웜톤이 나왔을때는 사진이 다소 어두울 때라, 가을 웜톤에 결과가 치우친다.
-        //그래서 봄웜톤 살짝 상향 조정.
-        if (!stream) {
-            if (season2[0] <= 12) season1[0] -= season2[0] * 0.2
-            else if (season2[0] <= 24) season1[0] -= season2[0] * 0.15
-        }
-        else {
-            if (season2[0] <= 12) season1[0] -= season2[0] * 0.14
-            else if (season2[0] <= 24) season1[0] -= season2[0] * 0.125
-        }
-    } else {
-        for (var i = 0; i < length; i++) {
-            if ((firstResult[i][1] >= 8 && firstResult[i][1] <= 11) && !season1[0]) {
-                season1.push(firstResult[i][0])
-                season1.push(firstResult[i][1])
-            }
-            if ((firstResult[i][1] >= 12 && firstResult[i][1] <= 15) && !season2[0]) {
-                season2.push(firstResult[i][0])
-                season2.push(firstResult[i][1])
-            }
-            if (season2[0] && season1[0]) {
-                break;
-            }
-        }
-        if (stream) {
-            if (season2[0] <= 12) season1[0] -= season2[0] * 0.135
-            else if (season2[0] <= 24) season1[0] -= season2[0] * 0.12
-        }
-    }
-    // if (toneColor == "warm") {
-    //     season1 -= season1 / 5
-    // } else {
-
-    //     season1 -= season1 / 7.3
-    // }
-
-    // if (season2[0] < 200 || season1[0] < 200) {
-
-    // }
-    colorNum = season1[0] == season2[0] ? firstResult[0][1] : season1[0] < season2[0] ? season1[1] : season2[1];
-    //100점 기준으로 점수 변환
-    if (season1[0] > season2[0]) {
-        //겨울쿨톤에 가까울 때
-        var percentage = (season1[0] - season2[0]) * 12;
-        if (percentage > 50) percentage = 50;
-        season2[0] = Math.round(50 + percentage);
-        season1[0] = Math.round(50 - percentage);
-    } else {
-        //여름쿨톤에 가까울 때
-        var percentage = (season2[0] - season1[0]) * 23;
-        if (percentage > 50) percentage = 50;
-        season1[0] = Math.round(50 + percentage);
-        season2[0] = Math.round(50 - percentage);
-    }
-
-    setTimeout(function () {
-        if (colorNum <= 3) {
-            window.location.href = "https://mycolor.kr/springWarm/?spring=" + season1[0] + "&fall=" + season2[0]
-        } else if (colorNum <= 7) {
-            window.location.href = "https://mycolor.kr/fallWarm/?spring=" + season1[0] + "&fall=" + season2[0]
-        } else if (colorNum <= 11) {
-            window.location.href = "https://mycolor.kr/summerCool/?summer=" + season1[0] + "&winter=" + season2[0]
-        } else if (colorNum <= 15) {
-            window.location.href = "https://mycolor.kr/winterCool/?summer=" + season1[0] + "&winter=" + season2[0]
-        }
-        
-    }, 1500);
-
-    calResult = [];
-}
